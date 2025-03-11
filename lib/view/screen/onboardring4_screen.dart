@@ -14,8 +14,7 @@ class Onboardring4Screen extends StatelessWidget {
         onboardringImage: 'assets/images/onbordaring2_3_4.png',
         onboardringImageHeight: MediaQuery.of(context).size.height * 0.28,
         onboardringTitle: AppLocalizations.of(context)!.onboardring4_title,
-        onboardringSubTitle:
-        AppLocalizations.of(context)!.onboardring4_des,
+        onboardringSubTitle: AppLocalizations.of(context)!.onboardring4_des,
         nextPage: LoginScreen(),
         onboardringImageMarginTop: MediaQuery.of(context).size.height * 0.265,
         titleFontWeight: FontWeight.w700,
@@ -29,7 +28,12 @@ class Onboardring4Screen extends StatelessWidget {
             color: Colors.grey,
           ),
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (builder) => LoginScreen()),
+              );
+            },
             child: Text(
               AppLocalizations.of(context)!.cancel,
               style: TextStyle(
@@ -41,8 +45,9 @@ class Onboardring4Screen extends StatelessWidget {
             ),
           ),
         ),
-
       ),
     );
   }
 }
+
+
