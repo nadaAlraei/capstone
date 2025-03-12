@@ -9,6 +9,7 @@ class Onboardring4Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: OnboardringBaseWidget(
         backgroundImageURL: 'assets/images/onbordaringBackground4.png',
         onboardringImage: 'assets/images/onbordaring2_3_4.png',

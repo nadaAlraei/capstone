@@ -11,6 +11,7 @@ class Onboardring1Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: OnboardringBaseWidget(
         backgroundImageURL: 'assets/images/Pattern.png',
         onboardringImage: 'assets/images/onbordaring1.png',

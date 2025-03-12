@@ -41,6 +41,7 @@ dependencies:
   provider: ^6.1.2
   google_maps_flutter: ^2.10.1
   geolocator: ^13.0.2
+  date_format_field: ^0.1.0
 
 
 dev_dependencies:

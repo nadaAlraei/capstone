@@ -1,3 +1,4 @@
+import 'package:capstone/view/screen/signup_screen.dart';
 import 'package:flutter/material.dart';
 import '../../controller/login_controller.dart';
 import 'package:provider/provider.dart';
@@ -56,7 +57,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     const Text(
                       "Login",
-                      style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w700,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                     Row(
@@ -64,16 +68,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         const Text(
                           "Don't have an account? ",
-                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.grey),
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.grey,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                         GestureDetector(
                           onTap: () {
-                            // Nada please put ur sign up page here :) tyyy
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignupScreen(),
+                              ),
+                            );
                           },
                           child: const Text(
                             " Sign Up",
-                            style: TextStyle(color: Colors.green, fontWeight: FontWeight.w700),
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
                       ],
@@ -91,9 +107,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         return InputWidget(
                           textEditingController: emailTextEditingController,
                           obscureText: false,
-                          errorText: loginController.showErrorEmail
-                              ? "Enter Valid Email"
-                              : null,
+                          errorText:
+                              loginController.showErrorEmail
+                                  ? "Enter Valid Email"
+                                  : null,
                         );
                       },
                     ),
@@ -110,16 +127,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         return InputWidget(
                           textEditingController: passwordTextEditingController,
                           obscureText: loginController.obscureTextPassword,
-                          errorText: loginController.showErrorPassword
-                              ? "Enter Your Password"
-                              : null,
+                          errorText:
+                              loginController.showErrorPassword
+                                  ? "Enter Your Password"
+                                  : null,
                           suffixIcon: IconButton(
                             onPressed: () {
                               loginController.changeObscureTextPassword();
                             },
-                            icon: Icon(loginController.obscureTextPassword
-                                ? Icons.visibility
-                                : Icons.visibility_off),
+                            icon: Icon(
+                              loginController.obscureTextPassword
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
                           ),
                         );
                       },
@@ -144,15 +164,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           width: 137,
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => ForgetPassword(),
-                              ),
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ForgetPassword(),
+                                ),
                               );
                             },
                             child: Align(
                               alignment: Alignment.centerRight,
                               child: const Text(
                                 "Forget Password?",
-                                style: TextStyle(color: Colors.green, fontWeight: FontWeight.w700),
+                                style: TextStyle(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ),
@@ -164,12 +190,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                        //   loginController.checkEmail(
-                        //   email: emailTextEditingController.text,
-                        // );
-                        // loginController.checkPassword(
-                        //   password: passwordTextEditingController.text,
-                        // );
+                          //   loginController.checkEmail(
+                          //   email: emailTextEditingController.text,
+                          // );
+                          // loginController.checkPassword(
+                          //   password: passwordTextEditingController.text,
+                          // );
                         },
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -178,7 +204,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
-                        child: const Text("Log In", style: TextStyle(fontSize: 18, color: Colors.white)),
+                        child: const Text(
+                          "Log In",
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
                       ),
                     ),
                     SizedBox(height: 20),
@@ -193,7 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 8.0),
                           child: Text(
-                            'Or',                // The text in between
+                            'Or', // The text in between
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.grey,
@@ -232,7 +261,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             SizedBox(width: 10),
                             const Text(
                               "Continue with Google",
-                              style: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ],
                         ),
@@ -262,7 +295,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             SizedBox(width: 10),
                             const Text(
                               "Continue with Facebook",
-                              style: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ],
                         ),
@@ -292,7 +329,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             SizedBox(width: 10),
                             const Text(
                               "Continue with Apple",
-                              style: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ],
                         ),
