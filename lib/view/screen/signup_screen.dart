@@ -1,19 +1,29 @@
+import 'package:capstone/controller/signup_controller.dart';
 import 'package:capstone/view/screen/login_screen.dart';
 import 'package:capstone/view/widget/input_widget.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:date_format_field/date_format_field.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     // List of items in the dropdown
-    final List<String> items = ['+963', '+962', '+962', '+962'];
+    /*final List<Image> icons = [Image.asset('assets/images/jod.png'),
+      Image.asset('assets/images/sa.png'),
+      Image.asset('assets/images/qatar.png'),
+      Image.asset('assets/images/uae.png'),];*/
+     final List<String> codes = ['+962', '+966', '+974', '+971'];
 
     // Selected item
-    String? selectedItem = '+963';
+    String? selectedCode = '+962';
+
+
     TextEditingController fullName = TextEditingController();
     TextEditingController email = TextEditingController();
     TextEditingController birthdate = TextEditingController();
@@ -68,7 +78,7 @@ class SignupScreen extends StatelessWidget {
                             children: [
                               // Sign up title
                               TextWidget(
-                                text: 'Sign up',
+                                text: AppLocalizations.of(context)!.sign_up,
                                 fontWeight: FontWeight.w700,
                                 fontSize: 32,
                                 fontFamily: 'Inter',
@@ -80,7 +90,7 @@ class SignupScreen extends StatelessWidget {
                               Row(
                                 children: [
                                   TextWidget(
-                                    text: 'Already have an account?',
+                                    text: AppLocalizations.of(context)!.have_account,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 12,
                                     fontFamily: 'Inter',
@@ -102,7 +112,7 @@ class SignupScreen extends StatelessWidget {
                                       );
                                     },
                                     child: TextWidget(
-                                      text: 'Login',
+                                      text: AppLocalizations.of(context)!.login,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 12,
                                       fontFamily: 'Inter',
@@ -118,9 +128,8 @@ class SignupScreen extends StatelessWidget {
                                 ],
                               ),
 
-                              // Form
-                              Form(
-                                child: Column(
+                              Consumer<SignUpController>(builder: (context,signUpController,child){
+                                return Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     // FullName
@@ -130,7 +139,7 @@ class SignupScreen extends StatelessWidget {
                                       children: [
                                         SizedBox(width: 10),
                                         TextWidget(
-                                          text: 'FullName',
+                                          text: AppLocalizations.of(context)!.full_name,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
                                           fontFamily: '',
@@ -148,7 +157,7 @@ class SignupScreen extends StatelessWidget {
                                     InputWidget(
                                       textEditingController: fullName,
                                       obscureText: false,
-                                      //errorText: 'Enter full name please',
+                                      errorText: signUpController.fullNameIsEmpty ? AppLocalizations.of(context)!.enter_full_name : null,
                                       hintText: 'Lois Becket',
                                     ),
 
@@ -159,7 +168,7 @@ class SignupScreen extends StatelessWidget {
                                       children: [
                                         SizedBox(width: 10),
                                         TextWidget(
-                                          text: 'Email',
+                                          text: AppLocalizations.of(context)!.email,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
                                           fontFamily: '',
@@ -177,7 +186,7 @@ class SignupScreen extends StatelessWidget {
                                     InputWidget(
                                       textEditingController: email,
                                       obscureText: false,
-                                      //errorText: 'Enter full name please',
+                                      errorText: signUpController.emailCorrect ? AppLocalizations.of(context)!.enter_email : null ,
                                       hintText: 'rayadaboor@gmail.com',
                                     ),
 
@@ -188,7 +197,7 @@ class SignupScreen extends StatelessWidget {
                                       children: [
                                         SizedBox(width: 10),
                                         TextWidget(
-                                          text: 'Birth of date',
+                                          text: AppLocalizations.of(context)!.birthdate,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
                                           fontFamily: '',
@@ -205,17 +214,19 @@ class SignupScreen extends StatelessWidget {
                                     // Date Field
                                     Container(
                                       height:
-                                          MediaQuery.of(context).size.height *
+                                      MediaQuery.of(context).size.height *
                                           0.057,
                                       width:
-                                          MediaQuery.of(context).size.width *
+                                      MediaQuery.of(context).size.width *
                                           0.83,
                                       margin: EdgeInsets.only(
                                         left: 10,
                                         right: 10,
                                       ),
                                       child: DateFormatField(
+                                        controller: birthdate,
                                         decoration: InputDecoration(
+                                          errorText: signUpController.birthDateIsEmpty ? AppLocalizations.of(context)!.enter_birthdate: null,
                                           hintText: '18/03/2024',
                                           border: OutlineInputBorder(
                                             borderRadius: BorderRadius.circular(
@@ -246,7 +257,7 @@ class SignupScreen extends StatelessWidget {
                                       children: [
                                         SizedBox(width: 10),
                                         TextWidget(
-                                          text: 'Phone Number',
+                                          text: AppLocalizations.of(context)!.phone_number,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
                                           fontFamily: '',
@@ -269,9 +280,9 @@ class SignupScreen extends StatelessWidget {
                                           width: 80,
                                           child: Container(
                                             height:
-                                                MediaQuery.of(
-                                                  context,
-                                                ).size.height *
+                                            MediaQuery.of(
+                                              context,
+                                            ).size.height *
                                                 0.057,
                                             padding: EdgeInsets.only(
                                               left: 5,
@@ -279,7 +290,7 @@ class SignupScreen extends StatelessWidget {
                                             ),
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(10),
+                                              BorderRadius.circular(10),
                                               border: Border.all(
                                                 color: Color.fromARGB(
                                                   255,
@@ -295,36 +306,39 @@ class SignupScreen extends StatelessWidget {
                                               underline: Container(height: 0),
                                               isExpanded: true,
                                               padding: EdgeInsets.zero,
-                                              hint: Text("Select a fruit"),
-                                              value: selectedItem,
+                                              value: selectedCode,
                                               // The currently selected item
                                               items:
-                                                  items.map((String item) {
-                                                    return DropdownMenuItem<
-                                                      String
-                                                    >(
-                                                      value: item,
-                                                      child: Text(item),
-                                                    );
-                                                  }).toList(),
+                                              codes.map((String item) {
+                                                return DropdownMenuItem<
+                                                    String
+                                                >(
+                                                  value: item,
+                                                  child: Text(item),
+                                                );
+                                              }).toList(),
                                               onChanged: (String? newValue) {
-                                                selectedItem = newValue;
+                                                selectedCode = newValue;
+
+                                                signUpController.changeCountryCode(code: newValue!);
+
                                               },
                                             ),
                                           ),
                                         ),
                                         Container(
                                           width:
-                                              MediaQuery.of(
-                                                context,
-                                              ).size.width *
+                                          MediaQuery.of(
+                                            context,
+                                          ).size.width *
                                               0.62,
                                           child: InputWidget(
+                                            errorText: signUpController.phoneNumberCorrect ? AppLocalizations.of(context)!.enter_phone : null,
+                                            keyboardType: TextInputType.phone,
                                             textEditingController: phoneNumber,
                                             obscureText: false,
-                                            //errorText: 'Enter full name please',
                                             hintText:
-                                                '($selectedItem) 726-0592',
+                                            '${signUpController.countryCode} 726-0592',
                                           ),
                                         ),
                                       ],
@@ -337,7 +351,7 @@ class SignupScreen extends StatelessWidget {
                                       children: [
                                         SizedBox(width: 10),
                                         TextWidget(
-                                          text: 'Set Password',
+                                          text: AppLocalizations.of(context)!.set_password,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
                                           fontFamily: '',
@@ -353,19 +367,34 @@ class SignupScreen extends StatelessWidget {
                                     ),
                                     // Field
                                     InputWidget(
-                                      textEditingController: fullName,
-                                      obscureText: true,
-                                      suffixIcon: Icon(Icons.visibility_off),
-                                      //errorText: 'Enter full name please',
-                                      //hintText: 'Lois Becket',
+                                      textEditingController: password,
+                                      obscureText: signUpController.obscureTextPassword ? true : false,
+                                      errorText: signUpController.passwordCorrect
+                                          ? AppLocalizations.of(context)!.enter_password
+                                          : null,
+                                      suffixIcon: IconButton(
+                                        onPressed: () {
+                                          signUpController.changeObscurePassword();
+                                        },
+                                        icon: Icon(signUpController.obscureTextPassword
+                                            ? Icons.visibility_off
+                                            : Icons.visibility),
+                                      ),
+
                                     ),
 
                                     SizedBox(height: 20),
                                     TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        signUpController.checkFullName(fullName: fullName.text);
+                                        signUpController.checkEmailCorrect(email: email.text);
+                                        signUpController.checkBirthDate(birthDate: birthdate.text);
+                                        signUpController.checkPhoneNumber(phoneNumber: phoneNumber.text);
+                                        signUpController.checkPassword(password: password.text);
+                                      },
                                       child: Container(
                                         width:
-                                            MediaQuery.of(context).size.width *
+                                        MediaQuery.of(context).size.width *
                                             0.9,
                                         height: 50,
                                         decoration: BoxDecoration(
@@ -381,7 +410,7 @@ class SignupScreen extends StatelessWidget {
                                         ),
                                         child: Center(
                                           child: TextWidget(
-                                            text: 'Register',
+                                            text: AppLocalizations.of(context)!.register,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
                                             fontFamily: 'Inter',
@@ -392,8 +421,10 @@ class SignupScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ],
-                                ),
-                              ),
+                                );
+                              }),
+                              // Form
+
                             ],
                           ),
                         ),

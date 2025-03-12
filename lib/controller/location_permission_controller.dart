@@ -8,11 +8,11 @@ class LocationPermissionController extends ChangeNotifier {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (serviceEnabled) {
 
-        locationStatus = "Location Services are ENABLED ✅";
+        locationStatus = "Location Services are ENABLED";
       notifyListeners();
     } else {
 
-        locationStatus = "Location Services are DISABLED ❌";
+        locationStatus = "Location Services are DISABLED";
      notifyListeners();
     }
   }

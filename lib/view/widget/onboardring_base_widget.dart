@@ -1,9 +1,7 @@
 import 'package:capstone/controller/location_permission_controller.dart';
-import 'package:capstone/view/screen/login_screen.dart';
+import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 
 class OnboardringBaseWidget extends StatelessWidget {
@@ -36,7 +34,8 @@ class OnboardringBaseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    LocationPermissionController locationPermissionController =
+        Provider.of<LocationPermissionController>(context, listen: false);
     return Stack(
       children: [
         // Background Image
@@ -111,28 +110,54 @@ class OnboardringBaseWidget extends StatelessWidget {
                       onPressed: () {
                         if (button1Text ==
                             AppLocalizations.of(context)!.yes_turn_it_on) {
-                          Provider.of<LocationPermissionController>(context,listen: false).checkLocationServices();
-                          if (Provider.of<LocationPermissionController>(context,listen: false).locationStatus ==
-                              "Location Services are DISABLED ❌") {
+                          locationPermissionController.checkLocationServices();
+                          if (locationPermissionController.locationStatus ==
+                              "Location Services are DISABLED") {
                             showDialog(
                               context: context,
                               builder:
                                   (context) => AlertDialog(
-                                    content: Text(
-                                      'Turn on Location from your phone, then close App and reopen it',
+                                    backgroundColor: Colors.white,
+                                    title: Text(
+                                      AppLocalizations.of(context)!.location_disabled,
                                     ),
+                                    content: Text(
+                                      AppLocalizations.of(context)!.please_activate_location,
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: TextWidget(
+                                          text: AppLocalizations.of(context)!.ok,
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 15,
+                                          fontFamily: 'Inter',
+                                          letterSpacing: -0.02,
+                                          fontColor: Color.fromARGB(
+                                            255,
+                                            37,
+                                            174,
+                                            75,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                             );
-                          } else if (Provider.of<LocationPermissionController>(context,listen: false).locationStatus ==
-                              "Location Services are ENABLED ✅") {
-                            Provider.of<LocationPermissionController>(context,listen: false).determinePosition().then((onValue) {});
+                          } else if (locationPermissionController
+                                  .locationStatus ==
+                              "Location Services are ENABLED") {
+                            Provider.of<LocationPermissionController>(
+                              context,
+                              listen: false,
+                            ).determinePosition().then((onValue) {});
                           }
                         } else {
                           Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(
-                              builder: (context) => nextPage,
-                            ),
+                            MaterialPageRoute(builder: (context) => nextPage),
                           );
                         }
                       },
@@ -175,4 +200,3 @@ class OnboardringBaseWidget extends StatelessWidget {
     );
   }
 }
-

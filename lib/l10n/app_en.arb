@@ -10,5 +10,22 @@
   "yes_turn_it_on" : "Yes, Turn It On",
   "cancel" : "Cancel",
   "continu" : "Continue",
-  "skip" : "Skip"
+  "skip" : "Skip",
+  "location_disabled" : "Location Services are disabled",
+  "please_activate_location" : "Please Activate the location, then restart the application",
+  "ok" : "OK",
+  "sign_up" : "Sign up",
+  "have_account" : "Already have an account?",
+  "login" : "Login",
+  "full_name" : "Full Name",
+  "enter_full_name" : "Enter Full Name Please",
+  "email" : "Email",
+  "enter_email" : "Enter correct email please",
+  "birthdate" : "Birth of date",
+  "enter_birthdate" : "Enter Birth of Date please",
+  "phone_number" : "Phone Number",
+  "enter_phone" : "Enter your phone please",
+  "set_password" : "Set Password",
+  "enter_password" : "Enter password please",
+  "register" : "Register"
 }

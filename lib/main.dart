@@ -1,4 +1,5 @@
 import 'package:capstone/controller/location_permission_controller.dart';
+import 'package:capstone/controller/signup_controller.dart';
 import 'package:capstone/view/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(providers: [
       ChangeNotifierProvider(create: (context) => LoginController()),
       ChangeNotifierProvider(create: (context) => LocationPermissionController()),
+      ChangeNotifierProvider(create: (context) => SignUpController())
     ],
     child: MaterialApp(
       title: '',
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [
-        Locale('en'), // English
+        //Locale('en'), // English
         Locale('ar'), // Arabic
       ],
       theme: ThemeData(

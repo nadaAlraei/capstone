@@ -105,6 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Consumer<LoginController>(
                       builder: (context, loginController, child) {
                         return InputWidget(
+
                           textEditingController: emailTextEditingController,
                           obscureText: false,
                           errorText:
