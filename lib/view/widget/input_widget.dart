@@ -28,18 +28,16 @@ class InputWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.057,
         width: MediaQuery.of(context).size.width * 0.83,
 
         child: TextField(
-
           obscureText: obscureText,
           controller: textEditingController,
           keyboardType: keyboardType,
           maxLines: maxLines,
           decoration: InputDecoration(
-
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
             hintText: hintText,

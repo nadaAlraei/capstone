@@ -27,5 +27,14 @@
   "enter_phone" : "Enter your phone please",
   "set_password" : "Set Password",
   "enter_password" : "Enter password please",
-  "register" : "Register"
+  "register" : "Register",
+  "rest_password" : "Reset Password",
+  "want_current_password" : "Want to try with my current password?",
+  "new_password" : "New Password",
+  "confirm_new_password" : "Confirm New Password",
+  "passwords_does_not_match" : "Passwords does not match",
+  "update_password" : "Update Password",
+  "congrats" : "Congratulations!",
+  "password_reset_successfully" : "password reset successfully",
+  "ok2" : "OK"
 }

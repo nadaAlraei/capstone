@@ -27,5 +27,14 @@
   "enter_phone" : "أدخل رقم هاتفك من فضلك",
   "set_password" : "تعيين كلمة المرور",
   "enter_password" : "الرجاء إدخال كلمة المرور",
-  "register" : "سجّل"
+  "register" : "سجّل",
+  "rest_password" : "إعادة تعيين كلمة المرور",
+  "want_current_password" : "هل تريد تجربة كلمة المرور الحالية الخاصة بي؟",
+  "new_password" : "كلمة المرور الجديدة",
+  "confirm_new_password" : "تأكيد كلمة المرور الجديدة",
+  "passwords_does_not_match" : "كلمتي المرور غير متطابقتين",
+  "update_password" : "تحديث كلمة المرور",
+  "congrats" : "تهانينا!",
+  "password_reset_successfully" : "تم إعادة تعيين كلمة المرور بنجاح",
+  "ok2" : "حسناً"
 }

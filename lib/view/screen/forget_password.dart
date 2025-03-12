@@ -1,3 +1,4 @@
+import 'package:capstone/view/screen/confirm_rest_password_screen.dart';
 import 'package:capstone/view/screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -144,7 +145,7 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            // next page :)
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ConfirmRestPasswordScreen(),),);
                           },
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(vertical: 12),
