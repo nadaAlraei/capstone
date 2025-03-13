@@ -1,10 +1,12 @@
 import 'package:capstone/view/screen/confirm_rest_password_screen.dart';
 import 'package:capstone/view/screen/login_screen.dart';
+import 'package:capstone/view/widget/otp_alert_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../controller/login_controller.dart';
 import '../widget/input_widget.dart';
+import '../widget/text_widget.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
@@ -58,31 +60,51 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         SizedBox(width: 10,),
                         TextButton(
                             onPressed: () {
-                              Navigator.pop(context);
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),) );
                             },
                             child:
                             Row(
                               children: [
                                 Icon(Icons.arrow_back),
                                 SizedBox(width: 5,),
-                                const Text(
-                                  "Back to ",
-                                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.grey),
-                                  textAlign: TextAlign.center,
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width * (50 / 430),
+                                  height: MediaQuery.of(context).size.height * (24 / 932),
+                                  child: TextWidget(
+                                      text: AppLocalizations.of(context)!.back_to,
+                                      fontWeight:  FontWeight.w600,
+                                      fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: -0.2,
+                                      fontColor: Colors.grey    ),
                                 ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
-                                  },
-                                  child: const Text(
-                                    " Login",
-                                    style: TextStyle(color: Colors.green, fontWeight: FontWeight.w700),
+
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width * (70 / 430),
+                                  height: MediaQuery.of(context).size.height * (24 / 932),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
+                                    },
+                                    child:  TextWidget(
+                                        text: AppLocalizations.of(context)!.login,
+                                        fontWeight:  FontWeight.w600,
+                                        fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                                        fontFamily: 'Inter',
+                                        letterSpacing: -0.2,
+                                        fontColor: Colors.green    ),
                                   ),
                                 ),
-                                const Text(
-                                  " Page?",
-                                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.grey),
-                                  textAlign: TextAlign.center,
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width * (50 / 430),
+                                  height: MediaQuery.of(context).size.height * (24 / 932),
+                                  child: TextWidget(
+                                      text: AppLocalizations.of(context)!.page,
+                                      fontWeight:  FontWeight.w600,
+                                      fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                                      fontFamily: 'Inter',
+                                      letterSpacing: -0.2,
+                                      fontColor: Colors.grey    ),
                                 ),
 
                               ],
@@ -91,37 +113,53 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         ),
                       ],
                     ),
-                    const Text(
-                      "Reset Password",
-                      style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
-                      textAlign: TextAlign.center,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * (200 / 430),
+                      height: MediaQuery.of(context).size.height * (42 / 932),
+                      child: TextWidget(
+                          text: AppLocalizations.of(context)!.rest_password,
+                          fontWeight:  FontWeight.w600,
+                          fontSize: MediaQuery.of(context).size.width * (32 / 430),
+                          fontFamily: 'Inter',
+                          letterSpacing: -0.2,
+                          fontColor: Colors.black    ),
                     ),
                     SizedBox(height: 10,),
-                    const Text(
-                      "Enter your E-mail or phone and we'll",
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),
-                      textAlign: TextAlign.center,
-                    ),
-                    const Text(
-                      "send you a link to get back into",
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const Text(
-                      " your account  ",
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),
-                      textAlign: TextAlign.center,
-                    ),
+                    TextWidget(
+                        text: AppLocalizations.of(context)!.enter_your_email,
+                        fontWeight:  FontWeight.w500,
+                        fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                        fontFamily: 'Inter',
+                        letterSpacing: -0.1,
+                        fontColor: Colors.grey    ),
+                    TextWidget(
+                        text: AppLocalizations.of(context)!.send_you_link,
+                        fontWeight:  FontWeight.w500,
+                        fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                        fontFamily: 'Inter',
+                        letterSpacing: -0.1,
+                        fontColor: Colors.grey    ),
+
+
+                    TextWidget(
+                        text: AppLocalizations.of(context)!.your_account,
+                        fontWeight:  FontWeight.w500,
+                        fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                        fontFamily: 'Inter',
+                        letterSpacing: -0.1,
+                        fontColor: Colors.grey    ),
 
                     Padding(
                       padding: const EdgeInsets.only(left: 20, top: 20),
                       child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: const Text(
-                          " Email ",
-                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey),
-                          textAlign: TextAlign.center,
-                        ),
+                        alignment: Alignment(0.78, 0.2),
+                        child: TextWidget(
+                            text: AppLocalizations.of(context)!.email,
+                            fontWeight:  FontWeight.w500,
+                            fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                            fontFamily: 'Inter',
+                            letterSpacing: -0.1,
+                            fontColor: Colors.grey    ),
                       ),
                     ),
                     Padding(
@@ -133,7 +171,7 @@ class _forgetPasswordState extends State<ForgetPassword> {
                             obscureText: false,
 
                             errorText: loginController.showErrorEmail
-                                ? "Enter Valid Email"
+                                ? AppLocalizations.of(context)!.enter_email
                                 : null,
                           );
                         },
@@ -145,7 +183,7 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ConfirmRestPasswordScreen(),),);
+                            showDialog(context: context, builder: (context) => OTPAlertWidget(),);
                           },
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(vertical: 12),
@@ -154,7 +192,13 @@ class _forgetPasswordState extends State<ForgetPassword> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: const Text("Send", style: TextStyle(fontSize: 18, color: Colors.white)),
+                          child:TextWidget(
+                            text: AppLocalizations.of(context)!.send,
+                          fontWeight:  FontWeight.w500,
+                          fontSize: MediaQuery.of(context).size.width * (14 / 430),
+                          fontFamily: 'Inter',
+                          letterSpacing: -0.1,
+                          fontColor: Colors.white    ),
                         ),
                       ),
                     ),

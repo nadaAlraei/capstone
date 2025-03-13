@@ -17,6 +17,7 @@
   "sign_up" : "Sign up",
   "have_account" : "Already have an account?",
   "login" : "Login",
+  "password" : "password",
   "full_name" : "Full Name",
   "enter_full_name" : "Enter Full Name Please",
   "email" : "Email",
@@ -36,5 +37,19 @@
   "update_password" : "Update Password",
   "congrats" : "Congratulations!",
   "password_reset_successfully" : "password reset successfully",
-  "ok2" : "OK"
+  "ok2" : "OK",
+  "forget_password": "Forget Password",
+  "remember_me": "Remember Me",
+  "google" : "Continue with Google",
+  "facebook" : "Continue with Facebook",
+  "apple" : "Continue with Apple",
+  "or" : "Or",
+  "back_to": "Back to",
+  "page": "page",
+  "send" : "Send",
+  "enter_your_email" : "Enter your E-mail or phone and we'll",
+  "send_you_link": "send you a link to get back into",
+  "your_account" : "your_account",
+  "otp_message": "A 4-digit code has been sent to your email.\nPlease enter it below.",
+  "verify" : "Verify"
 }
