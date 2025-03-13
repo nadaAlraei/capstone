@@ -29,7 +29,7 @@ class InputWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.057,
+        height: MediaQuery.of(context).size.height * 0.09,
         width: MediaQuery.of(context).size.width * 0.83,
 
         child: TextField(

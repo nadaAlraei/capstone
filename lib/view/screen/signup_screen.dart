@@ -8,27 +8,21 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+  SignupScreen({super.key});
+
+  final List<String> codes = ['+962', '+966', '+974', '+971'];
+
+  // Selected item
+  String? selectedCode = '+962';
+
+  TextEditingController fullName = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController birthdate = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
-    // List of items in the dropdown
-    /*final List<Image> icons = [Image.asset('assets/images/jod.png'),
-      Image.asset('assets/images/sa.png'),
-      Image.asset('assets/images/qatar.png'),
-      Image.asset('assets/images/uae.png'),];*/
-     final List<String> codes = ['+962', '+966', '+974', '+971'];
-
-    // Selected item
-    String? selectedCode = '+962';
-
-
-    TextEditingController fullName = TextEditingController();
-    TextEditingController email = TextEditingController();
-    TextEditingController birthdate = TextEditingController();
-    TextEditingController phoneNumber = TextEditingController();
-    TextEditingController password = TextEditingController();
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 37, 174, 75),
       body: Stack(
@@ -41,6 +35,7 @@ class SignupScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Logo
+                  SizedBox(height: 40),
                   Image.asset(
                     "assets/images/logo.png",
                     width: MediaQuery.of(context).size.width * 0.7,
@@ -50,7 +45,8 @@ class SignupScreen extends StatelessWidget {
                   // Form Container
                   Container(
                     width: MediaQuery.of(context).size.width * 0.9,
-                    height: MediaQuery.of(context).size.height * 0.77,
+                    height: MediaQuery.of(context).size.height * 0.99,
+                    margin: EdgeInsets.only(bottom: 10),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
@@ -90,7 +86,10 @@ class SignupScreen extends StatelessWidget {
                               Row(
                                 children: [
                                   TextWidget(
-                                    text: AppLocalizations.of(context)!.have_account,
+                                    text:
+                                        AppLocalizations.of(
+                                          context,
+                                        )!.have_account,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 12,
                                     fontFamily: 'Inter',
@@ -128,303 +127,412 @@ class SignupScreen extends StatelessWidget {
                                 ],
                               ),
 
-                              Consumer<SignUpController>(builder: (context,signUpController,child){
-                                return Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    // FullName
+                              Consumer<SignUpController>(
+                                builder: (context, signUpController, child) {
+                                  return Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      // FullName
 
-                                    // Filed title
-                                    Row(
-                                      children: [
-                                        SizedBox(width: 10),
-                                        TextWidget(
-                                          text: AppLocalizations.of(context)!.full_name,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
-                                          fontFamily: '',
-                                          letterSpacing: -0.02,
-                                          fontColor: Color.fromARGB(
-                                            255,
-                                            108,
-                                            114,
-                                            120,
+                                      // Filed title
+                                      Row(
+                                        children: [
+                                          SizedBox(width: 10),
+                                          TextWidget(
+                                            text:
+                                                AppLocalizations.of(
+                                                  context,
+                                                )!.full_name,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                            fontFamily: '',
+                                            letterSpacing: -0.02,
+                                            fontColor: Color.fromARGB(
+                                              255,
+                                              108,
+                                              114,
+                                              120,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    // Field
-                                    InputWidget(
-                                      textEditingController: fullName,
-                                      obscureText: false,
-                                      errorText: signUpController.fullNameIsEmpty ? AppLocalizations.of(context)!.enter_full_name : null,
-                                      hintText: 'Lois Becket',
-                                    ),
-
-                                    // Email
-
-                                    // Filed title
-                                    Row(
-                                      children: [
-                                        SizedBox(width: 10),
-                                        TextWidget(
-                                          text: AppLocalizations.of(context)!.email,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
-                                          fontFamily: '',
-                                          letterSpacing: -0.02,
-                                          fontColor: Color.fromARGB(
-                                            255,
-                                            108,
-                                            114,
-                                            120,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    // Field
-                                    InputWidget(
-                                      textEditingController: email,
-                                      obscureText: false,
-                                      errorText: signUpController.emailCorrect ? AppLocalizations.of(context)!.enter_email : null ,
-                                      hintText: 'rayadaboor@gmail.com',
-                                    ),
-
-                                    // Birth of date
-
-                                    // Filed title
-                                    Row(
-                                      children: [
-                                        SizedBox(width: 10),
-                                        TextWidget(
-                                          text: AppLocalizations.of(context)!.birthdate,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
-                                          fontFamily: '',
-                                          letterSpacing: -0.02,
-                                          fontColor: Color.fromARGB(
-                                            255,
-                                            108,
-                                            114,
-                                            120,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    // Date Field
-                                    Container(
-                                      height:
-                                      MediaQuery.of(context).size.height *
-                                          0.057,
-                                      width:
-                                      MediaQuery.of(context).size.width *
-                                          0.83,
-                                      margin: EdgeInsets.only(
-                                        left: 10,
-                                        right: 10,
+                                        ],
                                       ),
-                                      child: DateFormatField(
-                                        controller: birthdate,
-                                        decoration: InputDecoration(
-                                          errorText: signUpController.birthDateIsEmpty ? AppLocalizations.of(context)!.enter_birthdate: null,
-                                          hintText: '18/03/2024',
-                                          border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              10,
-                                            ),
-                                            borderSide: const BorderSide(
-                                              color: Color.fromARGB(
-                                                255,
-                                                237,
-                                                241,
-                                                243,
-                                              ),
-                                              width: 1,
-                                            ),
-                                          ),
-                                        ),
-                                        type: DateFormatType.type1,
-                                        onComplete: (date) {
-                                          // print(date.toString)
-                                        },
+                                      // Field
+                                      InputWidget(
+                                        textEditingController: fullName,
+                                        obscureText: false,
+                                        errorText:
+                                            signUpController.fullNameIsEmpty
+                                                ? AppLocalizations.of(
+                                                  context,
+                                                )!.enter_full_name
+                                                : null,
+                                        hintText: 'Lois Becket',
                                       ),
-                                    ),
 
-                                    // Phone number
-                                    SizedBox(height: 7),
-                                    // Filed title
-                                    Row(
-                                      children: [
-                                        SizedBox(width: 10),
-                                        TextWidget(
-                                          text: AppLocalizations.of(context)!.phone_number,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
-                                          fontFamily: '',
-                                          letterSpacing: -0.02,
-                                          fontColor: Color.fromARGB(
-                                            255,
-                                            108,
-                                            114,
-                                            120,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                      // Email
 
-                                    // Field
-                                    Row(
-                                      children: [
-                                        SizedBox(width: 10),
-                                        SizedBox(
-                                          width: 80,
-                                          child: Container(
-                                            height:
-                                            MediaQuery.of(
-                                              context,
-                                            ).size.height *
-                                                0.057,
-                                            padding: EdgeInsets.only(
-                                              left: 5,
-                                              right: 5,
+                                      // Filed title
+                                      Row(
+                                        children: [
+                                          SizedBox(width: 10),
+                                          TextWidget(
+                                            text:
+                                                AppLocalizations.of(
+                                                  context,
+                                                )!.email,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                            fontFamily: '',
+                                            letterSpacing: -0.02,
+                                            fontColor: Color.fromARGB(
+                                              255,
+                                              108,
+                                              114,
+                                              120,
                                             ),
-                                            decoration: BoxDecoration(
+                                          ),
+                                        ],
+                                      ),
+                                      // Field
+                                      InputWidget(
+                                        textEditingController: email,
+                                        obscureText: false,
+                                        errorText:
+                                            signUpController.emailNotCorrect
+                                                ? AppLocalizations.of(
+                                                  context,
+                                                )!.enter_email
+                                                : null,
+                                        hintText: 'rayadaboor@gmail.com',
+                                      ),
+
+                                      // Birth of date
+
+                                      // Filed title
+                                      Row(
+                                        children: [
+                                          SizedBox(width: 10),
+                                          TextWidget(
+                                            text:
+                                                AppLocalizations.of(
+                                                  context,
+                                                )!.birthdate,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                            fontFamily: '',
+                                            letterSpacing: -0.02,
+                                            fontColor: Color.fromARGB(
+                                              255,
+                                              108,
+                                              114,
+                                              120,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 10),
+                                      // Date Field
+                                      Container(
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                            0.057,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                            0.83,
+                                        margin: EdgeInsets.only(
+                                          left: 10,
+                                          right: 10,
+                                        ),
+                                        child: DateFormatField(
+                                          controller: birthdate,
+                                          decoration: InputDecoration(
+                                            errorText:
+                                                signUpController
+                                                        .birthDateIsEmpty
+                                                    ? AppLocalizations.of(
+                                                      context,
+                                                    )!.enter_birthdate
+                                                    : null,
+                                            hintText: '18/03/2024',
+                                            border: OutlineInputBorder(
                                               borderRadius:
-                                              BorderRadius.circular(10),
-                                              border: Border.all(
+                                                  BorderRadius.circular(10),
+                                              borderSide: const BorderSide(
                                                 color: Color.fromARGB(
                                                   255,
-                                                  172,
-                                                  172,
-                                                  172,
+                                                  237,
+                                                  241,
+                                                  243,
                                                 ),
                                                 width: 1,
                                               ),
                                             ),
-                                            child: DropdownButton<String>(
-                                              menuWidth: 80,
-                                              underline: Container(height: 0),
-                                              isExpanded: true,
-                                              padding: EdgeInsets.zero,
-                                              value: selectedCode,
-                                              // The currently selected item
-                                              items:
-                                              codes.map((String item) {
-                                                return DropdownMenuItem<
-                                                    String
-                                                >(
-                                                  value: item,
-                                                  child: Text(item),
-                                                );
-                                              }).toList(),
-                                              onChanged: (String? newValue) {
-                                                selectedCode = newValue;
+                                          ),
+                                          type: DateFormatType.type1,
+                                          onComplete: (date) {
+                                            // print(date.toString)
+                                          },
+                                        ),
+                                      ),
 
-                                                signUpController.changeCountryCode(code: newValue!);
+                                      // Phone number
+                                      SizedBox(height: 10),
+                                      // Filed title
+                                      Row(
+                                        children: [
+                                          SizedBox(width: 10),
+                                          TextWidget(
+                                            text:
+                                                AppLocalizations.of(
+                                                  context,
+                                                )!.phone_number,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                            fontFamily: '',
+                                            letterSpacing: -0.02,
+                                            fontColor: Color.fromARGB(
+                                              255,
+                                              108,
+                                              114,
+                                              120,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
 
-                                              },
+                                      // Field
+                                      Row(
+                                        children: [
+                                          SizedBox(width: 10),
+                                          SizedBox(
+                                            width: 80,
+                                            child: Container(
+                                              height:
+                                                  MediaQuery.of(
+                                                    context,
+                                                  ).size.height *
+                                                  0.063,
+                                              padding: EdgeInsets.only(
+                                                left: 5,
+                                                right: 5,
+                                              ),
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                border: Border.all(
+                                                  color: Color.fromARGB(
+                                                    255,
+                                                    172,
+                                                    172,
+                                                    172,
+                                                  ),
+                                                  width: 1,
+                                                ),
+                                              ),
+                                              child: DropdownButton<String>(
+                                                menuWidth: 80,
+                                                underline: Container(height: 0),
+                                                isExpanded: true,
+                                                padding: EdgeInsets.zero,
+                                                value: selectedCode,
+                                                // The currently selected item
+                                                items:
+                                                    codes.map((String item) {
+                                                      return DropdownMenuItem<
+                                                        String
+                                                      >(
+                                                        value: item,
+                                                        child: Text(item),
+                                                      );
+                                                    }).toList(),
+                                                onChanged: (String? newValue) {
+                                                  selectedCode = newValue;
+                                                  signUpController
+                                                      .changeCountryCode(
+                                                        code: newValue!,
+                                                      );
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            width:
+                                                MediaQuery.of(
+                                                  context,
+                                                ).size.width *
+                                                0.6,
+                                            margin: EdgeInsets.only(top: 20),
+
+                                            child: InputWidget(
+                                              errorText:
+                                                  signUpController
+                                                          .phoneNumberNotCorrect
+                                                      ? AppLocalizations.of(
+                                                        context,
+                                                      )!.enter_phone
+                                                      : null,
+                                              keyboardType: TextInputType.phone,
+                                              textEditingController:
+                                                  phoneNumber,
+                                              obscureText: false,
+                                              hintText:
+                                                  '${signUpController.countryCode} 726-0592',
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+
+                                      // Password
+
+                                      // Filed title
+                                      Row(
+                                        children: [
+                                          SizedBox(width: 10),
+                                          TextWidget(
+                                            text:
+                                                AppLocalizations.of(
+                                                  context,
+                                                )!.set_password,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                            fontFamily: '',
+                                            letterSpacing: -0.02,
+                                            fontColor: Color.fromARGB(
+                                              255,
+                                              108,
+                                              114,
+                                              120,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      // Field
+                                      InputWidget(
+                                        textEditingController: password,
+                                        obscureText:
+                                            signUpController.visiblePassword
+                                                ? true
+                                                : false,
+                                        errorText:
+                                            signUpController.passwordNotCorrect
+                                                ? AppLocalizations.of(
+                                                  context,
+                                                )!.enter_password
+                                                : null,
+                                        suffixIcon: IconButton(
+                                          onPressed: () {
+                                            signUpController
+                                                .changeObscurePassword();
+                                          },
+                                          icon: Icon(
+                                            signUpController.visiblePassword
+                                                ? Icons.visibility_off
+                                                : Icons.visibility,
+                                          ),
+                                        ),
+                                      ),
+
+                                      SizedBox(height: 20),
+                                      TextButton(
+                                        onPressed: () {
+                                          if (signUpController
+                                                      .fullNameIsEmpty ==
+                                                  true &&
+                                              signUpController
+                                                      .passwordNotCorrect ==
+                                                  true &&
+                                              signUpController
+                                                      .emailNotCorrect ==
+                                                  true &&
+                                              signUpController
+                                                      .birthDateIsEmpty ==
+                                                  true &&
+                                              signUpController
+                                                      .phoneNumberNotCorrect ==
+                                                  true) {
+                                            Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder:
+                                                    (context) => LoginScreen(),
+                                              ),
+                                            );
+                                            ScaffoldMessenger.of(
+                                              context,
+                                            ).showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Account Created',
+                                                ),
+                                                duration: Duration(seconds: 3),
+                                              ),
+                                            );
+                                          } else {
+                                            ScaffoldMessenger.of(
+                                              context,
+                                            ).showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Account Not Created',
+                                                ),
+                                                duration: Duration(seconds: 3),
+                                              ),
+                                            );
+                                          }
+                                          signUpController.checkFullName(
+                                            fullName: fullName.text,
+                                          );
+                                          signUpController.checkEmailCorrect(
+                                            email: email.text,
+                                          );
+                                          signUpController.checkBirthDate(
+                                            birthdate: birthdate.text,
+                                          );
+                                          signUpController.checkPhoneNumber(
+                                            phoneNumber: phoneNumber.text,
+                                          );
+                                          signUpController.checkPassword(
+                                            password: password.text,
+                                          );
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.of(
+                                                context,
+                                              ).size.width *
+                                              0.9,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            color: Color.fromARGB(
+                                              255,
+                                              37,
+                                              174,
+                                              75,
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                              20,
+                                            ),
+                                          ),
+                                          child: Center(
+                                            child: TextWidget(
+                                              text:
+                                                  AppLocalizations.of(
+                                                    context,
+                                                  )!.register,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 14,
+                                              fontFamily: 'Inter',
+                                              letterSpacing: -0.01,
+                                              fontColor: Colors.white,
                                             ),
                                           ),
                                         ),
-                                        Container(
-                                          width:
-                                          MediaQuery.of(
-                                            context,
-                                          ).size.width *
-                                              0.62,
-                                          child: InputWidget(
-                                            errorText: signUpController.phoneNumberCorrect ? AppLocalizations.of(context)!.enter_phone : null,
-                                            keyboardType: TextInputType.phone,
-                                            textEditingController: phoneNumber,
-                                            obscureText: false,
-                                            hintText:
-                                            '${signUpController.countryCode} 726-0592',
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-
-                                    // Password
-
-                                    // Filed title
-                                    Row(
-                                      children: [
-                                        SizedBox(width: 10),
-                                        TextWidget(
-                                          text: AppLocalizations.of(context)!.set_password,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
-                                          fontFamily: '',
-                                          letterSpacing: -0.02,
-                                          fontColor: Color.fromARGB(
-                                            255,
-                                            108,
-                                            114,
-                                            120,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    // Field
-                                    InputWidget(
-                                      textEditingController: password,
-                                      obscureText: signUpController.obscureTextPassword ? true : false,
-                                      errorText: signUpController.passwordCorrect
-                                          ? AppLocalizations.of(context)!.enter_password
-                                          : null,
-                                      suffixIcon: IconButton(
-                                        onPressed: () {
-                                          signUpController.changeObscurePassword();
-                                        },
-                                        icon: Icon(signUpController.obscureTextPassword
-                                            ? Icons.visibility_off
-                                            : Icons.visibility),
                                       ),
-
-                                    ),
-
-                                    SizedBox(height: 20),
-                                    TextButton(
-                                      onPressed: () {
-                                        signUpController.checkFullName(fullName: fullName.text);
-                                        signUpController.checkEmailCorrect(email: email.text);
-                                        signUpController.checkBirthDate(birthDate: birthdate.text);
-                                        signUpController.checkPhoneNumber(phoneNumber: phoneNumber.text);
-                                        signUpController.checkPassword(password: password.text);
-                                      },
-                                      child: Container(
-                                        width:
-                                        MediaQuery.of(context).size.width *
-                                            0.9,
-                                        height: 50,
-                                        decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                            255,
-                                            37,
-                                            174,
-                                            75,
-                                          ),
-                                          borderRadius: BorderRadius.circular(
-                                            20,
-                                          ),
-                                        ),
-                                        child: Center(
-                                          child: TextWidget(
-                                            text: AppLocalizations.of(context)!.register,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                            fontFamily: 'Inter',
-                                            letterSpacing: -0.01,
-                                            fontColor: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                );
-                              }),
-                              // Form
-
+                                    ],
+                                  );
+                                },
+                              ),
                             ],
                           ),
                         ),
