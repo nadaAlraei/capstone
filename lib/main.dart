@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [
-        Locale('en'), // English
+        //Locale('en'), // English
         Locale('ar'), // Arabic
       ],
       theme: ThemeData(

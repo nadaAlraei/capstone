@@ -40,7 +40,7 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                 // Form Container
                 Container(
                   width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.55,
+                  height: MediaQuery.of(context).size.height * 0.6,
                   margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.01,
                     left: MediaQuery.of(context).size.width * 0.07,
