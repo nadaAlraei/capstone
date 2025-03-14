@@ -67,45 +67,36 @@ class _forgetPasswordState extends State<ForgetPassword> {
                               children: [
                                 Icon(Icons.arrow_back),
                                 SizedBox(width: 5,),
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width * (50 / 430),
-                                  height: MediaQuery.of(context).size.height * (24 / 932),
-                                  child: TextWidget(
-                                      text: AppLocalizations.of(context)!.back_to,
-                                      fontWeight:  FontWeight.w600,
-                                      fontSize: MediaQuery.of(context).size.width * (12 / 430),
-                                      fontFamily: 'Inter',
-                                      letterSpacing: -0.2,
-                                      fontColor: Colors.grey    ),
-                                ),
+                                TextWidget(
+                                    text: AppLocalizations.of(context)!.back_to,
+                                    fontWeight:  FontWeight.w600,
+                                    fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: -0.2,
+                                    fontColor: Colors.grey    ),
+                                SizedBox(width: 5,),
 
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width * (70 / 430),
-                                  height: MediaQuery.of(context).size.height * (24 / 932),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
-                                    },
-                                    child:  TextWidget(
-                                        text: AppLocalizations.of(context)!.login,
-                                        fontWeight:  FontWeight.w600,
-                                        fontSize: MediaQuery.of(context).size.width * (12 / 430),
-                                        fontFamily: 'Inter',
-                                        letterSpacing: -0.2,
-                                        fontColor: Colors.green    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width * (50 / 430),
-                                  height: MediaQuery.of(context).size.height * (24 / 932),
-                                  child: TextWidget(
-                                      text: AppLocalizations.of(context)!.page,
+
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
+                                  },
+                                  child:  TextWidget(
+                                      text: AppLocalizations.of(context)!.login,
                                       fontWeight:  FontWeight.w600,
                                       fontSize: MediaQuery.of(context).size.width * (12 / 430),
                                       fontFamily: 'Inter',
                                       letterSpacing: -0.2,
-                                      fontColor: Colors.grey    ),
+                                      fontColor: Colors.green    ),
                                 ),
+                                SizedBox(width: 5,),
+                                TextWidget(
+                                    text: AppLocalizations.of(context)!.page,
+                                    fontWeight:  FontWeight.w600,
+                                    fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                                    fontFamily: 'Inter',
+                                    letterSpacing: -0.2,
+                                    fontColor: Colors.grey    ),
 
                               ],
                             )
@@ -113,17 +104,13 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * (200 / 430),
-                      height: MediaQuery.of(context).size.height * (42 / 932),
-                      child: TextWidget(
-                          text: AppLocalizations.of(context)!.rest_password,
-                          fontWeight:  FontWeight.w600,
-                          fontSize: MediaQuery.of(context).size.width * (32 / 430),
-                          fontFamily: 'Inter',
-                          letterSpacing: -0.2,
-                          fontColor: Colors.black    ),
-                    ),
+                    TextWidget(
+                        text: AppLocalizations.of(context)!.rest_password,
+                        fontWeight:  FontWeight.w600,
+                        fontSize: MediaQuery.of(context).size.width * (32 / 430),
+                        fontFamily: 'Inter',
+                        letterSpacing: -0.2,
+                        fontColor: Colors.black    ),
                     SizedBox(height: 10,),
                     TextWidget(
                         text: AppLocalizations.of(context)!.enter_your_email,
@@ -139,8 +126,6 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         fontFamily: 'Inter',
                         letterSpacing: -0.1,
                         fontColor: Colors.grey    ),
-
-
                     TextWidget(
                         text: AppLocalizations.of(context)!.your_account,
                         fontWeight:  FontWeight.w500,
@@ -149,34 +134,33 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         letterSpacing: -0.1,
                         fontColor: Colors.grey    ),
 
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, top: 20),
-                      child: Align(
-                        alignment: Alignment(0.78, 0.2),
-                        child: TextWidget(
-                            text: AppLocalizations.of(context)!.email,
-                            fontWeight:  FontWeight.w500,
-                            fontSize: MediaQuery.of(context).size.width * (12 / 430),
-                            fontFamily: 'Inter',
-                            letterSpacing: -0.1,
-                            fontColor: Colors.grey    ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 24,right: 24,bottom: 10),
-                      child: Consumer<LoginController>(
-                        builder: (context, loginController, child) {
-                          return InputWidget(
-                            textEditingController: emailTextEditingController,
-                            obscureText: false,
+                    Consumer<LoginController>(builder: (context, loginController, child) {
+                      return Column(
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(width: 10,),
+                              TextWidget(
+                                  text: AppLocalizations.of(context)!.email,
+                                  fontWeight:  FontWeight.w500,
+                                  fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                                  fontFamily: 'Inter',
+                                  letterSpacing: -0.1,
+                                  fontColor: Colors.grey    ),
+                            ],
+                          ),
+                      InputWidget(
+                      textEditingController: emailTextEditingController,
+                      obscureText: false,
 
-                            errorText: loginController.showErrorEmail
-                                ? AppLocalizations.of(context)!.enter_email
-                                : null,
-                          );
-                        },
+                      errorText: loginController.showErrorEmail
+                      ? AppLocalizations.of(context)!.enter_email
+                          : null,
                       ),
-                    ),
+                        ],
+                      );
+                    },),
+
                     Padding(
                       padding: const EdgeInsets.only(top: 10,right: 24,left: 24,bottom: 10),
                       child: SizedBox(

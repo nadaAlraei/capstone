@@ -53,8 +53,8 @@ class _LoginScreenState extends State<LoginScreen> {
             right: 30,
             child: SingleChildScrollView(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.79,
-                height: MediaQuery.of(context).size.height * 0.75,
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.99,
                 padding: const EdgeInsets.only(bottom: 20),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -76,17 +76,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                         SizedBox(
-                           width: MediaQuery.of(context).size.width * (110 / 430),
-                           height: MediaQuery.of(context).size.height * (18 / 932),
-                           child: TextWidget(
-                               text: AppLocalizations.of(context)!.have_account,
-                               fontWeight:  FontWeight.w700,
-                               fontSize: MediaQuery.of(context).size.width * (12 / 430),
-                               fontFamily: 'Inter',
-                               letterSpacing: -0.2,
-                               fontColor: Colors.grey    ),
-                         ),
+                         TextWidget(
+                             text: AppLocalizations.of(context)!.have_account,
+                             fontWeight:  FontWeight.w700,
+                             fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                             fontFamily: 'Inter',
+                             letterSpacing: -0.2,
+                             fontColor: Colors.grey    ),
+                        SizedBox(width: 5,),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -96,154 +93,124 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             );
                           },
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width * (50/430),
-                            height: MediaQuery.of(context).size.height * (17 / 932),
-                            child: TextWidget(
-                                text: AppLocalizations.of(context)!.sign_up,
-                                fontWeight:  FontWeight.w600,
-                                fontSize: MediaQuery.of(context).size.width * (12 / 430),
-                                fontFamily: 'Inter',
-                                letterSpacing: -0.2,
-                                fontColor: Colors.green    ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Align(
-                      alignment: Alignment(0.78, 0.2),
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * (80/430),
-                        height: MediaQuery.of(context).size.height * (21 / 932),
-                        child: TextWidget(
-                            text: AppLocalizations.of(context)!.email,
-                            fontWeight:  FontWeight.w600,
-                            fontSize: MediaQuery.of(context).size.width * (12 / 430),
-                            fontFamily: 'Inter',
-                            letterSpacing: -0.2,
-                            fontColor: Colors.grey    ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * (320/ 430),
-                      height: MediaQuery.of(context).size.height * (77/932),
-                      child: Consumer<LoginController>(
-                        builder: (context, loginController, child) {
-                          return InputWidget(
-                            textEditingController: emailTextEditingController,
-                            obscureText: false,
-                            errorText:
-                                loginController.showErrorEmail
-                                    ? AppLocalizations.of(context)!.enter_email
-                                    : null,
-                          );
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 15),
-                    Align(
-                      alignment: Alignment(0.79, 0.2),
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * (67 / 430),
-                        height: MediaQuery.of(context).size.height * (20 / 932),
-
-                        child: TextWidget(
-                            text: AppLocalizations.of(context)!.password,
-                            fontWeight:  FontWeight.w600,
-                            fontSize: MediaQuery.of(context).size.width * (12 / 430),
-                            fontFamily: 'Inter',
-                            letterSpacing: -0.2,
-                            fontColor: Colors.grey    ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * (320 / 430),
-                      child: Consumer<LoginController>(
-                        builder: (context, loginController, child) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              InputWidget(
-                                textEditingController: passwordTextEditingController,
-                                obscureText: loginController.obscureTextPassword,
-                                errorText: loginController.showErrorPassword
-                                    ? AppLocalizations.of(context)!.enter_password
-                                    : null,
-                                suffixIcon: IconButton(
-                                  onPressed: () {
-                                    loginController.changeObscureTextPassword();
-                                  },
-                                  icon: Icon(
-                                    loginController.obscureTextPassword
-                                        ? Icons.visibility
-                                        : Icons.visibility_off,
-                                  ),
-                                ),
-                              ),
-                              if (loginController.showErrorPassword)
-                                const SizedBox(height: 10),
-                            ],
-                          );
-                        },
-                      ),
-                    ),
-
-                    SizedBox(height: 20),
-                    Align(
-                      alignment: Alignment(0.1, 0.2),
-                      child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width* (32/ 430),
-                          height: MediaQuery.of(context).size.height* (19/ 932),
-                          child: Checkbox(
-                            value: _isRememberMeChecked,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                _isRememberMeChecked = value ?? false;
-                              });
-                            },),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width* (140/ 430),
-                          height: MediaQuery.of(context).size.height* (18/ 932),
                           child: TextWidget(
-                              text: AppLocalizations.of(context)!.remember_me,
+                              text: AppLocalizations.of(context)!.sign_up,
                               fontWeight:  FontWeight.w600,
                               fontSize: MediaQuery.of(context).size.width * (12 / 430),
                               fontFamily: 'Inter',
                               letterSpacing: -0.2,
-                              fontColor: Colors.grey
-                          ),
-                        ),
-                        const SizedBox(width: 50),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width* (80/ 430),
-                          height: MediaQuery.of(context).size.height* (17/ 932),                          child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ForgetPassword(),
-                              ),
-                            );
-                          },
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: TextWidget(
-                                text: AppLocalizations.of(context)!.forget_password,
-                                fontWeight:  FontWeight.w600,
-                                fontSize: MediaQuery.of(context).size.width * (12 / 430),
-                                fontFamily: 'Inter',
-                                letterSpacing: -0.2,
-                                fontColor: Colors.green    ),
-                          ),
-                        ),
+                              fontColor: Colors.green    ),
                         ),
                       ],
-                    ),),
+                    ),
+                    const SizedBox(height: 20),
+                    Consumer<LoginController>(builder: (context,loginController, child) {
+                      return Column(
+                        crossAxisAlignment:
+                        CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(width: 10),
+                              TextWidget(
+                                  text: AppLocalizations.of(context)!.email,
+                                  fontWeight:  FontWeight.w600,
+                                  fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                                  fontFamily: 'Inter',
+                                  letterSpacing: -0.2,
+                                  fontColor: Colors.grey    ),
+                            ],
+                          ),
+                            InputWidget(
+                            textEditingController: emailTextEditingController,
+                              obscureText: false,
+                              errorText:
+                              loginController.showErrorEmail
+                                  ? AppLocalizations.of(context)!.enter_email
+                                  : null,
+                            ),
+
+                          Row(
+                           children: [
+                             SizedBox(width: 10),
+                             TextWidget(
+                                 text: AppLocalizations.of(context)!.password,
+                                 fontWeight:  FontWeight.w600,
+                                 fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                                 fontFamily: 'Inter',
+                                 letterSpacing: -0.2,
+                                 fontColor: Colors.grey    ),
+                           ],
+                          ),
+                          InputWidget(
+                            textEditingController: passwordTextEditingController,
+                            obscureText: loginController.obscureTextPassword,
+                            errorText: loginController.showErrorPassword
+                                ? AppLocalizations.of(context)!.enter_password
+                                : null,
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                loginController.changeObscureTextPassword();
+                              },
+                              icon: Icon(
+                                loginController.obscureTextPassword
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                            ),
+                          ),
+                          if (loginController.showErrorPassword)
+                            const SizedBox(height: 10),
+                        ],
+                      );
+                    } ,),
+                    SizedBox(height: 20),
+                    Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width* (32/ 430),
+                        height: MediaQuery.of(context).size.height* (19/ 932),
+                        child: Checkbox(
+                          value: _isRememberMeChecked,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              _isRememberMeChecked = value ?? false;
+                            });
+                          },),
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width* (140/ 430),
+                        height: MediaQuery.of(context).size.height* (18/ 932),
+                        child: TextWidget(
+                            text: AppLocalizations.of(context)!.remember_me,
+                            fontWeight:  FontWeight.w600,
+                            fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                            fontFamily: 'Inter',
+                            letterSpacing: -0.2,
+                            fontColor: Colors.grey
+                        ),
+                      ),
+                      const SizedBox(width: 40),
+                      GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ForgetPassword(),
+                          ),
+                        );
+                      },
+                      child: TextWidget(
+                          text: AppLocalizations.of(context)!.forget_password,
+                          fontWeight:  FontWeight.w600,
+                          fontSize: MediaQuery.of(context).size.width * (12 / 430),
+                          fontFamily: 'Inter',
+                          letterSpacing: -0.2,
+                          fontColor: Colors.green    ),
+                                            ),
+                    ],
+                                        ),
 
                     const SizedBox(height: 20),
                     SizedBox(

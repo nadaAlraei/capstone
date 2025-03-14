@@ -17,30 +17,23 @@ class OTPAlertWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(height: 30),
-          SizedBox(
-              width: MediaQuery.of(context).size.width * (153/430),
-              height: MediaQuery.of(context).size.height *(153/932),
-              child: Image.asset("assets/images/otp_logo.png")),
+          Image.asset("assets/images/otp_logo.png"),
           SizedBox(height: 30),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * (295/430),
-            height: MediaQuery.of(context).size.height *(43/932),
-            child: TextWidget(
-              textAlign: TextAlign.center,
-              text: AppLocalizations.of(context)!.otp_message,
-              fontWeight: FontWeight.w500,
-              fontSize: 12,
-              fontFamily: 'Inter',
-              letterSpacing: -0.02,
-              fontColor: Colors.grey,
-            ),
+          TextWidget(
+            textAlign: TextAlign.center,
+            text: AppLocalizations.of(context)!.otp_message,
+            fontWeight: FontWeight.w500,
+            fontSize: 12,
+            fontFamily: 'Inter',
+            letterSpacing: -0.02,
+            fontColor: Colors.grey,
           ),
           SizedBox(height: 20),
 
           // OTP Input Field
           SizedBox(
-            width: MediaQuery.of(context).size.width * (250/430),
-            height: MediaQuery.of(context).size.height *(50/932),
+            width: MediaQuery.of(context).size.width * (260/430),
+            height: MediaQuery.of(context).size.height *(80/932),
             child: PinCodeTextField(
               appContext: context,
               length: 4,
