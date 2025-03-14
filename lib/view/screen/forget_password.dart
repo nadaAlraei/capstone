@@ -167,8 +167,22 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            showDialog(context: context, builder: (context) => OTPAlertWidget(),);
-                          },
+                            if(emailTextEditingController.text.isNotEmpty) {
+                              showDialog(context: context,
+                                builder: (context) => OTPAlertWidget(),);
+                            }else{
+                              ScaffoldMessenger.of(
+                                context,
+                              ).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Email field is empty',
+                                  ),
+                                  duration: Duration(seconds: 3),
+                                ),
+                              );
+                            }
+                            },
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(vertical: 12),
                             backgroundColor: Colors.green,
