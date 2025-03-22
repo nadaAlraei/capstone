@@ -66,7 +66,7 @@ class OnboardringBaseWidget extends StatelessWidget {
                       children: [
                         // Title
                         Text(
-                          onboardringTitle,
+                          'onboardringTitle',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: titleFontWeight,
