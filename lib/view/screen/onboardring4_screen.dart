@@ -2,6 +2,7 @@ import 'package:capstone/view/screen/login_screen.dart';
 import 'package:capstone/view/widget/onboardring_base_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Onboardring4Screen extends StatelessWidget {
   const Onboardring4Screen({super.key});
@@ -30,14 +31,17 @@ class Onboardring4Screen extends StatelessWidget {
           ),
           child: TextButton(
             onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (builder) => LoginScreen()),
-              );
+              SharedPreferences.getInstance().then((prefs) {
+                prefs.setBool('hasSeenOnboarding', true);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              });
             },
             child: Text(
               AppLocalizations.of(context)!.cancel,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
                 fontFamily: 'Inter',
@@ -50,5 +54,3 @@ class Onboardring4Screen extends StatelessWidget {
     );
   }
 }
-
-

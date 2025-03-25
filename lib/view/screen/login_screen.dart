@@ -226,6 +226,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           loginController.checkEmail(email: emailTextEditingController.text);
                           loginController.checkPassword(password: passwordTextEditingController.text);
 
+                          // if (!loginController.showErrorEmail && !loginController.showErrorPassword) {
+                          //   Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(builder: (context) => ),
+                          //   );
+                          // }
                         },
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 12),
