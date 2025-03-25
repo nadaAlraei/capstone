@@ -1,4 +1,3 @@
-import 'package:capstone/view/screen/confirm_rest_password_screen.dart';
 import 'package:capstone/view/screen/login_screen.dart';
 import 'package:capstone/view/widget/otp_alert_widget.dart';
 import 'package:flutter/material.dart';

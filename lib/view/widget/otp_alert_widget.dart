@@ -4,14 +4,36 @@ import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
-class OTPAlertWidget extends StatelessWidget {
+class OTPAlertWidget extends StatefulWidget {
   const OTPAlertWidget({super.key});
+
+  @override
+  State<OTPAlertWidget> createState() => _OTPAlertWidgetState();
+}
+
+class _OTPAlertWidgetState extends State<OTPAlertWidget> {
+  TextEditingController otpController = TextEditingController();
+  String? otpError;
+
+  void verifyOTP(BuildContext context) {
+    if (otpController.text.length < 4) {
+      setState(() {
+        otpError = "Invalid OTP";
+      });
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ConfirmRestPasswordScreen(),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor:Colors.white,
+      backgroundColor: Colors.white,
       content: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -32,9 +54,10 @@ class OTPAlertWidget extends StatelessWidget {
 
           // OTP Input Field
           SizedBox(
-            width: MediaQuery.of(context).size.width * (260/430),
-            height: MediaQuery.of(context).size.height *(80/932),
+            width: MediaQuery.of(context).size.width * (260 / 430),
+            height: MediaQuery.of(context).size.height * (80 / 932),
             child: PinCodeTextField(
+              controller: otpController,
               appContext: context,
               length: 4,
               obscureText: false,
@@ -48,22 +71,29 @@ class OTPAlertWidget extends StatelessWidget {
                 activeFillColor: Colors.white,
                 inactiveFillColor: Colors.white,
                 selectedFillColor: Colors.white,
-                activeColor: Colors.white
+                activeColor: Colors.white,
               ),
               enableActiveFill: true,
+              onChanged: (value) {
+                setState(() {
+                  otpError = null;
+                });
+              },
             ),
           ),
 
+          if (otpError != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: Text(
+                otpError!,
+                style: TextStyle(color: Colors.red, fontSize: 12),
+              ),
+            ),
+
           SizedBox(height: 30),
           TextButton(
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ConfirmRestPasswordScreen(),
-                ),
-              );
-            },
+            onPressed: () => verifyOTP(context),
             child: Container(
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width * 0.9,
