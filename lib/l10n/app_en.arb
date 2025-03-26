@@ -27,7 +27,7 @@
   "phone_number" : "Phone Number",
   "enter_phone" : "Enter your phone please",
   "set_password" : "Set Password",
-  "enter_password" : "Password Should be at least 8 characters\nAt least (one upper case, one lower case,\none number, one special character (ex: @,#) )",
+  "enter_password" : "Password Should be at least 6 characters\nAt least (one upper case, one lower case,\none number, one special character (ex: @,#) )",
   "register" : "Register",
   "rest_password" : "Reset Password",
   "want_current_password" : "Want to try with my current password?",

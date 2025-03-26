@@ -19,7 +19,7 @@ class SignUpController extends ChangeNotifier {
 
   checkPassword({required String password}) {
     String pattern =
-        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$';
     RegExp regExp = new RegExp(pattern);
     passwordNotCorrect = !regExp.hasMatch(password);
     notifyListeners();
@@ -36,7 +36,7 @@ class SignUpController extends ChangeNotifier {
   }
 
   checkPhoneNumber({required String phoneNumber}) {
-    RegExp regex = RegExp(r'^\(\+\d{3}\) \d{3} \d{4}$');
+    RegExp regex = RegExp(r'^\+\d{3} \d{3}-\d{4}$');
     phoneNumberNotCorrect = !regex.hasMatch(phoneNumber);
     notifyListeners();
   }

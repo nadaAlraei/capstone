@@ -1,3 +1,4 @@
+import 'package:capstone/view/screen/main_page_screen.dart';
 import 'package:capstone/view/screen/signup_screen.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -225,7 +226,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                           loginController.checkEmail(email: emailTextEditingController.text);
                           loginController.checkPassword(password: passwordTextEditingController.text);
-
+//Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MainPageScreen()));
                         },
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 12),

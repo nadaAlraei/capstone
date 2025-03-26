@@ -436,50 +436,6 @@ class SignupScreen extends StatelessWidget {
                                       SizedBox(height: 20),
                                       TextButton(
                                         onPressed: () {
-                                          if (signUpController
-                                                      .fullNameIsEmpty ==
-                                                  true &&
-                                              signUpController
-                                                      .passwordNotCorrect ==
-                                                  true &&
-                                              signUpController
-                                                      .emailNotCorrect ==
-                                                  true &&
-                                              signUpController
-                                                      .birthDateIsEmpty ==
-                                                  true &&
-                                              signUpController
-                                                      .phoneNumberNotCorrect ==
-                                                  true) {
-                                            Navigator.pushReplacement(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder:
-                                                    (context) => LoginScreen(),
-                                              ),
-                                            );
-                                            ScaffoldMessenger.of(
-                                              context,
-                                            ).showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Account Created',
-                                                ),
-                                                duration: Duration(seconds: 3),
-                                              ),
-                                            );
-                                          } else {
-                                            ScaffoldMessenger.of(
-                                              context,
-                                            ).showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Account Not Created',
-                                                ),
-                                                duration: Duration(seconds: 3),
-                                              ),
-                                            );
-                                          }
                                           signUpController.checkFullName(
                                             fullName: fullName.text,
                                           );
@@ -495,6 +451,53 @@ class SignupScreen extends StatelessWidget {
                                           signUpController.checkPassword(
                                             password: password.text,
                                           );
+                                          if (signUpController
+                                                      .fullNameIsEmpty ==
+                                                  true ||
+                                              signUpController
+                                                      .passwordNotCorrect ==
+                                                  true ||
+                                              signUpController
+                                                      .emailNotCorrect ==
+                                                  true ||
+                                              signUpController
+                                                      .birthDateIsEmpty ==
+                                                  true ||
+                                              signUpController
+                                                      .phoneNumberNotCorrect ==
+                                                  true) {
+                                            ScaffoldMessenger.of(
+                                              context,
+                                            ).showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Account Not Created',
+                                                ),
+                                                duration: Duration(seconds: 3),
+                                              ),
+                                            );
+
+                                          } else {Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder:
+                                                  (context) => LoginScreen(),
+                                            ),
+                                          );
+                                          ScaffoldMessenger.of(
+                                            context,
+                                          ).showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Account Created',
+                                              ),
+                                              duration: Duration(seconds: 3),
+                                            ),
+                                          );
+
+
+                                          }
+
                                         },
                                         child: Container(
                                           width:
