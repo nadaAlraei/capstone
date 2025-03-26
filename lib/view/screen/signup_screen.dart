@@ -436,21 +436,47 @@ class SignupScreen extends StatelessWidget {
                                       SizedBox(height: 20),
                                       TextButton(
                                         onPressed: () {
+                                          signUpController.checkFullName(
+                                            fullName: fullName.text,
+                                          );
+                                          signUpController.checkEmailCorrect(
+                                            email: email.text,
+                                          );
+                                          signUpController.checkBirthDate(
+                                            birthdate: birthdate.text,
+                                          );
+                                          signUpController.checkPhoneNumber(
+                                            phoneNumber: phoneNumber.text,
+                                          );
+                                          signUpController.checkPassword(
+                                            password: password.text,
+                                          );
                                           if (signUpController
                                                       .fullNameIsEmpty ==
-                                                  true &&
+                                                  true ||
                                               signUpController
                                                       .passwordNotCorrect ==
-                                                  true &&
+                                                  true ||
                                               signUpController
                                                       .emailNotCorrect ==
-                                                  true &&
+                                                  true ||
                                               signUpController
                                                       .birthDateIsEmpty ==
-                                                  true &&
+                                                  true ||
                                               signUpController
                                                       .phoneNumberNotCorrect ==
                                                   true) {
+                                            ScaffoldMessenger.of(
+                                              context,
+                                            ).showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Account Not Created',
+                                                ),
+                                                duration: Duration(seconds: 3),
+                                              ),
+                                            );
+                                          } else {
                                             Navigator.pushReplacement(
                                               context,
                                               MaterialPageRoute(
@@ -468,33 +494,9 @@ class SignupScreen extends StatelessWidget {
                                                 duration: Duration(seconds: 3),
                                               ),
                                             );
-                                          } else {
-                                            ScaffoldMessenger.of(
-                                              context,
-                                            ).showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Account Not Created',
-                                                ),
-                                                duration: Duration(seconds: 3),
-                                              ),
-                                            );
+
                                           }
-                                          signUpController.checkFullName(
-                                            fullName: fullName.text,
-                                          );
-                                          signUpController.checkEmailCorrect(
-                                            email: email.text,
-                                          );
-                                          signUpController.checkBirthDate(
-                                            birthdate: birthdate.text,
-                                          );
-                                          signUpController.checkPhoneNumber(
-                                            phoneNumber: phoneNumber.text,
-                                          );
-                                          signUpController.checkPassword(
-                                            password: password.text,
-                                          );
+
                                         },
                                         child: Container(
                                           width:

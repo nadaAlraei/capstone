@@ -36,7 +36,7 @@ class SignUpController extends ChangeNotifier {
   }
 
   checkPhoneNumber({required String phoneNumber}) {
-    RegExp regex = RegExp(r'^\(\+\d{3}\) \d{3} \d{4}$');
+    RegExp regex = RegExp(r'^\+\d{3} \d{3}-\d{4}$');
     phoneNumberNotCorrect = !regex.hasMatch(phoneNumber);
     notifyListeners();
   }
