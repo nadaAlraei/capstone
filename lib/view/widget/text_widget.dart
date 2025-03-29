@@ -6,7 +6,7 @@ class TextWidget extends StatelessWidget {
   FontWeight fontWeight;
   String fontFamily;
   double letterSpacing;
-  Color fontColor;
+  Color? fontColor;
   TextAlign? textAlign;
 
   TextWidget({
@@ -16,7 +16,7 @@ class TextWidget extends StatelessWidget {
     required this.fontSize,
     required this.fontFamily,
     required this.letterSpacing,
-    required this.fontColor,
+    this.fontColor,
     this.textAlign,
   });
 
