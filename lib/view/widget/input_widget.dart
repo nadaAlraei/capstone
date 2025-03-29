@@ -33,6 +33,13 @@ class InputWidget extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.83,
 
         child: TextField(
+          style: TextStyle(
+            color: Color.fromARGB(180,135, 135, 135),
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            fontFamily: 'Inter',
+          ),
+
           obscureText: obscureText,
           controller: textEditingController,
           keyboardType: keyboardType,
@@ -42,9 +49,9 @@ class InputWidget extends StatelessWidget {
             suffixIcon: suffixIcon,
             hintText: hintText,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide(
-                color: Color.fromARGB(82, 237, 241, 243),
+                color: Color.fromARGB(180,135, 135, 135),
                 width: 1,
               ),
             ),
