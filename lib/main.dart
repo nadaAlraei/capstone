@@ -1,6 +1,8 @@
+import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
 import 'package:capstone/controller/location_permission_controller.dart';
 import 'package:capstone/controller/reset_password_controller.dart';
 import 'package:capstone/controller/signup_controller.dart';
+import 'package:capstone/view/screen/main_screen.dart';
 import 'package:capstone/view/screen/onboardring1_screen.dart';
 import 'package:capstone/view/screen/splash_screen.dart';
 import 'package:capstone/view/screen/login_screen.dart';
@@ -47,6 +49,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (context) => LocationPermissionController()),
         ChangeNotifierProvider(create: (context) => SignUpController()),
         ChangeNotifierProvider(create: (context) => ResetPasswordController()),
+        ChangeNotifierProvider(create: (context) => BottomNavigationBarController()),
       ],
       child: MaterialApp(
         title: '',
@@ -64,11 +67,8 @@ class _MyAppState extends State<MyApp> {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         debugShowCheckedModeBanner: false,
-        home: hasSeenOnboarding == null
-            ? SplashScreen()
-            : hasSeenOnboarding!
-            ? LoginScreen()
-            : Onboardring1Screen(),
+        home:
+            MainScreen(),
       ),
     );
   }
