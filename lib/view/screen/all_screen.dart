@@ -60,7 +60,7 @@ class AllScreen extends StatelessWidget {
   List<RecommendedItemModel> recommendedItemModel = [
     RecommendedItemModel(image: 'assets/images/recommended1.png', price: 8.0),
     RecommendedItemModel(image: 'assets/images/recommended2.png', price: 8.0),
-    RecommendedItemModel(image: 'assets/images/recommended3.png', price: 8.0),
+    RecommendedItemModel(image: 'assets/images/recommended3.png', price: 20.0),
     RecommendedItemModel(image: 'assets/images/recommended4.png', price: 8.0),
   ];
 
