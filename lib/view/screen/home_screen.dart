@@ -1,6 +1,7 @@
 import 'package:capstone/view/screen/all_screen.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,12 +13,10 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(40),
-
+          preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.05),
           child: AppBar(
             backgroundColor: Colors.white,
             bottom: TabBar(
-              //padding: EdgeInsets.zero,
               isScrollable: true,
               unselectedLabelColor: Colors.black,
               labelColor: Colors.white,
@@ -28,11 +27,12 @@ class HomeScreen extends StatelessWidget {
               ),
               indicatorWeight: 0,
               dividerColor: Colors.white,
-              labelPadding: EdgeInsets.only(right: 10),
+              labelPadding: EdgeInsets.only(right: 10,left: 5),
               tabs: [
+                // All
                 Container(
-                  width: 49,
-                  height: 38,
+                  width: MediaQuery.of(context).size.width * 0.12,
+                  height: MediaQuery.of(context).size.height * 0.046,
                   padding: EdgeInsets.zero,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Center(
                     child: TextWidget(
-                      text: 'All',
+                      text: AppLocalizations.of(context)!.all,
                       fontWeight: FontWeight.w500,
                       fontSize: 18,
                       fontFamily: 'Poppins-Regular',
@@ -51,9 +51,10 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                // Burger
                 Container(
-                  width: 126,
-                  height: 38,
+                  width: MediaQuery.of(context).size.width * 0.32,
+                  height: MediaQuery.of(context).size.height * 0.046,
                   padding: EdgeInsets.zero,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -67,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                       Image.asset('assets/images/burgerIcon.png'),
                       SizedBox(width: 10),
                       TextWidget(
-                        text: 'Burger',
+                        text: AppLocalizations.of(context)!.burger,
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         fontFamily: 'Poppins-Regular',
@@ -76,9 +77,10 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                // Pizza
                 Container(
-                  width: 111,
-                  height: 38,
+                  width: MediaQuery.of(context).size.width * 0.25,
+                  height: MediaQuery.of(context).size.height * 0.046,
                   padding: EdgeInsets.zero,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -96,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                       ),
 
                       TextWidget(
-                        text: 'Pizza',
+                        text: AppLocalizations.of(context)!.pizza,
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         fontFamily: 'Poppins-Regular',
@@ -105,9 +107,10 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                // Sandwich
                 Container(
-                  width: 154,
-                  height: 38,
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  height: MediaQuery.of(context).size.height * 0.046,
                   padding: EdgeInsets.zero,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -121,7 +124,7 @@ class HomeScreen extends StatelessWidget {
                       Image.asset('assets/images/sandwichIcon.png'),
                       SizedBox(width: 10),
                       TextWidget(
-                        text: 'Sandwich',
+                        text: AppLocalizations.of(context)!.sandwich,
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         fontFamily: 'Poppins-Regular',
