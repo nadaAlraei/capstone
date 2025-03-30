@@ -228,9 +228,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           loginController.checkPassword(password: passwordTextEditingController.text);
 
                           if (!loginController.showErrorEmail && !loginController.showErrorPassword) {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(builder: (context) => MainScreen()),
+                              MaterialPageRoute(builder: (context) => MainScreen(),),
                             );
                           }
                         },
