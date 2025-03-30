@@ -68,5 +68,13 @@
   "chicken_burger": "Chicken Burger",
   "cheese_burger" : "Cheese Burger",
   "ingredients" : "100 gr chicken + tomato + cheese  Lettuce",
-  "top_recommended" : "Top Recommended"
+  "top_recommended" : "Top Recommended",
+  "product_ing" : "Food pizza dish cuisine junk food, Fast Food, Flatbread, Ingredient",
+  "pepperoni_pizza" : "Pepperoni pizza",
+  "notification" : "Notification",
+  "unread" : "Unread",
+  "read" : "Read",
+  "promotional" : "Promotional Offer:",
+  "time" : "Last Wednesday at 9:42 AM",
+  "promotional_des" : "Craving something delicious? Get 20% off on your next order. Use code: YUMMY20."
 }

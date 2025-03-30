@@ -1,3 +1,4 @@
+import 'package:capstone/view/widget/bottom_notification_sheet_widget.dart';
 import 'package:capstone/view/widget/input_widget.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,10 @@ class AppBarWidget extends StatelessWidget {
                 color: Color.fromARGB(150, 245, 245, 245),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(Icons.notifications_none, size: 18),
+              child: IconButton(onPressed: () {
+
+
+    }, icon: Icon(Icons.notifications_none, size: 18)),
             ),
           ),
         ),

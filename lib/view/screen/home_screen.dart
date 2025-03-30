@@ -1,4 +1,7 @@
 import 'package:capstone/view/screen/all_screen.dart';
+import 'package:capstone/view/screen/burger_screen.dart';
+import 'package:capstone/view/screen/pizza_screen.dart';
+import 'package:capstone/view/screen/sandwich_screen.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -141,9 +144,9 @@ class HomeScreen extends StatelessWidget {
         body: TabBarView(
           children: [
             AllScreen(),
-            Text('Burger'),
-            Text('Pizza'),
-            Text('Sandwich'),
+            BurgerScreen(),
+            PizzaScreen(),
+            SandwichScreen(),
           ],
         ),
       ),
