@@ -1,6 +1,7 @@
 import 'package:capstone/view/widget/input_widget.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AppBarWidget extends StatelessWidget {
   AppBarWidget({super.key});
@@ -9,22 +10,25 @@ class AppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // Upper app bar
         Container(
           margin: EdgeInsets.only(left: 5, right: 5, top: 30),
           child: ListTile(
+            // location icon
             leading: Container(
-              width: 34,
-              height: 34,
+              width: MediaQuery.of(context).size.width * 0.09,
+              height: MediaQuery.of(context).size.height * 0.045,
               decoration: BoxDecoration(
                 color: Color.fromARGB(30, 79, 175, 90),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Image.asset('assets/images/ri_map-pin-5-line.png'),
             ),
+            // Current location text
             title: Row(
               children: [
                 TextWidget(
-                  text: 'Current location',
+                  text: AppLocalizations.of(context)!.current_location,
                   fontWeight: FontWeight.w400,
                   fontSize: 12,
                   fontFamily: 'Inter',
@@ -38,6 +42,7 @@ class AppBarWidget extends StatelessWidget {
                 ),
               ],
             ),
+            // location
             subtitle: TextWidget(
               text: 'Jl. Soekarno Hatta 15A Malang',
               fontWeight: FontWeight.w600,
@@ -46,9 +51,10 @@ class AppBarWidget extends StatelessWidget {
               letterSpacing: 0.0,
               fontColor: Colors.black,
             ),
+            // notification
             trailing: Container(
-              width: 34,
-              height: 34,
+              width: MediaQuery.of(context).size.width * 0.09,
+              height: MediaQuery.of(context).size.height * 0.045,
               decoration: BoxDecoration(
                 color: Color.fromARGB(150, 245, 245, 245),
                 borderRadius: BorderRadius.circular(10),
@@ -57,9 +63,11 @@ class AppBarWidget extends StatelessWidget {
             ),
           ),
         ),
+
+        // Search box
         Container(
-          width: 370,
-          height: 55,
+          width: MediaQuery.of(context).size.width * 0.95,
+          height: MediaQuery.of(context).size.height * 0.065,
 
           margin: EdgeInsets.only(bottom: 30),
           child: InputWidget(
@@ -75,7 +83,7 @@ class AppBarWidget extends StatelessWidget {
               size: 18,
               color: Color.fromARGB(180, 135, 135, 135),
             ),
-            hintText: 'Search menu, restaurant or etc',
+            hintText: AppLocalizations.of(context)!.search,
           ),
         ),
       ],

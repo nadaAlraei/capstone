@@ -1,10 +1,9 @@
 import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
 import 'package:capstone/view/screen/home_screen.dart';
 import 'package:capstone/view/widget/app_bar_widget.dart';
-import 'package:capstone/view/widget/input_widget.dart';
-import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -18,11 +17,12 @@ class MainScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.white,
             titleSpacing: 0,
-            toolbarHeight: 140,
+            toolbarHeight: MediaQuery.of(context).size.height * 0.17,
             title: AppBarWidget(),
           ),
+
+          // Cart button
           floatingActionButton: Container(
-            // width: 53,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               border: Border(
@@ -30,12 +30,10 @@ class MainScreen extends StatelessWidget {
                   color: Color.fromARGB(255, 219, 244, 209),
                   width: 5,
                 ),
-                // Only top border
                 left: BorderSide(
                   color: Color.fromARGB(255, 219, 244, 209),
                   width: 5,
                 ),
-                // Left border
                 right: BorderSide(
                   color: Color.fromARGB(255, 219, 244, 209),
                   width: 5,
@@ -45,7 +43,6 @@ class MainScreen extends StatelessWidget {
               ),
             ),
             child: FloatingActionButton(
-
               onPressed: () {
                 bottomNavigationBarController.changeWidget(
                   widget: Text('cart'),
@@ -101,7 +98,7 @@ class MainScreen extends StatelessWidget {
                                     : Color.fromARGB(255, 72, 76, 82),
                           ),
                           Text(
-                            'Home',
+                            AppLocalizations.of(context)!.home,
                             style: TextStyle(
                               color:
                                   bottomNavigationBarController.selectIndex == 0
@@ -132,7 +129,7 @@ class MainScreen extends StatelessWidget {
                                     : Color.fromARGB(255, 72, 76, 82),
                           ),
                           Text(
-                            'Favorites',
+                            AppLocalizations.of(context)!.favorite,
                             style: TextStyle(
                               color:
                                   bottomNavigationBarController.selectIndex == 1
@@ -169,7 +166,7 @@ class MainScreen extends StatelessWidget {
                                     : Color.fromARGB(255, 72, 76, 82),
                           ),
                           Text(
-                            'History',
+                            AppLocalizations.of(context)!.history,
                             style: TextStyle(
                               color:
                                   bottomNavigationBarController.selectIndex == 4
@@ -200,7 +197,7 @@ class MainScreen extends StatelessWidget {
                                     : Color.fromARGB(255, 72, 76, 82),
                           ),
                           Text(
-                            'Profile',
+                            AppLocalizations.of(context)!.profile,
                             style: TextStyle(
                               color:
                                   bottomNavigationBarController.selectIndex == 5

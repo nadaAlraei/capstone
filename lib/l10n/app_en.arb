@@ -51,5 +51,22 @@
   "send_you_link": "send you a link to get back into",
   "your_account" : "your_account",
   "otp_message": "A 4-digit code has been sent to your email.\nPlease enter it below.",
-  "verify" : "Verify"
+  "verify" : "Verify",
+  "current_location" : "Current location",
+  "search" : "Search menu, restaurant or etc",
+  "home" : "Home",
+  "favorite" : "Favorite",
+  "history" : "History",
+  "profile" : "Profile",
+  "all" : "All",
+  "burger" : "Burger",
+  "pizza" : "Pizza",
+  "sandwich" : "Sandwich",
+  "offerDes" : "Experience our\ndelicious new dish",
+  "off" : "OFF",
+  "top_rated" : "Top Rated",
+  "chicken_burger": "Chicken Burger",
+  "cheese_burger" : "Cheese Burger",
+  "ingredients" : "100 gr chicken + tomato + cheese  Lettuce",
+  "top_recommended" : "Top Recommended"
 }
