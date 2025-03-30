@@ -61,7 +61,11 @@ class AppBarWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(onPressed: () {
-
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return BottomNotificationSheetWidget();
+                    });
 
     }, icon: Icon(Icons.notifications_none, size: 18)),
             ),

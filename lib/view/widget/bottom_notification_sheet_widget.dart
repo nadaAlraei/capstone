@@ -1,6 +1,6 @@
-// import 'package:capstone/view/screen/all_notification.dart';
-// import 'package:capstone/view/screen/read_notification.dart';
-// import 'package:capstone/view/screen/unread_notification.dart';
+import 'package:capstone/view/screen/all_notification.dart';
+import 'package:capstone/view/screen/read_notification.dart';
+import 'package:capstone/view/screen/unread_notification.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -67,11 +67,9 @@ class BottomNotificationSheetWidget extends StatelessWidget {
           ),
         ),
         body: TabBarView(children: [
-
-
-          Text('All'),
-          Text('Unread'),
-          Text('read'),
+          AllNotification(),
+          UnreadNotification(),
+          ReadNotification(),
         ]),
       ),
     );
