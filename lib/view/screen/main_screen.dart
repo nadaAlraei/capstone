@@ -1,5 +1,5 @@
 import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
-//import 'package:capstone/view/screen/favorite_screen.dart';
+import 'package:capstone/view/screen/favorite_screen.dart';
 import 'package:capstone/view/screen/home_screen.dart';
 import 'package:capstone/view/widget/app_bar_widget.dart';
 import 'package:flutter/material.dart';
@@ -114,10 +114,10 @@ class MainScreen extends StatelessWidget {
                     MaterialButton(
                       minWidth: 40,
                       onPressed: () {
-                        // bottomNavigationBarController.changeWidget(
-                        //   widget: FavoriteScreen(),
-                        // );
-                        Text('Favorite');
+                        bottomNavigationBarController.changeWidget(
+                          widget: FavoriteScreen(),
+                        );
+
                         bottomNavigationBarController.changeIndex(index: 1);
                       },
                       child: Column(
