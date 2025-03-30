@@ -128,7 +128,7 @@ class MainScreen extends StatelessWidget {
                             color:
                                 bottomNavigationBarController.selectIndex == 1
                                     ? Color.fromARGB(255, 37, 174, 75)
-                                    : Color.fromARGB(255, 72, 76, 82),
+                                    : Color.fromARGB(255, 71, 76, 82),
                           ),
                           Text(
                             AppLocalizations.of(context)!.favorite,
