@@ -18,7 +18,7 @@ class MainScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.white,
             titleSpacing: 0,
-            toolbarHeight: MediaQuery.of(context).size.height * 0.17,
+            toolbarHeight: MediaQuery.of(context).size.height * 0.12,
             title: AppBarWidget(),
           ),
 

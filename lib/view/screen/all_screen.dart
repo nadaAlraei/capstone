@@ -1,6 +1,7 @@
 import 'package:capstone/model/offer_item_model.dart';
 import 'package:capstone/model/recommanded_item_model.dart';
 import 'package:capstone/model/top_rated_item_model.dart';
+import 'package:capstone/view/widget/input_widget.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -9,7 +10,7 @@ class AllScreen extends StatelessWidget {
   AllScreen({super.key});
 
 
-
+  TextEditingController search = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +56,30 @@ class AllScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Container(
+          width: MediaQuery.of(context).size.width * 0.95,
+          height: MediaQuery.of(context).size.height * 0.065,
+
+          margin: EdgeInsets.only(top: 10),
+          child: InputWidget(
+            textEditingController: search,
+            obscureText: false,
+            prefixIcon: Icon(
+              Icons.search,
+              size: 18,
+              color: Color.fromARGB(180, 135, 135, 135),
+            ),
+            suffixIcon: Icon(
+              Icons.filter_list_sharp,
+              size: 18,
+              color: Color.fromARGB(180, 135, 135, 135),
+            ),
+            hintText: AppLocalizations.of(context)!.search,
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
