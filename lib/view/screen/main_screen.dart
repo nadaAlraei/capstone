@@ -1,6 +1,7 @@
 import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
 import 'package:capstone/view/screen/favorite_screen.dart';
 import 'package:capstone/view/screen/home_screen.dart';
+import 'package:capstone/view/screen/main_cart_history_screen.dart';
 import 'package:capstone/view/widget/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,7 @@ class MainScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.white,
             titleSpacing: 0,
-            toolbarHeight: MediaQuery.of(context).size.height * 0.12,
+            toolbarHeight: MediaQuery.of(context).size.height * 0.1,
             title: AppBarWidget(),
           ),
 
@@ -46,7 +47,7 @@ class MainScreen extends StatelessWidget {
             child: FloatingActionButton(
               onPressed: () {
                 bottomNavigationBarController.changeWidget(
-                  widget: Text('cart'),
+                  widget: MainCartHistoryScreen(),
                 );
                 bottomNavigationBarController.changeIndex(index: 3);
               },
@@ -153,7 +154,7 @@ class MainScreen extends StatelessWidget {
                       minWidth: 40,
                       onPressed: () {
                         bottomNavigationBarController.changeWidget(
-                          widget: Text('history'),
+                          widget: MainCartHistoryScreen(),
                         );
                         bottomNavigationBarController.changeIndex(index: 4);
                       },
