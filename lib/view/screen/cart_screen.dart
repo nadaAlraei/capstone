@@ -1,4 +1,5 @@
 import 'package:capstone/model/product_item_model.dart';
+import 'package:capstone/view/widget/counter_widget.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -35,15 +36,17 @@ class CartScreen extends StatelessWidget {
         name: AppLocalizations.of(context)!.pepperoni_pizza,
       ),
     ];
-    if(productList.isNotEmpty){
+
+    // appear depending on list content
+    if (productList.isNotEmpty) {
       pageContent = Stack(
         children: [
           ListView.builder(
             itemCount: productList.length,
             itemBuilder: (context, index) {
               return Container(
-                width: 387,
-                height: 103,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.14,
 
                 padding: EdgeInsets.all(10),
                 margin: EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -53,16 +56,19 @@ class CartScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
+                    // Image
                     Image.asset(
                       productList[index].imageUrl,
                       width: 62,
                       height: 62,
                     ),
                     SizedBox(width: 15),
+                    // product name & description & price
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 8),
+                        // product name
                         TextWidget(
                           text: productList[index].name,
                           fontWeight: FontWeight.w600,
@@ -70,6 +76,7 @@ class CartScreen extends StatelessWidget {
                           fontFamily: 'Inter',
                           letterSpacing: 0,
                         ),
+                        // product sub title
                         TextWidget(
                           text: 'Burger Factory LTD',
                           fontWeight: FontWeight.w400,
@@ -78,7 +85,7 @@ class CartScreen extends StatelessWidget {
                           letterSpacing: 0,
                           fontColor: Color.fromARGB(155, 59, 59, 59),
                         ),
-                        //SizedBox(height: 8),
+                        // product price
                         TextWidget(
                           text: '# ${productList[index].price}',
                           fontWeight: FontWeight.w700,
@@ -90,86 +97,46 @@ class CartScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(width: 60),
-                    Row(
-                      children: [
-                        Container(
-                          width: 26,
-                          height: 26,
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 219, 244, 209),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          padding: EdgeInsets.only(top: 2),
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.maximize,
-                              size: 10,
-                              color: Color.fromARGB(255, 37, 174, 75),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 9),
-                        TextWidget(
-                          text: '1',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                          fontFamily: 'Poppins-Regular',
-                          letterSpacing: 0,
-                        ),
-                        SizedBox(width: 9),
-                        Container(
-                          width: 26,
-                          height: 26,
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 37, 174, 75),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          //padding: EdgeInsets.only(top: 2),
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.add,
-                              size: 10,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    // counter
+                    CounterWidget(),
                   ],
                 ),
               );
             },
           ),
+
+          // order card details
           Container(
-            width: 387,
-            height: 206,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.25,
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 37, 174, 75),
               borderRadius: BorderRadius.circular(20),
             ),
-            margin: EdgeInsets.only(top: 335, left: 20, right: 20),
+            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.41, left: 20, right: 20),
             child: Stack(
               children: [
+                // card background pattern
                 Image.asset(
                   'assets/images/cartPattern.png',
                   fit: BoxFit.cover,
-                  width: 387,
-                  height: 206,
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.25,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 20,right: 20,top: 15),
+                  padding: EdgeInsets.only(left: 20, right: 20, top: 15),
                   child: Column(
                     children: [
+                      // Details
                       Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          // titles
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              // sub_total
                               TextWidget(
-                                text: 'Sub-Total',
+                                text: AppLocalizations.of(context)!.sub_total,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,
                                 fontFamily: 'Inter',
@@ -177,8 +144,9 @@ class CartScreen extends StatelessWidget {
                                 fontColor: Colors.white,
                               ),
                               SizedBox(height: 5),
+                              // delivery charge
                               TextWidget(
-                                text: 'Delivery Charge',
+                                text: AppLocalizations.of(context)!.delivery_charge,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,
                                 fontFamily: 'Inter',
@@ -186,8 +154,9 @@ class CartScreen extends StatelessWidget {
                                 fontColor: Colors.white,
                               ),
                               SizedBox(height: 5),
+                              // discount
                               TextWidget(
-                                text: 'Discount',
+                                text: AppLocalizations.of(context)!.discount,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,
                                 fontFamily: 'Inter',
@@ -195,8 +164,9 @@ class CartScreen extends StatelessWidget {
                                 fontColor: Colors.white,
                               ),
                               SizedBox(height: 10),
+                              // total
                               TextWidget(
-                                text: 'Total:',
+                                text: AppLocalizations.of(context)!.total,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 18,
                                 fontFamily: 'Inter',
@@ -206,6 +176,7 @@ class CartScreen extends StatelessWidget {
                             ],
                           ),
                           SizedBox(width: 160),
+                          // amount
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -252,22 +223,22 @@ class CartScreen extends StatelessWidget {
                       TextButton(
                         onPressed: () {},
                         child: Container(
-                            width: 366,
-                            height: 57,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height * 0.06,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: TextWidget(
+                              text: AppLocalizations.of(context)!.place_my_order,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 14,
+                              fontFamily: 'Inter',
+                              letterSpacing: 0.5,
+                              fontColor: Color.fromARGB(255, 37, 174, 75),
                             ),
-                            child: Center(
-                              child: TextWidget(
-                                text: 'Place My Order',
-                                fontWeight: FontWeight.w700,
-                                fontSize: 14,
-                                fontFamily: 'Inter',
-                                letterSpacing: 0.5,
-                                fontColor: Color.fromARGB(255, 37, 174, 75),
-                              ),
-                            )
+                          ),
                         ),
                       ),
                     ],
@@ -278,21 +249,34 @@ class CartScreen extends StatelessWidget {
           ),
         ],
       );
-    }else{
-    pageContent=  Center(child:
-        Column(
+    } else {
+      pageContent = Center(
+        child: Column(
           children: [
             SizedBox(height: 50),
             Image.asset('assets/images/empty.png'),
-            TextWidget(text: 'Cart Empty', fontWeight: FontWeight.w700, fontSize: 32, fontFamily: 'Inter', letterSpacing: -0.02),
+            TextWidget(
+              text: AppLocalizations.of(context)!.empty_cart,
+              fontWeight: FontWeight.w700,
+              fontSize: 32,
+              fontFamily: 'Inter',
+              letterSpacing: -0.02,
+            ),
             SizedBox(height: 10),
-            TextWidget(text: 'You don’t have add any foods in cart at this time ', fontWeight: FontWeight.w500, fontSize: 16, fontFamily: 'Inter', letterSpacing: -0.02,fontColor: Color.fromARGB(255,108, 114, 120),),
+            TextWidget(
+              text: AppLocalizations.of(context)!.empty_product_cart,
+              fontWeight: FontWeight.w500,
+              fontSize: 16,
+              fontFamily: 'Inter',
+              letterSpacing: -0.02,
+              fontColor: Color.fromARGB(255, 108, 114, 120),
+            ),
           ],
-        ),);
+        ),
+      );
     }
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: pageContent,
-    );
+
+
+    return Scaffold(backgroundColor: Colors.white, body: pageContent);
   }
 }

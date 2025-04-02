@@ -9,6 +9,7 @@ class TextWidget extends StatelessWidget {
   Color? fontColor;
   TextAlign? textAlign;
 
+  TextDecoration? textDecoration;
   TextWidget({
     super.key,
     required this.text,
@@ -18,6 +19,7 @@ class TextWidget extends StatelessWidget {
     required this.letterSpacing,
     this.fontColor,
     this.textAlign,
+    this.textDecoration
   });
 
   @override
@@ -31,6 +33,7 @@ class TextWidget extends StatelessWidget {
         fontWeight: fontWeight,
         letterSpacing: letterSpacing,
         color:fontColor,
+        decoration: textDecoration,
 
       ),
     );

@@ -2,6 +2,7 @@ import 'package:capstone/view/screen/cart_screen.dart';
 import 'package:capstone/view/screen/history_screen.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainCartHistoryScreen extends StatelessWidget {
 
@@ -28,7 +29,7 @@ class MainCartHistoryScreen extends StatelessWidget {
             dividerColor: Colors.white,
             tabs: [
               TextWidget(
-                text: 'Cart',
+                text: AppLocalizations.of(context)!.cart,
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
                 fontFamily: 'Inter',
@@ -36,7 +37,7 @@ class MainCartHistoryScreen extends StatelessWidget {
 
               ),
               TextWidget(
-                text: 'History',
+                text: AppLocalizations.of(context)!.history,
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
                 fontFamily: 'Inter',

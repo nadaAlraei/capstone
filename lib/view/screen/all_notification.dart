@@ -9,36 +9,71 @@ class AllNotification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<NotificationModel> notification = [
-      NotificationModel(title: AppLocalizations.of(context)!.promotional, time: AppLocalizations.of(context)!.time, message: AppLocalizations.of(context)!.promotional_des),
-      NotificationModel(title: AppLocalizations.of(context)!.promotional, time: AppLocalizations.of(context)!.time, message: AppLocalizations.of(context)!.promotional_des),
-      NotificationModel(title: AppLocalizations.of(context)!.promotional, time: AppLocalizations.of(context)!.time, message: AppLocalizations.of(context)!.promotional_des)
+      NotificationModel(
+        title: AppLocalizations.of(context)!.promotional,
+        time: AppLocalizations.of(context)!.time,
+        message: AppLocalizations.of(context)!.promotional_des,
+      ),
+      NotificationModel(
+        title: AppLocalizations.of(context)!.promotional,
+        time: AppLocalizations.of(context)!.time,
+        message: AppLocalizations.of(context)!.promotional_des,
+      ),
+      NotificationModel(
+        title: AppLocalizations.of(context)!.promotional,
+        time: AppLocalizations.of(context)!.time,
+        message: AppLocalizations.of(context)!.promotional_des,
+      ),
     ];
-    return Padding(padding: EdgeInsets.all(10),
-      child:   ListView.builder(
-          itemCount: notification.length,
-          itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(color: Colors.black,width: 0.5)
-                ),
+    return Padding(
+      padding: EdgeInsets.all(10),
+      child: ListView.builder(
+        itemCount: notification.length,
+        itemBuilder: (context, index) {
+          return Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: Colors.black, width: 0.5),
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10,top: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextWidget(text: notification[index].title, fontWeight: FontWeight.w600, fontSize: 14, fontFamily: 'Inter', letterSpacing: 0),
-                    TextWidget(text: notification[index].message, fontWeight: FontWeight.w500, fontSize: 14, fontFamily: 'Inter', letterSpacing: 0),
-                    SizedBox(height: 10),
-                    TextWidget(text: notification[index].time, fontWeight: FontWeight.w600, fontSize: 14, fontFamily: 'Inter', letterSpacing: 0,fontColor: Color.fromARGB(255,165, 172, 184),),
-                    SizedBox(height: 10),
-                  ],
-                ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10, top: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Notification title
+                  TextWidget(
+                    text: notification[index].title,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                    fontFamily: 'Inter',
+                    letterSpacing: 0,
+                  ),
+                  // Notification message
+                  TextWidget(
+                    text: notification[index].message,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    fontFamily: 'Inter',
+                    letterSpacing: 0,
+                  ),
+                  SizedBox(height: 10),
+                  // Notification time
+                  TextWidget(
+                    text: notification[index].time,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                    fontFamily: 'Inter',
+                    letterSpacing: 0,
+                    fontColor: Color.fromARGB(255, 165, 172, 184),
+                  ),
+                  SizedBox(height: 10),
+                ],
               ),
-            );
-          },
-        )
+            ),
+          );
+        },
+      ),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:capstone/view/screen/pizza_screen.dart';
 import 'package:capstone/view/screen/sandwich_screen.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -36,7 +37,7 @@ class HomeScreen extends StatelessWidget {
               // All
               Tab(
                 child: Container(
-                  width: 49,
+                  width: MediaQuery.of(context).size.width * 0.13,
 
                   decoration: BoxDecoration(
                     border: Border.all(color: Color.fromARGB(255,219, 244, 209)),
@@ -44,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Center(
                     child: TextWidget(
-                      text: 'All',
+                      text: AppLocalizations.of(context)!.all,
                       fontWeight: FontWeight.w500,
                       fontSize: 18,
                       fontFamily: 'Poppins-Regular',
@@ -56,7 +57,7 @@ class HomeScreen extends StatelessWidget {
               // Burger
               Tab(
                 child: Container(
-                  width: 126,
+                  width: MediaQuery.of(context).size.width * 0.3,
                   decoration: BoxDecoration(
                     border: Border.all(color: Color.fromARGB(255,219, 244, 209)),
                     borderRadius: BorderRadius.circular(10),
@@ -69,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                         Image.asset('assets/images/burgerIcon.png'),
                         SizedBox(width: 10),
                         TextWidget(
-                          text: 'Burger',
+                          text: AppLocalizations.of(context)!.burger,
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
                           fontFamily: 'Poppins-Regular',
@@ -87,14 +88,14 @@ class HomeScreen extends StatelessWidget {
                     border: Border.all(color: Color.fromARGB(255,219, 244, 209)),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  width: 111,
+                  width: MediaQuery.of(context).size.width * 0.3,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset('assets/images/pizzaIcon.png'),
 
                       TextWidget(
-                        text: 'Pizza',
+                        text: AppLocalizations.of(context)!.pizza,
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         fontFamily: 'Poppins-Regular',
@@ -107,7 +108,7 @@ class HomeScreen extends StatelessWidget {
               // Sandwich
               Tab(
                 child: Container(
-                  width: 154,
+                  width: MediaQuery.of(context).size.width * 0.4,
                   decoration: BoxDecoration(
                     border: Border.all(color: Color.fromARGB(255,219, 244, 209)),
                     borderRadius: BorderRadius.circular(10),
@@ -120,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                         Image.asset('assets/images/sandwishIcon.png'),
                         SizedBox(width:10),
                         TextWidget(
-                          text: 'Sandwich',
+                          text: AppLocalizations.of(context)!.sandwich,
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
                           fontFamily: 'Poppins-Regular',
