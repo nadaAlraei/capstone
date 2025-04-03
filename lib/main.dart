@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         debugShowCheckedModeBanner: false,
-        home: MainScreen(),
+        home: SplashScreen(),
       ),
     );
   }
