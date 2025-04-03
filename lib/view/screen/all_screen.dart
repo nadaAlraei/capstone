@@ -8,6 +8,7 @@ import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 
 class AllScreen extends StatelessWidget {
   AllScreen({super.key});
@@ -110,9 +111,10 @@ class AllScreen extends StatelessWidget {
                           children: [
                             // offer texts
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.42,
+                              width: MediaQuery.of(context).size.width * 0.445,
                               height:
                                   MediaQuery.of(context).size.height * 0.165,
+                              margin: EdgeInsets.only(top: 1),
                               decoration: BoxDecoration(
                                 color: Color.fromARGB(255, 37, 174, 75),
                               ),
@@ -123,7 +125,7 @@ class AllScreen extends StatelessWidget {
                                   TextWidget(
                                     text: offerItem[index].description,
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 16,
+                                    fontSize: MediaQuery.of(context).size.width * 0.04,
                                     fontFamily: 'Inter',
                                     letterSpacing: 0,
                                     textAlign: TextAlign.center,
@@ -135,7 +137,7 @@ class AllScreen extends StatelessWidget {
                                     text:
                                         '${offerItem[index].offerValue} ${AppLocalizations.of(context)!.off}',
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 32,
+                                    fontSize: MediaQuery.of(context).size.width * 0.08,
                                     fontFamily: 'Inter',
                                     letterSpacing: 0,
                                     textAlign: TextAlign.center,
@@ -147,7 +149,7 @@ class AllScreen extends StatelessWidget {
 
                             // upper bracket
                             Container(
-                              margin: EdgeInsets.only(right: 20),
+                              margin: EdgeInsets.only(right: 18,top: 1.5),
                               child: Image.asset(
                                 'assets/images/offerUpCircle.png',
                               ),
@@ -155,7 +157,7 @@ class AllScreen extends StatelessWidget {
 
                             // down bracket
                             Container(
-                              margin: EdgeInsets.only(top: 113, right: 132),
+                              margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.138, right: MediaQuery.of(context).size.width * 0.355),
                               child: Image.asset(
                                 'assets/images/offerDownCircle.png',
                               ),
@@ -164,7 +166,7 @@ class AllScreen extends StatelessWidget {
                         ),
                         // product image
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.46,
+                          width: MediaQuery.of(context).size.width * 0.445,
                           height: MediaQuery.of(context).size.height * 0.165,
                           child: Image.asset(
                             offerItem[index].imageURL,
@@ -199,7 +201,7 @@ class AllScreen extends StatelessWidget {
 
             // Main container
             Container(
-              height: MediaQuery.of(context).size.height * 0.28,
+              height: MediaQuery.of(context).size.height * 0.29,
               margin: EdgeInsets.only(top: 20, left: 5, right: 5),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -264,7 +266,7 @@ class AllScreen extends StatelessWidget {
                               TextWidget(
                                 text: topRatedItem[index].itemName,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 18,
+                                fontSize: MediaQuery.of(context).size.width * 0.04,
                                 fontFamily: 'Inter',
                                 letterSpacing: -0.03,
                                 fontColor: Colors.black,
@@ -274,12 +276,12 @@ class AllScreen extends StatelessWidget {
                               TextWidget(
                                 text: topRatedItem[index].ingredients,
                                 fontWeight: FontWeight.w400,
-                                fontSize: 12,
+                                fontSize: MediaQuery.of(context).size.width * 0.025,
                                 fontFamily: 'Inter',
                                 letterSpacing: 0,
                                 fontColor: Color.fromARGB(155, 59, 59, 59),
                               ),
-                              SizedBox(height: 10),
+                              SizedBox(height: 6),
                               // price and ass button
                               Row(
                                 mainAxisAlignment:
@@ -345,56 +347,56 @@ class AllScreen extends StatelessWidget {
             // Recommended item
             Container(
               height: MediaQuery.of(context).size.height * 0.15,
-              margin: EdgeInsets.only(top: 20, left: 5, right: 5, bottom: 40),
+              margin: EdgeInsets.only(top: 20, bottom: 40),
 
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: recommendedItemModel.length,
                 itemBuilder: (context, index) {
-                  return TextButton(
-                    onPressed: () {
-                      Provider.of<BottomNavigationBarController>(
-                        context,
-                        listen: false,
-                      ).changeWidget(widget: ProductDetailsScreen());
-                      Provider.of<BottomNavigationBarController>(
-                        context,
-                        listen: false,
-                      ).changeIndex(index: -1);
-                    },
-                    child: Row(
-                      children: [
-                        Stack(
-                          children: [
-                            Image.asset(
+                  return Row(
+                    children: [
+                      Stack(
+                        children: [
+                          TextButton(
+                            onPressed: (){
+                              Provider.of<BottomNavigationBarController>(
+                                context,
+                                listen: false,
+                              ).changeWidget(widget: ProductDetailsScreen());
+                              Provider.of<BottomNavigationBarController>(
+                                context,
+                                listen: false,
+                              ).changeIndex(index: -1);
+                            },
+                            child: Image.asset(
                               recommendedItemModel[index].imageUrl,
-                              height: 108,
-                              width: 72,
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width * 0.183,
                             ),
-                            Container(
-                              width: 34,
-                              height: 18,
-                              margin: EdgeInsets.only(top: 75, left: 34),
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 37, 174, 75),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Center(
-                                child: TextWidget(
-                                  text:
-                                      '& ${recommendedItemModel[index].price.toString()}',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
-                                  fontFamily: 'Inter',
-                                  letterSpacing: 0,
-                                  fontColor: Colors.white,
-                                ),
+                          ),
+                          Container(
+                            width: 34,
+                            height: 18,
+                            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1, left: MediaQuery.of(context).size.width * 0.05,right: MediaQuery.of(context).size.width * 0.05),
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 37, 174, 75),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Center(
+                              child: TextWidget(
+                                text:
+                                    '& ${recommendedItemModel[index].price.toString()}',
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12,
+                                fontFamily: 'Inter',
+                                letterSpacing: 0,
+                                fontColor: Colors.white,
                               ),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                    ],
                   );
                 },
               ),

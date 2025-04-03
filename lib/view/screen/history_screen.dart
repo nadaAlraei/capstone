@@ -70,7 +70,7 @@ class HistoryScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(width: 60),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.09),
                     Column(
                       children: [
                         SizedBox(height: 15),
@@ -123,7 +123,7 @@ class HistoryScreen extends StatelessWidget {
           // Load more
           Center(
             child: Container(
-              margin: EdgeInsets.only(top: 250),
+              margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.4),
               child: TextButton(
                 onPressed: () {},
                 child: TextWidget(

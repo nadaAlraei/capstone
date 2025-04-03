@@ -35,74 +35,79 @@ class CartScreen extends StatelessWidget {
         description: AppLocalizations.of(context)!.product_ing,
         name: AppLocalizations.of(context)!.pepperoni_pizza,
       ),
+
     ];
 
     // appear depending on list content
     if (productList.isNotEmpty) {
       pageContent = Stack(
         children: [
-          ListView.builder(
-            itemCount: productList.length,
-            itemBuilder: (context, index) {
-              return Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.14,
+          Container(
+            height: MediaQuery.of(context).size.height * 0.45,
+padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.06),
+            child: ListView.builder(
+              itemCount: productList.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.14,
 
-                padding: EdgeInsets.all(10),
-                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Color.fromARGB(255, 219, 244, 209)),
-                ),
-                child: Row(
-                  children: [
-                    // Image
-                    Image.asset(
-                      productList[index].imageUrl,
-                      width: 62,
-                      height: 62,
-                    ),
-                    SizedBox(width: 15),
-                    // product name & description & price
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 8),
-                        // product name
-                        TextWidget(
-                          text: productList[index].name,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                          fontFamily: 'Inter',
-                          letterSpacing: 0,
-                        ),
-                        // product sub title
-                        TextWidget(
-                          text: 'Burger Factory LTD',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                          fontFamily: 'Inter',
-                          letterSpacing: 0,
-                          fontColor: Color.fromARGB(155, 59, 59, 59),
-                        ),
-                        // product price
-                        TextWidget(
-                          text: '# ${productList[index].price}',
-                          fontWeight: FontWeight.w700,
-                          fontSize: 19,
-                          fontFamily: 'Inter',
-                          letterSpacing: 0,
-                          fontColor: Color.fromARGB(255, 37, 174, 75),
-                        ),
-                      ],
-                    ),
-                    SizedBox(width: 60),
-                    // counter
-                    CounterWidget(),
-                  ],
-                ),
-              );
-            },
+                  padding: EdgeInsets.all(10),
+                  margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Color.fromARGB(255, 219, 244, 209)),
+                  ),
+                  child: Row(
+                    children: [
+                      // Image
+                      Image.asset(
+                        productList[index].imageUrl,
+                        width: 62,
+                        height: 62,
+                      ),
+                      SizedBox(width: 15),
+                      // product name & description & price
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 8),
+                          // product name
+                          TextWidget(
+                            text: productList[index].name,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                            fontFamily: 'Inter',
+                            letterSpacing: 0,
+                          ),
+                          // product sub title
+                          TextWidget(
+                            text: 'Burger Factory LTD',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            fontFamily: 'Inter',
+                            letterSpacing: 0,
+                            fontColor: Color.fromARGB(155, 59, 59, 59),
+                          ),
+                          // product price
+                          TextWidget(
+                            text: '# ${productList[index].price}',
+                            fontWeight: FontWeight.w700,
+                            fontSize: 19,
+                            fontFamily: 'Inter',
+                            letterSpacing: 0,
+                            fontColor: Color.fromARGB(255, 37, 174, 75),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.07),
+                      // counter
+                      CounterWidget(),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
 
           // order card details
@@ -113,7 +118,7 @@ class CartScreen extends StatelessWidget {
               color: Color.fromARGB(255, 37, 174, 75),
               borderRadius: BorderRadius.circular(20),
             ),
-            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.41, left: 20, right: 20),
+            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.38, left: 20, right: 20,bottom:18),
             child: Stack(
               children: [
                 // card background pattern
@@ -175,7 +180,7 @@ class CartScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(width: 160),
+                          SizedBox(width: MediaQuery.of(context).size.width * 0.33),
                           // amount
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -219,12 +224,12 @@ class CartScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 4),
                       TextButton(
                         onPressed: () {},
                         child: Container(
                           width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height * 0.06,
+                          height: MediaQuery.of(context).size.height * 0.055,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
