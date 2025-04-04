@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InputWidget extends StatelessWidget {
   TextEditingController textEditingController;
@@ -10,18 +11,20 @@ class InputWidget extends StatelessWidget {
   int? maxLines;
   TextInputType? keyboardType;
   Widget? suffixIcon;
+  List<TextInputFormatter>? inputFormatters;
 
   InputWidget({
     super.key,
     required this.textEditingController,
     required this.obscureText,
-     this.prefixIcon,
-     this.label,
+    this.prefixIcon,
+    this.label,
     this.suffixIcon,
     this.maxLines = 1,
     this.keyboardType,
     this.hintText,
     this.errorText,
+    this.inputFormatters,
   });
 
   @override
@@ -31,31 +34,23 @@ class InputWidget extends StatelessWidget {
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.09,
         width: MediaQuery.of(context).size.width * 0.83,
-
         child: TextField(
-          style: TextStyle(
-            color: Color.fromARGB(180,135, 135, 135),
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-            fontFamily: 'Inter',
-          ),
-
           obscureText: obscureText,
           controller: textEditingController,
           keyboardType: keyboardType,
           maxLines: maxLines,
+          inputFormatters: inputFormatters,
           decoration: InputDecoration(
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
             hintText: hintText,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(
-                color: Color.fromARGB(180,135, 135, 135),
+                color: Color.fromARGB(82, 237, 241, 243),
                 width: 1,
               ),
             ),
-
             errorText: errorText,
           ),
         ),

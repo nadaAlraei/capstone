@@ -1,4 +1,5 @@
 import 'package:capstone/model/product_item_model.dart';
+import 'package:capstone/view/screen/checkout_screen.dart';
 import 'package:capstone/view/widget/counter_widget.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -221,7 +222,9 @@ class CartScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => CheckoutScreen(),));
+                        },
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height * 0.06,

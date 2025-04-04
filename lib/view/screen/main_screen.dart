@@ -2,6 +2,7 @@ import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
 import 'package:capstone/view/screen/favorite_screen.dart';
 import 'package:capstone/view/screen/home_screen.dart';
 import 'package:capstone/view/screen/main_cart_history_screen.dart';
+import 'package:capstone/view/screen/profile1_screen.dart';
 import 'package:capstone/view/widget/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -185,7 +186,7 @@ class MainScreen extends StatelessWidget {
                       minWidth: 40,
                       onPressed: () {
                         bottomNavigationBarController.changeWidget(
-                          widget: Text('profile'),
+                          widget: Profile1Screen(),
                         );
                         bottomNavigationBarController.changeIndex(index: 5);
                       },

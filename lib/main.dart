@@ -2,8 +2,12 @@ import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
 import 'package:capstone/controller/location_permission_controller.dart';
 import 'package:capstone/controller/reset_password_controller.dart';
 import 'package:capstone/controller/signup_controller.dart';
+import 'package:capstone/view/screen/cart_screen.dart';
+import 'package:capstone/view/screen/checkout_screen.dart';
+import 'package:capstone/view/screen/main_cart_history_screen.dart';
 import 'package:capstone/view/screen/main_screen.dart';
 import 'package:capstone/view/screen/onboardring1_screen.dart';
+import 'package:capstone/view/screen/profile1_screen.dart';
 import 'package:capstone/view/screen/splash_screen.dart';
 import 'package:capstone/view/screen/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +72,7 @@ class _MyAppState extends State<MyApp> {
         ),
         debugShowCheckedModeBanner: false,
         home:
-        SplashScreen(),
+        Profile1Screen(),
       ),
     );
   }
