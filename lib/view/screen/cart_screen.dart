@@ -1,15 +1,18 @@
+import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
 import 'package:capstone/model/product_item_model.dart';
 import 'package:capstone/view/screen/checkout_screen.dart';
 import 'package:capstone/view/widget/counter_widget.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    BottomNavigationBarController bottomNavigationBarController = Provider.of<BottomNavigationBarController>(context,listen: false);
     Widget pageContent = Text('');
     List<ProductItemModel> productList = [
       ProductItemModel(
@@ -228,7 +231,13 @@ padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.06),
                       SizedBox(height: 4),
                       TextButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => CheckoutScreen(),));
+                          bottomNavigationBarController.changeWidget(
+                            widget: CheckoutScreen(),
+                          );
+                          bottomNavigationBarController.changeIndex(index: -1);
+
+
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => CheckoutScreen(),));
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width,

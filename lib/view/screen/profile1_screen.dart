@@ -19,11 +19,11 @@ class _Profile1Screen extends State<Profile1Screen> {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
-                appBar: AppBar(),
+
                 backgroundColor: Colors.white,
                 body: SingleChildScrollView(
                   child: Padding(
-                    padding: EdgeInsets.only(left: 22, right: 22),
+                    padding: EdgeInsets.only(left: 22, right: 22,bottom: 35),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
