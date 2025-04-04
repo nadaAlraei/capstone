@@ -116,7 +116,7 @@ samples, guidance on mobile development, and a full API reference.
 5. text_widget (Hala)
 6. input_screen (Hala)
 
-7. the base language configuration (Nada)
+7. the base language (localization) configuration (Nada)
 
 
 ## time consumed:
@@ -127,14 +127,15 @@ A. Nada
   2. Signup & Confirm reset password Screens & Congratulations Alert (7 Hour)
 
  -- Sprint 2:
-  1. appbar, bottom navigation bar, search box (2-3 Hour)
-  2. tab bar, all_screen (2-3 Hour)
-  3. rebuild previous sections => because was delete when pull,push to git hub process as a result of change branch (3 Hour)  
-  4. favorite & under categories (2 Hour)
-  5. cart & history (2 Hour) 
-  6. rebuild cart & history => because was delete when pull,push to git hub process as a result of change branch (1.5 Hour) 
-  7. filter screen, product screen, ensure of Media query measurement, add (EN, AR) language (for screens from step 3 to 7) (4 Hour)
-  8. edit (some font size, favorite & under categories from listview to gridview, edit listview in cart_screen, edit some measurement to fit figma phone size) (2.5 Hour)
+  1. Link GitHub with JIRA (1.5 Hour)
+  2. appbar, bottom navigation bar, search box (2-3 Hour)
+  3. tab bar, all_screen (2-3 Hour)
+  4. rebuild previous sections => because was delete when pull,push to git hub process as a result of change branch (3 Hour)  
+  5. favorite & under categories (2 Hour)
+  6. cart & history (2 Hour) 
+  7. rebuild cart & history => because was delete when pull,push to git hub process as a result of change branch (1.5 Hour) 
+  8. filter screen, product screen, ensure of Media query measurement, add (EN, AR) language (for screens from step 3 to 7) (4 Hour)
+  9. edit (some font size, favorite & under categories from listview to gridview, edit listview in cart_screen, edit some measurement to fit figma phone size) (2.5 Hour)
  
 
 
