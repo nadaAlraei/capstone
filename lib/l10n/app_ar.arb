@@ -117,5 +117,7 @@
   "hot" : "حار",
   "mild" : "خفيف",
   "quantity" : "الكمية",
-  "add_to_cart" : "أضف إلى السلة"
+  "add_to_cart" : "أضف إلى السلة",
+  "remove" : "إزالة",
+  "remove_form_favorite_note" : "هل أنت متأكد أنك تريد إزالته من المفضلة؟"
 }

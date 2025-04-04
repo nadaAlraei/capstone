@@ -137,7 +137,32 @@ class FavoriteScreen extends StatelessWidget {
                     color: Color.fromARGB(255, 219, 244, 209),
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: Icon(Icons.favorite, size: 13,color: Color.fromARGB(255,255, 0, 0),),
+                  child: IconButton(onPressed: (){
+                    showDialog(context: context, builder: (context)=>AlertDialog(
+
+                      content: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.12 ,
+child: Column(
+  children: [
+    TextWidget(text: AppLocalizations.of(context)!.remove_from_favorite, fontWeight: FontWeight.w500, fontSize: 12, fontFamily: 'Inter', letterSpacing: 0,fontColor: Color.fromARGB(255,108, 114, 120),textAlign: TextAlign.center,),
+    SizedBox(height: 20),
+    Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 0.05 ,
+      decoration: BoxDecoration(
+        color: Colors.green,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: TextButton(onPressed: (){
+        Navigator.pop(context);
+      }, child: TextWidget(text: AppLocalizations.of(context)!.yes, fontWeight: FontWeight.w500, fontSize: 14, fontFamily: 'Inter', letterSpacing: 0,fontColor: Colors.white,),),
+    ),
+  ],
+),
+                      ),
+                    ));
+                  }, icon: Icon(Icons.favorite, size: 13,color: Color.fromARGB(255,255, 0, 0),),),
                 ),
 
                 // order Now

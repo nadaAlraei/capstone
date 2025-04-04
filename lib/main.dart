@@ -1,4 +1,5 @@
 import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
+import 'package:capstone/controller/counter_controller.dart';
 import 'package:capstone/controller/location_permission_controller.dart';
 import 'package:capstone/controller/reset_password_controller.dart';
 import 'package:capstone/controller/signup_controller.dart';
@@ -54,6 +55,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (context) => SignUpController()),
         ChangeNotifierProvider(create: (context) => ResetPasswordController()),
         ChangeNotifierProvider(create: (context) => BottomNavigationBarController()),
+        ChangeNotifierProvider(create: (context) => CounterController()),
       ],
       child: MaterialApp(
         title: '',
@@ -72,7 +74,7 @@ class _MyAppState extends State<MyApp> {
         ),
         debugShowCheckedModeBanner: false,
         home:
-        MainScreen(),
+       SplashScreen(),
       ),
     );
   }
