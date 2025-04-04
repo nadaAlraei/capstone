@@ -13,6 +13,7 @@ class HistoryScreen extends StatelessWidget {
         ProductItemModel(price: 20.00, imageUrl: 'assets/images/cartProduct1.png', description: AppLocalizations.of(context)!.product_ing, name: AppLocalizations.of(context)!.pepperoni_pizza),
         ProductItemModel(price: 20.00, imageUrl: 'assets/images/cartProduct2.png', description:AppLocalizations.of(context)!.product_ing, name: AppLocalizations.of(context)!.pepperoni_pizza),
         ProductItemModel(price: 20.00, imageUrl: 'assets/images/cartProduct3.png', description: AppLocalizations.of(context)!.product_ing, name: AppLocalizations.of(context)!.pepperoni_pizza),
+
     ];
     if (productList.isNotEmpty) {
       pageContent = Stack(
@@ -160,6 +161,7 @@ class HistoryScreen extends StatelessWidget {
               fontFamily: 'Inter',
               letterSpacing: -0.02,
               fontColor: Color.fromARGB(255, 108, 114, 120),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

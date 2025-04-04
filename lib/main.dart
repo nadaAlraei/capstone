@@ -7,7 +7,6 @@ import 'package:capstone/view/screen/checkout_screen.dart';
 import 'package:capstone/view/screen/main_cart_history_screen.dart';
 import 'package:capstone/view/screen/main_screen.dart';
 import 'package:capstone/view/screen/onboardring1_screen.dart';
-import 'package:capstone/view/screen/order_details_screen.dart';
 import 'package:capstone/view/screen/profile1_screen.dart';
 import 'package:capstone/view/screen/splash_screen.dart';
 import 'package:capstone/view/screen/login_screen.dart';
@@ -73,7 +72,7 @@ class _MyAppState extends State<MyApp> {
         ),
         debugShowCheckedModeBanner: false,
         home:
-        OrderDetailsScreen(),
+       SplashScreen(),
       ),
     );
   }

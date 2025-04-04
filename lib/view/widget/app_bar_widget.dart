@@ -10,6 +10,7 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       margin: EdgeInsets.only(left: 5, right: 5, top: 10),
       child: ListTile(
         // location icon

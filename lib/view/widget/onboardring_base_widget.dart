@@ -68,7 +68,7 @@ class OnboardringBaseWidget extends StatelessWidget {
                         Text(
                           onboardringTitle,
                           style: TextStyle(
-                            fontSize: 30,
+                            fontSize: MediaQuery.of(context).size.width * 0.07,
                             fontWeight: titleFontWeight,
                             fontFamily: 'Inter',
                             color: Color.fromARGB(255, 69, 90, 100),
@@ -82,7 +82,7 @@ class OnboardringBaseWidget extends StatelessWidget {
                             onboardringSubTitle,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: MediaQuery.of(context).size.width * 0.04,
                               fontWeight: FontWeight.w400,
                               fontFamily: 'Inter',
                               color: Color.fromARGB(255, 69, 90, 100),
