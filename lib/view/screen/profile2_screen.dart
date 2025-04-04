@@ -19,7 +19,7 @@ class _Profile2Screen extends State<Profile2Screen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController adressController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
 
 
@@ -175,10 +175,11 @@ class _Profile2Screen extends State<Profile2Screen> {
                         width: MediaQuery.of(context).size.width * ( 365 / 430),
                         height: MediaQuery.of(context).size.height * (60 / 932),
                         child: InputWidget(
-                          textEditingController: adressController,
+                          textEditingController: addressController,
                           obscureText: true,
                         ),
                       ),
+                      SizedBox(height: 14,)
                     ],
                   ),
                 ),
@@ -226,7 +227,7 @@ class _Profile2Screen extends State<Profile2Screen> {
               ],
             ),
           ),
-        )
+        ),
 
             ],
           ),

@@ -51,6 +51,7 @@ class InputWidget extends StatelessWidget {
                 width: 1,
               ),
             ),
+
             errorText: errorText,
           ),
         ),
