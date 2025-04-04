@@ -28,6 +28,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.all(20),
+          padding: EdgeInsets.only(bottom: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -94,11 +95,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.2),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.25),
               // Quantity
               SizedBox(
-        
-                      width: MediaQuery.of(context).size.width * 0.2,
+
+                      width: MediaQuery.of(context).size.width * 0.22,
                       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
