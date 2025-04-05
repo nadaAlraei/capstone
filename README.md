@@ -136,6 +136,22 @@ A. Nada
   7. rebuild cart & history => because was delete when pull,push to git hub process as a result of change branch (1.5 Hour) 
   8. filter screen, product screen, ensure of Media query measurement, add (EN, AR) language (for screens from step 3 to 7) (4 Hour)
   9. edit (some font size, favorite & under categories from listview to gridview, edit listview in cart_screen, edit some measurement to fit figma phone size) (2.5 Hour)
+
+B. Hala 
+-- Sprint 1: 
+1. Splash Screen (2h)
+2. Sign in & Forget Password & OTP Alert (9h)
+
+-- Sprint 2: 
+1. Map Screen (3h)
+2. checkout Screen (1h)
+3. card Screen (1h)
+4. Order has been done Screen (1h)
+5. Track Order (5h)
+6. chat screen -- added a widget chat bubble (1h)
+7. Order Details -- search up for Timeline tile, added it as a widget and put it in the code(3h)
+8. Profile Screens (2h)
+9. run the application on different phones and found a size problems so i start editing it (1h)
  
 
 
