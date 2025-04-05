@@ -26,10 +26,10 @@ class _Profile2Screen extends State<Profile2Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 22, right: 22),
+          padding: EdgeInsets.only(left: 22, right: 22,bottom: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -86,6 +86,7 @@ class _Profile2Screen extends State<Profile2Screen> {
               ),
 
               Card(
+                color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(

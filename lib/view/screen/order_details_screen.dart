@@ -1,5 +1,8 @@
+import 'package:capstone/view/screen/chat_screen.dart';
 import 'package:capstone/view/widget/timeline_tile_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../controller/bottom_navigation_bar_controller.dart';
 import '../widget/text_widget.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
@@ -12,12 +15,13 @@ class OrderDetailsScreen extends StatefulWidget {
 class _OrderDetailsScreen extends State<OrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    BottomNavigationBarController bottomNavigationBarController =
+    Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 22, right: 22),
+          padding: EdgeInsets.only(left: 22, right: 22, bottom: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -194,7 +198,12 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                         width: MediaQuery.of(context).size.width * (50 / 430),
                         height: MediaQuery.of(context).size.height * (60 / 932),
                         child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              bottomNavigationBarController.changeWidget(
+                                widget: ChatScreen(),
+                              );
+                              bottomNavigationBarController.changeIndex(index: -1);
+                            },
                             icon: Image.asset('assets/images/Icon_Chat.png')
                         ),
                       ),

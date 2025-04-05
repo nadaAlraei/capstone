@@ -1,6 +1,8 @@
 import 'dart:async';
-import 'package:capstone/view/screen/onboardring1_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
+import 'package:capstone/view/screen/onboardring1_screen.dart';
+import 'package:capstone/view/screen/login_screen.dart'; // Assuming you have a login screen
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,13 +15,27 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    userTrack();
+  }
 
-    Timer(
-      Duration(seconds: 3),
-          () {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Onboardring1Screen()));
-          },
-    );
+  Future<void> userTrack() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
+
+    await Future.delayed(Duration(seconds: 3));
+
+    if (isFirstTime) {
+      await prefs.setBool('isFirstTime', false);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Onboardring1Screen()),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
+    }
   }
 
   @override
@@ -33,9 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
             'assets/images/Pattern.png',
             fit: BoxFit.cover,
             color: Colors.white,
-
           ),
-
           Center(
             child: Image.asset(
               'assets/images/logo.png',

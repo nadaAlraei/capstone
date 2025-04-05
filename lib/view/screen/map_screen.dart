@@ -2,7 +2,10 @@ import 'package:capstone/view/screen/checkout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../controller/bottom_navigation_bar_controller.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -75,15 +78,12 @@ class _MapScreenState extends State<MapScreen> {
       SnackBar(content: Text('Location saved successfully!')),
     );
 
-    // Navigate to checkout
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => CheckoutScreen()),
-    );
   }
 
   @override
   Widget build(BuildContext context) {
+    BottomNavigationBarController bottomNavigationBarController =
+  Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
       body: Stack(
         children: [
@@ -159,7 +159,12 @@ class _MapScreenState extends State<MapScreen> {
                         backgroundColor: Colors.green,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                       ),
-                      onPressed: _saveLocation,
+                      onPressed: () {
+                        bottomNavigationBarController.changeWidget(
+                          widget: CheckoutScreen(),
+                        );
+                        bottomNavigationBarController.changeIndex(index: -1);
+                      },
                       child: Text("Set Location", style: TextStyle(color: Colors.white)),
                     ),
                   ],

@@ -4,8 +4,11 @@ import 'package:capstone/view/widget/input_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
+import '../../controller/bottom_navigation_bar_controller.dart';
 import '../widget/text_widget.dart';
+import 'checkout_screen.dart';
 
 class CardScreen extends StatefulWidget {
   const CardScreen({super.key});
@@ -15,6 +18,7 @@ class CardScreen extends StatefulWidget {
 }
 
 class _CardScreen extends State<CardScreen> {
+
   TextEditingController name = TextEditingController();
   TextEditingController CardNumber = TextEditingController();
   TextEditingController Expire = TextEditingController();
@@ -24,11 +28,12 @@ class _CardScreen extends State<CardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    BottomNavigationBarController bottomNavigationBarController =
+    Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 22, right: 22),
+          padding: EdgeInsets.only(left: 22, right: 22, bottom: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -179,55 +184,50 @@ class _CardScreen extends State<CardScreen> {
               SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
-                child: GestureDetector(
-                  onTap: () {
-
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width* (390/ 430),
-                    height: MediaQuery.of(context).size.height* (57/ 932),
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.green,
-                            blurRadius: 8.0,
-                            spreadRadius: 2.0,
-                            offset: Offset(0, 4),
-                          ),
-                        ]
-                    ),
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => OrderDoneCheckout(),));
-                            },
-                            child:
-                            Row(
-                              children: [ SizedBox(width: 90,),
-                                Image.asset('assets/images/lock.png'),
-                                SizedBox(width: 10,),
-                                Text(
-                                  "Pay for the order",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),],
-                            )
-
+                child: Container(
+                  width: MediaQuery.of(context).size.width* (390/ 430),
+                  height: MediaQuery.of(context).size.height* (57/ 932),
+                  padding: EdgeInsets.symmetric(vertical: 15),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.green,
+                          blurRadius: 8.0,
+                          spreadRadius: 2.0,
+                          offset: Offset(0, 4),
                         ),
+                      ]
+                  ),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            bottomNavigationBarController.changeWidget(
+                              widget: OrderDoneCheckout(),
+                            );
+                            bottomNavigationBarController.changeIndex(index: -1);
+                          },
+                          child:
+                          Row(
+                            children: [ SizedBox(width: 90,),
+                              Image.asset('assets/images/lock.png'),
+                              SizedBox(width: 10,),
+                              Text(
+                                "Pay for the order",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),],
+                          )
 
-                      ],
-                    ),
+                      ),
+
+                    ],
                   ),
                 ),
 

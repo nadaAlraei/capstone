@@ -1,10 +1,13 @@
 import 'package:capstone/view/screen/card_screen.dart';
 import 'package:capstone/view/screen/login_screen.dart';
 import 'package:capstone/view/screen/map_screen.dart';
+import 'package:capstone/view/screen/order_checkout_screen.dart';
 import 'package:capstone/view/widget/input_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../controller/bottom_navigation_bar_controller.dart';
 import '../widget/text_widget.dart';
 
 class CheckoutScreen extends StatefulWidget {
@@ -21,8 +24,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   @override
   Widget build(BuildContext context) {
+    BottomNavigationBarController bottomNavigationBarController =
+    Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 22, right: 22),
@@ -74,15 +78,18 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     children: [
                       SizedBox(width: 30,),
                       TextWidget(text: "Georgia, Batumi", fontWeight: FontWeight.w400, fontSize: 13, fontFamily: 'Inter', letterSpacing: -0.2, fontColor: Colors.grey),
-                      SizedBox(width: 170,),
-                      TextButton(onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MapScreen(),
-                          ),
-                        );                      },
-                          child: Text("Change", style: TextStyle(color: Colors.green),))
+                      SizedBox(width: 130,),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width* (120/ 430),
+                        height: MediaQuery.of(context).size.height* (80/ 932),
+                        child: TextButton(onPressed: () {
+                          bottomNavigationBarController.changeWidget(
+                            widget: MapScreen(),
+                          );
+                          bottomNavigationBarController.changeIndex(index: -1);
+                          },
+                            child: Text("Change", style: TextStyle(color: Colors.green),)),
+                      )
                     ],
                   ),
                 ],
@@ -172,7 +179,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   ),
                 ],
               ),
-              Column(
+          if (_selectedPayment == "Card") ...[
+    Column(
                 children: [
                   TextWidget(
                       text: "Card Type:",
@@ -183,39 +191,42 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       fontColor: Colors.black),
                 ],
               ),
-              Row(
+            Row(
                 children: [
-                  GestureDetector(
-                    onTap: () => setState(() => _Cards = "MasterCard"),
-                    child: Row(
-                      children: [
-                        Radio(
-                          value: "MasterCard",
-                          groupValue: _Cards,
-                          onChanged: (value) => setState(() => _Cards = value.toString()),
-                          activeColor: Colors.green,
-                        ),
-                        Image.asset('assets/images/Mastercard.png'),
-                      ],
+                    GestureDetector(
+                      onTap: () => setState(() => _Cards = "MasterCard"),
+                      child: Row(
+                        children: [
+                          Radio(
+                            value: "MasterCard",
+                            groupValue: _Cards,
+                            onChanged: (value) =>
+                                setState(() => _Cards = value.toString()),
+                            activeColor: Colors.green,
+                          ),
+                          Image.asset('assets/images/Mastercard.png'),
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 20),
-                  GestureDetector(
-                    onTap: () => setState(() => _Cards = "Visa"),
-                    child: Row(
-                      children: [
-                        Radio(
-                          value: "Visa",
-                          groupValue: _Cards,
-                          onChanged: (value) => setState(() => _Cards = value.toString()),
-                          activeColor: Colors.green,
-                        ),
-                        Image.asset('assets/images/Visa.png')],
+                    SizedBox(width: 20),
+                    GestureDetector(
+                      onTap: () => setState(() => _Cards = "Visa"),
+                      child: Row(
+                        children: [
+                          Radio(
+                            value: "Visa",
+                            groupValue: _Cards,
+                            onChanged: (value) =>
+                                setState(() => _Cards = value.toString()),
+                            activeColor: Colors.green,
+                          ),
+                          Image.asset('assets/images/Visa.png'),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-
+                  ]
               ),
+              ],
               SizedBox(height: 20),
               Container(
                 width: MediaQuery.of(context).size.width * 0.9,
@@ -342,16 +353,19 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         bottom: 22,
                         child: GestureDetector(
                           onTap: () {
+
                             if (_selectedPayment == "Card") {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => CardScreen(),
-                                ),
+                              bottomNavigationBarController.changeWidget(
+                                widget: CardScreen(),
                               );
+                              bottomNavigationBarController.changeIndex(index: -1);
                             } else if (_selectedPayment == "Cash"){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
+                              bottomNavigationBarController.changeWidget(
+                                widget: OrderDoneCheckout(),
+                              );
+                              bottomNavigationBarController.changeIndex(index: -1);
                             }
+
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.8,

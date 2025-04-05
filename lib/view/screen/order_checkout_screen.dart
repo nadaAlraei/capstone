@@ -1,9 +1,12 @@
 import 'package:capstone/view/screen/map_screen.dart';
+import 'package:capstone/view/screen/track_order_screen.dart';
 import 'package:capstone/view/widget/input_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
+import '../../controller/bottom_navigation_bar_controller.dart';
 import '../widget/text_widget.dart';
 
 class OrderDoneCheckout extends StatefulWidget {
@@ -19,11 +22,12 @@ class _orderDoneCheckout extends State<OrderDoneCheckout> {
 
   @override
   Widget build(BuildContext context) {
+    BottomNavigationBarController bottomNavigationBarController =
+    Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 22, right: 22),
+          padding: EdgeInsets.only(left: 22, right: 22, bottom: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -104,10 +108,10 @@ class _orderDoneCheckout extends State<OrderDoneCheckout> {
                       children: [
                         GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //       builder: (context) => OrderDoneCheckout(),));
+                              bottomNavigationBarController.changeWidget(
+                                widget: OrderTrackingScreen(),
+                              );
+                              bottomNavigationBarController.changeIndex(index: -1);
                             },
                             child:
                             Row(

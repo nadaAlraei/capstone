@@ -2,6 +2,8 @@ import 'package:capstone/view/screen/profile2_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import '../../controller/bottom_navigation_bar_controller.dart';
 import '../widget/text_widget.dart';
 
 class Profile1Screen extends StatefulWidget {
@@ -18,8 +20,9 @@ class _Profile1Screen extends State<Profile1Screen> {
 
   @override
   Widget build(BuildContext context) {
+    BottomNavigationBarController bottomNavigationBarController =
+    Provider.of<BottomNavigationBarController>(context, listen: false);
      return Scaffold(
-//appBar: AppBar(),
                 backgroundColor: Colors.white,
                 body: SingleChildScrollView(
                   child: Padding(
@@ -112,8 +115,10 @@ class _Profile1Screen extends State<Profile1Screen> {
                                 leading: Icon(Icons.person),
                                 title: Text('Personal information'),
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) => Profile2Screen(),));
+                                  bottomNavigationBarController.changeWidget(
+                                    widget: Profile2Screen(),
+                                  );
+                                  bottomNavigationBarController.changeIndex(index: -1);
                                 },
                               ),
                               ListTile(

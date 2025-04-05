@@ -31,13 +31,10 @@ class Onboardring4Screen extends StatelessWidget {
           ),
           child: TextButton(
             onPressed: () {
-              SharedPreferences.getInstance().then((prefs) {
-                prefs.setBool('hasSeenOnboarding', true);
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
-              });
             },
             child: Text(
               AppLocalizations.of(context)!.cancel,

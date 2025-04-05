@@ -274,7 +274,6 @@ class _CartScreenState extends State<CartScreen> {
                           );
                           bottomNavigationBarController.changeIndex(index: -1);
 
-                          //Navigator.push(context, MaterialPageRoute(builder: (context) => CheckoutScreen(),));
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width,
