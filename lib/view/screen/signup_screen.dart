@@ -433,7 +433,7 @@ class SignupScreen extends StatelessWidget {
                                         ),
                                       ),
 
-                                      SizedBox(height: 20),
+                                      SizedBox(height: 10),
                                       TextButton(
                                         onPressed: () {
                                           signUpController.checkFullName(

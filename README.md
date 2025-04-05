@@ -117,6 +117,8 @@ samples, guidance on mobile development, and a full API reference.
 6. input_screen (Hala)
 
 7. the base language (localization) configuration (Nada)
+8. EN, AR in section 1,2 (Hala & Nada)
+9. EN, AR in section 3,6 (Nada)
 
 
 ## time consumed:
