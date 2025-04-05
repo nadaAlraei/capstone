@@ -184,7 +184,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 100),
+                        padding: const EdgeInsets.only(left: 80),
                         child: Container(
                           width: MediaQuery.of(context).size.width * (50 / 430),
                           height: MediaQuery.of(context).size.height * (60 / 932),
