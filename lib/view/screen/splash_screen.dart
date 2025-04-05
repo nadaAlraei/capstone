@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:capstone/view/screen/onboardring1_screen.dart';
-import 'package:capstone/view/screen/login_screen.dart'; // Assuming you have a login screen
+import 'package:capstone/view/screen/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
