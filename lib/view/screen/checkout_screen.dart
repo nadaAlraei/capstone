@@ -1,14 +1,14 @@
-import 'package:capstone/view/screen/card_screen.dart';
-import 'package:capstone/view/screen/login_screen.dart';
+
 import 'package:capstone/view/screen/map_screen.dart';
-import 'package:capstone/view/screen/order_checkout_screen.dart';
 import 'package:capstone/view/widget/input_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../controller/bottom_navigation_bar_controller.dart';
 import '../widget/text_widget.dart';
+import 'card_screen.dart';
+import 'order_checkout_screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
@@ -231,118 +231,116 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.height * (206 / 932),
-                padding: const EdgeInsets.only(bottom: 0),
-                color: Colors.green,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 37, 174, 75),
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 child: Stack(
                   children: [
-                    Image.asset('assets/images/BACKGROUND 2.png', color: Colors.white70,),
-
-                    Positioned(
-                      left: 14,
-                      bottom: 170,
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              TextWidget(
-                                text: "Sub-Total",
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                fontFamily: 'Inter',
-                                letterSpacing: -0.2,
-                                fontColor: Colors.white,
-                              ),
-                              SizedBox(width: 250,),
-                              TextWidget(
-                                  text: "100 \$",
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  fontFamily: "Inter",
-                                  letterSpacing: -0.2,
-                                  fontColor: Colors.white
-                              ),],),
-                        ],
-                      ),
+                    Image.asset(
+                      'assets/images/cartPattern.png',
+                      fit: BoxFit.cover,
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.25,
                     ),
-                    Positioned(
-                      left: 14,
-                      bottom: 150,
+                    Padding(
+                      padding: EdgeInsets.only(left: 20, right: 20, top: 15),
                       child: Column(
                         children: [
                           Row(
                             children: [
-                              TextWidget(
-                                text: "Delivery Charge",
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                fontFamily: 'Inter',
-                                letterSpacing: -0.2,
-                                fontColor: Colors.white,
+                              // titles
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  // sub_total
+                                  TextWidget(
+                                    text: AppLocalizations.of(context)!.sub_total,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.5,
+                                    fontColor: Colors.white,
+                                  ),
+                                  SizedBox(height: 5),
+                                  // delivery charge
+                                  TextWidget(
+                                    text:
+                                    AppLocalizations.of(
+                                      context,
+                                    )!.delivery_charge,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.5,
+                                    fontColor: Colors.white,
+                                  ),
+                                  SizedBox(height: 5),
+                                  // discount
+                                  TextWidget(
+                                    text: AppLocalizations.of(context)!.discount,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.5,
+                                    fontColor: Colors.white,
+                                  ),
+                                  SizedBox(height: 10),
+                                  // total
+                                  TextWidget(
+                                    text: AppLocalizations.of(context)!.total,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 18,
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.5,
+                                    fontColor: Colors.white,
+                                  ),
+                                ],
                               ),
-                              SizedBox(width: 210,),
-                              TextWidget(
-                                  text: "10 \$",
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  fontFamily: "Inter",
-                                  letterSpacing: -0.2,
-                                  fontColor: Colors.white
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                      left: 14,
-                      bottom: 130,
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              TextWidget(
-                                text: "Discount",
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                fontFamily: 'Inter',
-                                letterSpacing: -0.2,
-                                fontColor: Colors.white,
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.33,
                               ),
-                              SizedBox(width: 257,),
-                              TextWidget(
-                                  text: "10 \$",
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  fontFamily: "Inter",
-                                  letterSpacing: -0.2,
-                                  fontColor: Colors.white
-                              )
-                            ],),],),
-                    ),
-                    Positioned(
-                      left: 14,
-                      bottom: 100,
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              TextWidget(
-                                text: "Total",
-                                fontWeight: FontWeight.w700,
-                                fontSize: 18,
-                                fontFamily: 'Inter',
-                                letterSpacing: -0.2,
-                                fontColor: Colors.white,
+                              // amount
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  TextWidget(
+                                    text: '100 #',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.5,
+                                    fontColor: Colors.white,
+                                  ),
+                                  SizedBox(height: 5),
+                                  TextWidget(
+                                    text: '10 #',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.5,
+                                    fontColor: Colors.white,
+                                  ),
+                                  SizedBox(height: 5),
+                                  TextWidget(
+                                    text: '10 #',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.5,
+                                    fontColor: Colors.white,
+                                  ),
+                                  SizedBox(height: 10),
+                                  TextWidget(
+                                    text: '110 #',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 18,
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.5,
+                                    fontColor: Colors.white,
+                                  ),
+                                ],
                               ),
-                              SizedBox(width: 275,),
-                              TextWidget(
-                                  text: "10 \$",
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 18,
-                                  fontFamily: "Inter",
-                                  letterSpacing: -0.64,
-                                  fontColor: Colors.white
-                              )
                             ],
                           ),
                         ],
