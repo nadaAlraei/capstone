@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 
 import '../../controller/bottom_navigation_bar_controller.dart';
 import '../widget/text_widget.dart';
-import 'checkout_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CardScreen extends StatefulWidget {
   const CardScreen({super.key});
@@ -31,6 +31,7 @@ class _CardScreen extends State<CardScreen> {
     BottomNavigationBarController bottomNavigationBarController =
     Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 22, right: 22, bottom: 50),
@@ -41,7 +42,7 @@ class _CardScreen extends State<CardScreen> {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * (26 / 932),
                 child: TextWidget(
-                    text: "Add Card",
+                    text: AppLocalizations.of(context)!.add_card,
                     fontWeight: FontWeight.w600,
                     fontSize: 20,
                     fontFamily: 'Inter',
@@ -59,7 +60,7 @@ class _CardScreen extends State<CardScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 16.0),
                   child: TextWidget(
-                    text: "Name",
+                    text: AppLocalizations.of(context)!.name,
                     fontWeight: FontWeight.w500,
                     fontSize: 12,
                     fontFamily: 'Inter',
@@ -76,7 +77,7 @@ class _CardScreen extends State<CardScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 16.0),
                   child: TextWidget(
-                    text: "Card Number",
+                    text: AppLocalizations.of(context)!.card_number,
                     fontWeight: FontWeight.w500,
                     fontSize: 12,
                     fontFamily: 'Inter',
@@ -103,7 +104,7 @@ class _CardScreen extends State<CardScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 16.0),
                       child: TextWidget(
-                        text: "Expire",
+                        text: AppLocalizations.of(context)!.expire,
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
                         fontFamily: 'Inter',
@@ -166,11 +167,11 @@ class _CardScreen extends State<CardScreen> {
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width* (320/ 430),
-                    height: MediaQuery.of(context).size.height* (34/ 932),
+                    height: MediaQuery.of(context).size.height* (40/ 932),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 80),
                       child: TextWidget(
-                        text: "We will send you an order details to your \n    email after the successfull payment",
+                        text: AppLocalizations.of(context)!.successfully_payment,
                         fontWeight: FontWeight.w400,
                         fontSize: 12,
                         fontFamily: 'Inter',
@@ -181,7 +182,7 @@ class _CardScreen extends State<CardScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Container(
@@ -216,7 +217,7 @@ class _CardScreen extends State<CardScreen> {
                               Image.asset('assets/images/lock.png'),
                               SizedBox(width: 10,),
                               Text(
-                                "Pay for the order",
+                                AppLocalizations.of(context)!.pay_for_the_order,
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,

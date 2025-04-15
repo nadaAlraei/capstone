@@ -4,6 +4,7 @@ import 'package:capstone/view/widget/input_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widget/text_widget.dart';
 
@@ -21,15 +22,13 @@ class _Profile2Screen extends State<Profile2Screen> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController addressController = TextEditingController();
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 22, right: 22,bottom: 40),
+          padding: EdgeInsets.only(left: 22, right: 22, bottom: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -37,23 +36,24 @@ class _Profile2Screen extends State<Profile2Screen> {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * (26 / 932),
                 child: TextWidget(
-                    text: "Profile",
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20,
-                    fontFamily: 'Inter',
-                    letterSpacing: -0.2,
-                    fontColor: Colors.black),
+                  text: AppLocalizations.of(context)!.profile,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
+                  fontFamily: 'Inter',
+                  letterSpacing: -0.2,
+                  fontColor: Colors.black,
+                ),
               ),
 
               Container(
-                width: MediaQuery.of(context).size.width* (400/ 430),
-                height: MediaQuery.of(context).size.height* (120/ 932),
+                width: MediaQuery.of(context).size.width * (400 / 430),
+                height: MediaQuery.of(context).size.height * (120 / 932),
                 padding: const EdgeInsets.all(10),
-                child: Image.asset('assets/images/avatar.png',),
+                child: Image.asset('assets/images/avatar.png'),
               ),
 
               SizedBox(
-                width: MediaQuery.of(context).size.width * ( 380 / 430),
+                width: MediaQuery.of(context).size.width * (380 / 430),
                 height: MediaQuery.of(context).size.height * (30 / 932),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10),
@@ -69,7 +69,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                 ),
               ),
               SizedBox(
-                width: MediaQuery.of(context).size.width * ( 380 / 430),
+                width: MediaQuery.of(context).size.width * (380 / 430),
                 height: MediaQuery.of(context).size.height * (30 / 932),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10),
@@ -92,40 +92,32 @@ class _Profile2Screen extends State<Profile2Screen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * ( 60 / 430),
-                        height: MediaQuery.of(context).size.height * (19 / 932),
-                        child: TextWidget(
-                          text: "Username",
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                          fontFamily: "Inter",
-                          letterSpacing: -0.2,
-                          fontColor: Colors.black,
-                        ),
+                      TextWidget(
+                        text: AppLocalizations.of(context)!.user_name,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        fontFamily: "Inter",
+                        letterSpacing: -0.2,
+                        fontColor: Colors.black,
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * ( 365 / 430),
+                        width: MediaQuery.of(context).size.width * (365 / 430),
                         height: MediaQuery.of(context).size.height * (60 / 932),
                         child: InputWidget(
                           textEditingController: usernameController,
                           obscureText: false,
                         ),
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * ( 30 / 430),
-                        height: MediaQuery.of(context).size.height * (19 / 932),
-                        child: TextWidget(
-                          text: "Email",
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                          fontFamily: "Inter",
-                          letterSpacing: -0.2,
-                          fontColor: Colors.black,
-                        ),
+                      TextWidget(
+                        text: AppLocalizations.of(context)!.email,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        fontFamily: "Inter",
+                        letterSpacing: -0.2,
+                        fontColor: Colors.black,
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * ( 365 / 430),
+                        width: MediaQuery.of(context).size.width * (365 / 430),
                         height: MediaQuery.of(context).size.height * (60 / 932),
                         child: InputWidget(
                           textEditingController: emailController,
@@ -133,7 +125,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                         ),
                       ),
                       TextWidget(
-                        text: "Phone Number",
+                        text: AppLocalizations.of(context)!.phone_number,
                         fontWeight: FontWeight.w400,
                         fontSize: 12,
                         fontFamily: "Inter",
@@ -141,7 +133,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontColor: Colors.black,
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * ( 365 / 430),
+                        width: MediaQuery.of(context).size.width * (365 / 430),
                         height: MediaQuery.of(context).size.height * (60 / 932),
                         child: InputWidget(
                           textEditingController: phoneController,
@@ -149,7 +141,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                         ),
                       ),
                       TextWidget(
-                        text: "Password",
+                        text: AppLocalizations.of(context)!.password,
                         fontWeight: FontWeight.w400,
                         fontSize: 12,
                         fontFamily: "Inter",
@@ -157,7 +149,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontColor: Colors.black,
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * ( 365 / 430),
+                        width: MediaQuery.of(context).size.width * (365 / 430),
                         height: MediaQuery.of(context).size.height * (60 / 932),
                         child: InputWidget(
                           textEditingController: passwordController,
@@ -165,7 +157,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                         ),
                       ),
                       TextWidget(
-                        text: "Address",
+                        text: AppLocalizations.of(context)!.address,
                         fontWeight: FontWeight.w400,
                         fontSize: 12,
                         fontFamily: "Inter",
@@ -173,63 +165,44 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontColor: Colors.black,
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * ( 365 / 430),
+                        width: MediaQuery.of(context).size.width * (365 / 430),
                         height: MediaQuery.of(context).size.height * (60 / 932),
                         child: InputWidget(
                           textEditingController: addressController,
                           obscureText: true,
                         ),
                       ),
-                      SizedBox(height: 14,)
+                      SizedBox(height: 14),
                     ],
                   ),
                 ),
               ),
 
-        SizedBox(height: 20,),
-        Padding(
-          padding: const EdgeInsets.only(left: 50),
-          child: Container(
-            width: MediaQuery.of(context).size.width* (295/ 430),
-            height: MediaQuery.of(context).size.height* (48/ 932),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 50, right: 50),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * (295 / 430),
+                  height: MediaQuery.of(context).size.height * (48 / 932),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
                     color: Colors.green,
-                    blurRadius: 8.0,
-                    spreadRadius: 2.0,
-                    offset: Offset(0, 4),
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                ]
-            ),
-            child: Row(
-              children: [
-                GestureDetector(
+                  child: GestureDetector(
                     onTap: () {},
-                    child:
-                        Row(children: [
-                          SizedBox(width: 125,),
-                          Text(
-                          "Update",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),],)
-
-
-
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      AppLocalizations.of(context)!.update,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
                 ),
-
-              ],
-            ),
-          ),
-        ),
-
+              ),
             ],
           ),
         ),

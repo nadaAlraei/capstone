@@ -1,0 +1,11 @@
+if (_selectedPayment == "Card") {
+                              bottomNavigationBarController.changeWidget(
+                                widget: CardScreen(),
+                              );
+                              bottomNavigationBarController.changeIndex(index: -1);
+                            } else if (_selectedPayment == "Cash"){
+                              bottomNavigationBarController.changeWidget(
+                                widget: OrderDoneCheckout(),
+                              );
+                              bottomNavigationBarController.changeIndex(index: -1);
+                            }

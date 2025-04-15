@@ -27,6 +27,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     BottomNavigationBarController bottomNavigationBarController =
     Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 22, right: 22),
@@ -37,7 +38,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * (26 / 932),
                   child: TextWidget(
-                      text: "Checkout",
+                      text: AppLocalizations.of(context)!.checkout,
                       fontWeight: FontWeight.w600,
                       fontSize: 20,
                       fontFamily: 'Inter',
@@ -45,7 +46,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       fontColor: Colors.black)),
               SizedBox(height: 10),
               TextWidget(
-                  text: "Pay With:",
+                  text: AppLocalizations.of(context)!.pay_with,
                   fontWeight: FontWeight.w600,
                   fontSize: 20,
                   fontFamily: 'Inter',
@@ -88,7 +89,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           );
                           bottomNavigationBarController.changeIndex(index: -1);
                           },
-                            child: Text("Change", style: TextStyle(color: Colors.green),)),
+                            child: Text(AppLocalizations.of(context)!.change, style: TextStyle(color: Colors.green),)),
                       )
                     ],
                   ),
@@ -97,7 +98,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Column(
                 children: [
                   TextWidget(
-                      text: "Promo Code?",
+                      text: AppLocalizations.of(context)!.promo_code,
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
                       fontFamily: 'Inter',
@@ -111,7 +112,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     child: InputWidget(
                       textEditingController: _promocode,
                       obscureText: false,
-                      hintText: "Enter Your Promo",
+                      hintText: AppLocalizations.of(context)!.enter_your_promo,
                       suffixIcon: TextButton(
                         onPressed: () {
                           String promoCode = _promocode.text.trim();
@@ -127,7 +128,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                         ),
                         child: Text(
-                          "Add",
+                          AppLocalizations.of(context)!.add,
                           style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -138,7 +139,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Column(
                 children: [
                   TextWidget(
-                      text: "Pay With:",
+                      text:AppLocalizations.of(context)!.pay_with,
                       fontWeight: FontWeight.w600,
                       fontSize: 20,
                       fontFamily: 'Inter',
@@ -158,7 +159,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           onChanged: (value) => setState(() => _selectedPayment = value.toString()),
                           activeColor: Colors.green,
                         ),
-                        Text("Card"),
+                        Text(AppLocalizations.of(context)!.card),
                       ],
                     ),
                   ),
@@ -173,7 +174,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           onChanged: (value) => setState(() => _selectedPayment = value.toString()),
                           activeColor: Colors.green,
                         ),
-                        Text("Cash"),
+                        Text(AppLocalizations.of(context)!.cash),
                       ],
                     ),
                   ),
@@ -227,16 +228,23 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   ]
               ),
               ],
-              SizedBox(height: 20),
+              // order card details
               Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * (206 / 932),
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.25,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 37, 174, 75),
                   borderRadius: BorderRadius.circular(20),
                 ),
+                margin: EdgeInsets.only(
+
+                  left: 20,
+                  right: 20,
+                  bottom: 18,
+                ),
                 child: Stack(
                   children: [
+                    // card background pattern
                     Image.asset(
                       'assets/images/cartPattern.png',
                       fit: BoxFit.cover,
@@ -247,6 +255,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       padding: EdgeInsets.only(left: 20, right: 20, top: 15),
                       child: Column(
                         children: [
+                          // Details
                           Row(
                             children: [
                               // titles
@@ -343,52 +352,48 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                        left: 20,
-                        bottom: 22,
-                        child: GestureDetector(
-                          onTap: () {
+                          SizedBox(height: 4),
+                          TextButton(
+                            onPressed: () {
+                              if (_selectedPayment == "Card") {
+                                bottomNavigationBarController.changeWidget(
+                                  widget: CardScreen(),
+                                );
+                                bottomNavigationBarController.changeIndex(index: -1);
+                              } else if (_selectedPayment == "Cash"){
+                                bottomNavigationBarController.changeWidget(
+                                  widget: OrderDoneCheckout(),
+                                );
+                                bottomNavigationBarController.changeIndex(index: -1);
+                              }
 
-                            if (_selectedPayment == "Card") {
-                              bottomNavigationBarController.changeWidget(
-                                widget: CardScreen(),
-                              );
-                              bottomNavigationBarController.changeIndex(index: -1);
-                            } else if (_selectedPayment == "Cash"){
-                              bottomNavigationBarController.changeWidget(
-                                widget: OrderDoneCheckout(),
-                              );
-                              bottomNavigationBarController.changeIndex(index: -1);
-                            }
-
-                          },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.8,
-                            padding: EdgeInsets.symmetric(vertical: 15),
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Text(
-                              "Place My Order",
-                              style: TextStyle(
-                                color: Colors.green,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: MediaQuery.of(context).size.height * 0.055,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: TextWidget(
+                                  text:
+                                  AppLocalizations.of(context)!.place_my_order,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 14,
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.5,
+                                  fontColor: Color.fromARGB(255, 37, 174, 75),
+                                ),
                               ),
                             ),
                           ),
-                        )
-
-                    )
-
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

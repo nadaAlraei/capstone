@@ -86,7 +86,7 @@ class AllScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(backgroundColor: Colors.white, title: SearchBoxWidget()),
+      appBar: AppBar(backgroundColor: Colors.white, title: SearchBoxWidget(),automaticallyImplyLeading: false,),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

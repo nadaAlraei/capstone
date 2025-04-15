@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../../controller/bottom_navigation_bar_controller.dart';
 import 'chat_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OrderTrackingScreen extends StatefulWidget {
   @override
@@ -76,12 +77,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
             markers: _markers,
             polylines: _polylines,
           ),
-          Positioned(
-            top: 50,
-            left: 20,
-            right: 20,
-            child: SearchBar(),
-          ),
           DraggableScrollableSheet(
             initialChildSize: 0.3,
             minChildSize: 0.3,
@@ -98,7 +93,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                   children: [
                     Row(
                       children: [
-                        Text('On The Way', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                        Text(AppLocalizations.of(context)!.on_the_way, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                         Spacer(),
                         TextButton(
                           onPressed: () {
@@ -107,7 +102,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                             );
                             bottomNavigationBarController.changeIndex(index: -1);
                           },
-                          child: Text("All Details", style: TextStyle(color: Colors.green)),
+                          child: Text(AppLocalizations.of(context)!.all_details, style: TextStyle(color: Colors.green)),
                         )
                       ],
                     ),
@@ -116,7 +111,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         TextWidget(
-                          text: 'Order Placed',
+                          text: AppLocalizations.of(context)!.order_placed,
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                           fontFamily: "Inter",
@@ -124,7 +119,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                           fontColor: Colors.green,
                         ),
                         TextWidget(
-                          text: 'On The Way',
+                          text: AppLocalizations.of(context)!.on_the_way,
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                           fontFamily: "Inter",
@@ -132,7 +127,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                           fontColor: Colors.green,
                         ),
                         TextWidget(
-                          text: 'Delivered',
+                          text: AppLocalizations.of(context)!.delivered,
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
                           fontFamily: "Inter",
@@ -155,7 +150,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             TextWidget(
-                              text: "Your Delivery Hero",
+                              text: AppLocalizations.of(context)!.your_delivery_hero,
                               fontWeight: FontWeight.w500,
                               fontSize: 12,
                               fontFamily: 'Intern',
@@ -205,7 +200,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                     ),
                     SizedBox(height: 10),
                     TextWidget(
-                      text: "Your Location",
+                      text: AppLocalizations.of(context)!.your_location,
                       fontWeight: FontWeight.w500,
                       fontSize: 12,
                       fontFamily: "Inter",
@@ -247,7 +242,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
               child: TextField(
                 controller: _locationController,
                 decoration: InputDecoration(
-                  hintText: "Find your location",
+                  hintText: AppLocalizations.of(context)!.find_your_location,
                   border: InputBorder.none,
                   prefixIcon: Icon(Icons.search, color: Colors.grey),
                 ),

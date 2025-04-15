@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:capstone/controller/change_lang_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:capstone/view/screen/onboardring1_screen.dart';
@@ -12,13 +14,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
   @override
   void initState() {
     super.initState();
     userTrack();
+
   }
 
   Future<void> userTrack() async {
+    ChangeLangController changeLangController =
+    Provider.of<ChangeLangController>(context, listen: false);
+    changeLangController.loadLocale();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
 

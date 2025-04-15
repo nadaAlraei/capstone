@@ -13,7 +13,6 @@ class SearchBoxWidget extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.95,
       height: MediaQuery.of(context).size.height * 0.065,
-
       margin: EdgeInsets.only(top: 10),
       child: InputWidget(
         textEditingController: search,
