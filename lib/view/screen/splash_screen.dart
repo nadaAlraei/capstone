@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:capstone/controller/change_lang_controller.dart';
+import 'package:capstone/view/screen/onboarding_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
-import 'package:capstone/view/screen/onboardring1_screen.dart';
 import 'package:capstone/view/screen/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
       await prefs.setBool('isFirstTime', false);
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Onboardring1Screen()),
+        MaterialPageRoute(builder: (context) => OnboardingScreen()),
       );
     } else {
       Navigator.pushReplacement(

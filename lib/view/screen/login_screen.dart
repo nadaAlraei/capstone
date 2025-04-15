@@ -49,14 +49,15 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           Positioned(
-            top: 200,
+            top: 170,
             left: 30,
             right: 30,
+
             child: SingleChildScrollView(
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.99,
-                padding: const EdgeInsets.only(bottom: 20),
+                height: MediaQuery.of(context).size.height * 0.77,
+                padding: const EdgeInsets.only(bottom: 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -64,8 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * (85 / 430), //size of the font in figma is 85 and the ovarall base screen width is 430
-                      height: MediaQuery.of(context).size.height * (42 / 932),
+
                       child: TextWidget(
                           text: AppLocalizations.of(context)!.login,
                           fontWeight:  FontWeight.w700,

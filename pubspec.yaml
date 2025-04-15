@@ -46,6 +46,7 @@ dependencies:
   shared_preferences: ^2.5.2
   sizer: ^2.0.15
   timeline_tile: ^2.0.0
+  smooth_page_indicator: ^1.2.1
 
 
 dev_dependencies:
