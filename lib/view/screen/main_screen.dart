@@ -16,6 +16,7 @@ class MainScreen extends StatelessWidget {
     return Consumer<BottomNavigationBarController>(
       builder: (context, bottomNavigationBarController, child) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           backgroundColor: Colors.white,
           appBar: AppBar(
             backgroundColor: Colors.white,

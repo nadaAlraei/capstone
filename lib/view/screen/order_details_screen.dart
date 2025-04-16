@@ -126,7 +126,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
               SizedBox(height: 30),
               Row(
                 children: [
-                  Image.asset('assets/images/photo.jpg'),
+                  Image.asset('assets/images/photo.jpg',width: 40,height: 40,),
 
                   Column(
                     children: [
@@ -141,7 +141,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                       ),
                       Row(
                         children: [
-                          SizedBox(width: 15),
+                          SizedBox(width: 10),
                           TextWidget(
                             text: "Aleksandr V.",
                             fontWeight: FontWeight.w400,
@@ -155,7 +155,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                           TextWidget(
                             text: '4.9',
                             fontWeight: FontWeight.w400,
-                            fontSize: 13,
+                            fontSize: 12,
                             fontFamily: "Intern",
                             letterSpacing: -0.2,
                             fontColor: Colors.grey,
