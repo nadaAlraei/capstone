@@ -27,7 +27,7 @@ class SearchBoxWidget extends StatelessWidget {
            Provider.of<BottomNavigationBarController>(context,listen: false).changeWidget(
              widget: FilterScreen(),
            );
-           Provider.of<BottomNavigationBarController>(context,listen: false).changeIndex(index: -1);
+           Provider.of<BottomNavigationBarController>(context,listen: false).changeIndex(index: -4);
          },
           icon: Icon(
             Icons.filter_list_sharp,
