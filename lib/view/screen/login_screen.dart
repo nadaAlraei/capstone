@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
             fit: BoxFit.cover,
             color: Colors.white,
             width: MediaQuery.of(context).size.width * 0.7,
-            height: MediaQuery.of(context).size.height * 0.09,
+            height: MediaQuery.of(context).size.height * 0.05,
           ),
           Align(
             alignment: Alignment.topCenter,
@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: SingleChildScrollView(
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.77,
+                height: MediaQuery.of(context).size.height * 0.85,
                 padding: const EdgeInsets.only(bottom: 10),
                 decoration: BoxDecoration(
                   color: Colors.white,

@@ -59,9 +59,7 @@ class _orderDoneCheckout extends State<OrderDoneCheckout> {
                 ),
               ),
               SizedBox(height: 12),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * (390 / 430),
-                height: MediaQuery.of(context).size.height * (60 / 932),
+              Center(
                 child: TextWidget(
                   text:
                       AppLocalizations.of(
@@ -86,7 +84,7 @@ class _orderDoneCheckout extends State<OrderDoneCheckout> {
                   },
                   child: Container(
                     width: MediaQuery.of(context).size.width * (390 / 430),
-                    height: MediaQuery.of(context).size.height * (57 / 932),
+                    height: MediaQuery.of(context).size.height * (59 / 932),
                     padding: EdgeInsets.symmetric(vertical: 15),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(

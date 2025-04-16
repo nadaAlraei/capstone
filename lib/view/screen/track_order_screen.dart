@@ -240,7 +240,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
               }, icon: Icon(Icons.arrow_back,size: 24,),),
                 Container(
                   margin: EdgeInsets.only(left: 20,right: 20),
-                  width: MediaQuery.of(context).size.width * 0.77,
+                  width: MediaQuery.of(context).size.width * 0.7,
                   height: 42,
                   decoration: BoxDecoration(
                     color: Colors.white,

@@ -38,7 +38,7 @@ class SandwichScreen extends StatelessWidget {
               Provider.of<BottomNavigationBarController>(
                 context,
                 listen: false,
-              ).changeIndex(index: -1);
+              ).changeIndex(index: -4);
             },
             child: Stack(
               children: [

@@ -126,77 +126,50 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
               SizedBox(height: 30),
               Row(
                 children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * (40 / 430),
-                    height: MediaQuery.of(context).size.height * (40 / 932),
-                    child: Image.asset('assets/images/photo.jpg'),
-                  ),
+                  Image.asset('assets/images/photo.jpg'),
 
                   Column(
                     children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * (110 / 430),
-                        height: MediaQuery.of(context).size.height * (28 / 932),
-                        child: TextWidget(
-                          text:
-                              AppLocalizations.of(context)!.your_delivery_hero,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12,
-                          fontFamily: 'Intern',
-                          letterSpacing: -0.2,
-                          fontColor: Colors.grey,
-                        ),
+                      TextWidget(
+                        text:
+                            AppLocalizations.of(context)!.your_delivery_hero,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                        fontFamily: 'Intern',
+                        letterSpacing: -0.2,
+                        fontColor: Colors.grey,
                       ),
                       Row(
                         children: [
                           SizedBox(width: 15),
-                          SizedBox(
-                            width:
-                                MediaQuery.of(context).size.width * (88 / 430),
-                            height:
-                                MediaQuery.of(context).size.height * (20 / 932),
-                            child: TextWidget(
-                              text: "Aleksandr V.",
-                              fontWeight: FontWeight.w400,
-                              fontSize: 15,
-                              fontFamily: 'Intern',
-                              letterSpacing: -0.2,
-                              fontColor: Colors.black,
-                            ),
+                          TextWidget(
+                            text: "Aleksandr V.",
+                            fontWeight: FontWeight.w400,
+                            fontSize: 15,
+                            fontFamily: 'Intern',
+                            letterSpacing: -0.2,
+                            fontColor: Colors.black,
                           ),
-                          SizedBox(
-                            width:
-                                MediaQuery.of(context).size.width * (12 / 430),
-                            height:
-                                MediaQuery.of(context).size.height *
-                                (11.4 / 932),
-                            child: Image.asset('assets/images/star.png'),
-                          ),
+                          Image.asset('assets/images/star.png'),
                           SizedBox(width: 5),
-                          SizedBox(
-                            width:
-                                MediaQuery.of(context).size.width * (20 / 430),
-                            height:
-                                MediaQuery.of(context).size.height * (16 / 932),
-                            child: TextWidget(
-                              text: '4.9',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 13,
-                              fontFamily: "Intern",
-                              letterSpacing: -0.2,
-                              fontColor: Colors.grey,
-                            ),
+                          TextWidget(
+                            text: '4.9',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 13,
+                            fontFamily: "Intern",
+                            letterSpacing: -0.2,
+                            fontColor: Colors.grey,
                           ),
                         ],
                       ),
                     ],
                   ),
 
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 80),
-                        child: Container(
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40,right: 40),
+                    child: Row(
+                      children: [
+                        Container(
                           width: MediaQuery.of(context).size.width * (50 / 430),
                           height:
                               MediaQuery.of(context).size.height * (60 / 932),
@@ -205,38 +178,34 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                             icon: Image.asset('assets/images/Icon_Phone.png'),
                           ),
                         ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * (50 / 430),
-                        height: MediaQuery.of(context).size.height * (60 / 932),
-                        child: IconButton(
-                          onPressed: () {
-                            bottomNavigationBarController.changeWidget(
-                              widget: ChatScreen(),
-                            );
-                            bottomNavigationBarController.changeIndex(
-                              index: -2,
-                            );
-                          },
-                          icon: Image.asset('assets/images/Icon_Chat.png'),
+                        Container(
+                          width: MediaQuery.of(context).size.width * (50 / 430),
+                          height: MediaQuery.of(context).size.height * (60 / 932),
+                          child: IconButton(
+                            onPressed: () {
+                              bottomNavigationBarController.changeWidget(
+                                widget: ChatScreen(),
+                              );
+                              bottomNavigationBarController.changeIndex(
+                                index: -2,
+                              );
+                            },
+                            icon: Image.asset('assets/images/Icon_Chat.png'),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
               SizedBox(height: 10),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * (263 / 430),
-                height: MediaQuery.of(context).size.height * (34 / 932),
-                child: TextWidget(
-                  text: AppLocalizations.of(context)!.your_location,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12,
-                  fontFamily: "Inter",
-                  letterSpacing: -0.1,
-                  fontColor: Colors.grey,
-                ),
+              TextWidget(
+                text: AppLocalizations.of(context)!.your_location,
+                fontWeight: FontWeight.w500,
+                fontSize: 12,
+                fontFamily: "Inter",
+                letterSpacing: -0.1,
+                fontColor: Colors.grey,
               ),
 
               Row(

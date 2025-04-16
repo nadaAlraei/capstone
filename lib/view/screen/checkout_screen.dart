@@ -86,17 +86,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         SizedBox(width: 30,),
                         TextWidget(text: "Georgia, Batumi", fontWeight: FontWeight.w400, fontSize: 13, fontFamily: 'Inter', letterSpacing: -0.2, fontColor: Colors.grey),
                         SizedBox(width: 140,),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width* (80/ 430),
-                          height: MediaQuery.of(context).size.height* (35/ 932),
-                          child: TextButton(onPressed: () {
-                            bottomNavigationBarController.changeWidget(
-                              widget: MapScreen(),
-                            );
-                            bottomNavigationBarController.changeIndex(index: -2);
-                            },
-                              child: Text(AppLocalizations.of(context)!.change, style: TextStyle(color: Colors.green),)),
-                        )
+                        TextButton(onPressed: () {
+                          bottomNavigationBarController.changeWidget(
+                            widget: MapScreen(),
+                          );
+                          bottomNavigationBarController.changeIndex(index: -2);
+                          },
+                            child: Text(AppLocalizations.of(context)!.change, style: TextStyle(color: Colors.green),))
                       ],
                     ),
                   ],
