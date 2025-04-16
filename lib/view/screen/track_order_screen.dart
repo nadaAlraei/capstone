@@ -236,7 +236,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                 bottomNavigationBarController.changeWidget(
                   widget: HomeScreen(),
                 );
-                bottomNavigationBarController.changeIndex(index: -1);
+                bottomNavigationBarController.changeIndex(index: 0);
               }, icon: Icon(Icons.arrow_back,size: 24,),),
                 Container(
                   margin: EdgeInsets.only(left: 20,right: 20),
