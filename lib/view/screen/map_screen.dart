@@ -1,10 +1,11 @@
 import 'package:capstone/view/screen/checkout_screen.dart';
+import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../controller/bottom_navigation_bar_controller.dart';
 
 class MapScreen extends StatefulWidget {
@@ -85,11 +86,12 @@ class _MapScreenState extends State<MapScreen> {
     BottomNavigationBarController bottomNavigationBarController =
   Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
+
       body: Stack(
         children: [
           GoogleMap(
             myLocationButtonEnabled: true,
-            myLocationEnabled: true,
+            //myLocationEnabled: true,
             markers: {
               Marker(
                 markerId: MarkerId("user"),
@@ -107,69 +109,98 @@ class _MapScreenState extends State<MapScreen> {
               });
             },
           ),
-          Positioned(
-            top: 60,
-            left: 20,
-            right: 20,
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
-              ),
-              child: TextField(
-                controller: _locationController,
-                decoration: InputDecoration(
-                  hintText: "Find your location",
-                  border: InputBorder.none,
-                  prefixIcon: Icon(Icons.search, color: Colors.grey),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 23),
+            child: Row(
+              children: [IconButton(onPressed: (){
+                bottomNavigationBarController.changeWidget(
+                  widget: CheckoutScreen(),
+                );
+                bottomNavigationBarController.changeIndex(index: -1);
+              }, icon: Icon(Icons.arrow_back,size: 24,),),
+                Container(
+                  margin: EdgeInsets.only(left: 20,right: 20),
+                  width: MediaQuery.of(context).size.width * 0.77,
+                  height: 42,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
+                  ),
+                  child: TextField(
+                    controller: _locationController,
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.find_your_location,
+                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.search, color: Color.fromARGB(255, 37, 174, 75)),
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
-          Positioned(
-            bottom: 80,
-            left: 20,
-            right: 20,
-            child: Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-              child: Padding(
-                padding: EdgeInsets.all(15),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
+          Container(
+            margin: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * 0.55,
+              left: 20,
+              right: 20,
+            ),
+            padding: EdgeInsets.all(20),
+            width: 343,
+            height: 154,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        Icon(Icons.location_pin, color: Colors.green),
-                        SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
-                              _locationController.text.isNotEmpty
-                                  ? _locationController.text
-                                  : "Amman, Jordan",
-                              style: TextStyle(fontWeight: FontWeight.bold)
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    Icon(Icons.location_pin, color: Colors.green),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                          _locationController.text.isNotEmpty
+                              ? _locationController.text
+                              : "Amman, Jordan",
+                          style: TextStyle(fontWeight: FontWeight.bold)
                       ),
-                      onPressed: () {
-                        bottomNavigationBarController.changeWidget(
-                          widget: CheckoutScreen(),
-                        );
-                        bottomNavigationBarController.changeIndex(index: -1);
-                      },
-                      child: Text("Set Location", style: TextStyle(color: Colors.white)),
                     ),
                   ],
                 ),
-              ),
+
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 10),
+                  child: TextWidget(
+                    text: 'Jl. Soekarno Hatta 15A Malang',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 12,
+                    fontFamily: 'Inter',
+                    letterSpacing: 0.0,
+                    fontColor: Colors.grey,
+
+                  ),
+                ),
+                Center(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    ),
+                    onPressed: () {
+                      bottomNavigationBarController.changeWidget(
+                        widget: CheckoutScreen(),
+                      );
+                      bottomNavigationBarController.changeIndex(index: -1);
+                    },
+                    child: Text("Set Location", style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

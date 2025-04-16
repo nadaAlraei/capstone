@@ -1,10 +1,13 @@
+import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
 import 'package:capstone/view/screen/map_screen.dart';
 import 'package:capstone/view/screen/order_checkout_screen.dart';
+import 'package:capstone/view/screen/profile1_screen.dart';
 import 'package:capstone/view/widget/input_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 import '../widget/text_widget.dart';
 
@@ -24,26 +27,35 @@ class _Profile2Screen extends State<Profile2Screen> {
 
   @override
   Widget build(BuildContext context) {
+    BottomNavigationBarController bottomNavigationBarController =
+    Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar:   AppBar(
+          title: TextWidget(
+            text: AppLocalizations.of(context)!.profile,
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+            fontFamily: 'Inter',
+            letterSpacing: -0.2,
+            fontColor: Colors.black,
+          ),
+          leading: IconButton(onPressed: () {
+            bottomNavigationBarController.changeWidget(
+              widget: Profile1Screen(),
+            );
+            bottomNavigationBarController.changeIndex(index: -5);
+          }, icon: Icon(Icons.arrow_back)),
+          backgroundColor: Colors.white,
+        ),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 22, right: 22, bottom: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * (26 / 932),
-                child: TextWidget(
-                  text: AppLocalizations.of(context)!.profile,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  fontFamily: 'Inter',
-                  letterSpacing: -0.2,
-                  fontColor: Colors.black,
-                ),
-              ),
+
 
               Container(
                 width: MediaQuery.of(context).size.width * (400 / 430),

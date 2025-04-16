@@ -163,5 +163,9 @@
   "logout" : "Logout",
   "user_name" : "Username",
   "address" : "Address",
-  "update" : "Update"
+  "update" : "Update",
+  "chocolate_cake" : "Chocolate Cake",
+  "apply_filters" : "Apply Filters",
+  "chat" : "Chat",
+  "write_your_message" : "Write Your Message"
 }

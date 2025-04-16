@@ -12,7 +12,7 @@ class BottomNotificationSheetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      child: Scaffold(
+      child: Scaffold(backgroundColor: Color.fromARGB(150,219, 244, 209),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(
             MediaQuery.of(context).size.height * 0.1,

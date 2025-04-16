@@ -164,5 +164,9 @@
   "logout" : "تسجيل الخروج",
   "user_name" : "اسم المستخدم",
   "address" : "العنوان",
-  "update" : "تعديل"
+  "update" : "تعديل",
+  "chocolate_cake" : "كعكة الشوكولاتة",
+  "apply_filters" : "تطبيق التصنيفات",
+  "chat" : "الدردشة",
+  "write_your_message" : "اكتب رسالتك"
 }

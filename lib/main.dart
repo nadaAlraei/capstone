@@ -1,12 +1,12 @@
 import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
 import 'package:capstone/controller/change_lang_controller.dart';
+import 'package:capstone/controller/counter_controller.dart';
 import 'package:capstone/controller/location_permission_controller.dart';
 import 'package:capstone/controller/offer_slider_controller.dart';
 import 'package:capstone/controller/onboarding_controller.dart';
+import 'package:capstone/controller/remove_item_controller.dart';
 import 'package:capstone/controller/reset_password_controller.dart';
 import 'package:capstone/controller/signup_controller.dart';
-import 'package:capstone/view/screen/filter_screen.dart';
-import 'package:capstone/view/screen/onboarding_screen.dart';
 import 'package:capstone/view/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -43,6 +43,8 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (context) => ChangeLangController()),
         ChangeNotifierProvider(create: (context) => OnboardingController()),
         ChangeNotifierProvider(create: (context) => OfferSliderController()),
+        ChangeNotifierProvider(create: (context) => RemoveItemController()),
+        ChangeNotifierProvider(create: (context) => CounterController()),
       ],
       child: Consumer<ChangeLangController>(
         builder: (context, changeLangController, child) {

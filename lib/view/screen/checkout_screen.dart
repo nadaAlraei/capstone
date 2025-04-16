@@ -29,86 +29,95 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 22, right: 22),
+        child: Container(
+          margin: EdgeInsets.only(bottom: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * (26 / 932),
-                  child: TextWidget(
-                      text: AppLocalizations.of(context)!.checkout,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      letterSpacing: -0.2,
-                      fontColor: Colors.black)),
+
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                child: TextWidget(
+                    text: AppLocalizations.of(context)!.checkout,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                    fontFamily: 'Inter',
+                    letterSpacing: -0.2,
+                    fontColor: Colors.black),
+              ),
               SizedBox(height: 10),
-              TextWidget(
-                  text: AppLocalizations.of(context)!.pay_with,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  fontFamily: 'Inter',
-                  letterSpacing: -0.2,
-                  fontColor: Colors.black),
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                child: TextWidget(
+                    text: AppLocalizations.of(context)!.pay_with,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                    fontFamily: 'Inter',
+                    letterSpacing: -0.2,
+                    fontColor: Colors.black),
+              ),
               SizedBox(height: 10,),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      Image.asset('assets/images/Icon maps A.png'),
-                      SizedBox(width: 10,),
-                      TextWidget(text: "88 Zurab Gorgiladze St", fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Inter', letterSpacing: -0.2, fontColor: Colors.black)
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(width: 30,),
-                      TextWidget(text: "Georgia, Batumi", fontWeight: FontWeight.w400, fontSize: 13, fontFamily: 'Inter', letterSpacing: -0.2, fontColor: Colors.grey)
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Image.asset('assets/images/Icon maps B.png'),
-                      SizedBox(width: 10,),
-                      TextWidget(text: "5 Noe Zhordania St", fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Inter', letterSpacing: -0.2, fontColor: Colors.black)
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(width: 30,),
-                      TextWidget(text: "Georgia, Batumi", fontWeight: FontWeight.w400, fontSize: 13, fontFamily: 'Inter', letterSpacing: -0.2, fontColor: Colors.grey),
-                      SizedBox(width: 140,),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width* (80/ 430),
-                        height: MediaQuery.of(context).size.height* (35/ 932),
-                        child: TextButton(onPressed: () {
-                          bottomNavigationBarController.changeWidget(
-                            widget: MapScreen(),
-                          );
-                          bottomNavigationBarController.changeIndex(index: -1);
-                          },
-                            child: Text(AppLocalizations.of(context)!.change, style: TextStyle(color: Colors.green),)),
-                      )
-                    ],
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset('assets/images/Icon maps A.png'),
+                        SizedBox(width: 10,),
+                        TextWidget(text: "88 Zurab Gorgiladze St", fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Inter', letterSpacing: -0.2, fontColor: Colors.black)
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 30,),
+                        TextWidget(text: "Georgia, Batumi", fontWeight: FontWeight.w400, fontSize: 13, fontFamily: 'Inter', letterSpacing: -0.2, fontColor: Colors.grey)
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Image.asset('assets/images/Icon maps B.png'),
+                        SizedBox(width: 10,),
+                        TextWidget(text: "5 Noe Zhordania St", fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Inter', letterSpacing: -0.2, fontColor: Colors.black)
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 30,),
+                        TextWidget(text: "Georgia, Batumi", fontWeight: FontWeight.w400, fontSize: 13, fontFamily: 'Inter', letterSpacing: -0.2, fontColor: Colors.grey),
+                        SizedBox(width: 140,),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width* (80/ 430),
+                          height: MediaQuery.of(context).size.height* (35/ 932),
+                          child: TextButton(onPressed: () {
+                            bottomNavigationBarController.changeWidget(
+                              widget: MapScreen(),
+                            );
+                            bottomNavigationBarController.changeIndex(index: -2);
+                            },
+                              child: Text(AppLocalizations.of(context)!.change, style: TextStyle(color: Colors.green),)),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              Column(
-                children: [
-                  TextWidget(
-                      text: AppLocalizations.of(context)!.promo_code,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                      fontFamily: 'Inter',
-                      letterSpacing: -0.2,
-                      fontColor: Colors.black),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                child: Column(
+                  children: [
+                    TextWidget(
+                        text: AppLocalizations.of(context)!.promo_code,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        fontFamily: 'Inter',
+                        letterSpacing: -0.2,
+                        fontColor: Colors.black),
+                  ],
+                ),
               ),
-              Row(
-                children: [
-                  Expanded(
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
                     child: InputWidget(
                       textEditingController: _promocode,
                       obscureText: false,
@@ -134,18 +143,16 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       ),
                     ),
                   ),
-                ],
-              ),
-              Column(
-                children: [
-                  TextWidget(
-                      text:AppLocalizations.of(context)!.pay_with,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      letterSpacing: -0.2,
-                      fontColor: Colors.black),
-                ],
+
+              Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                child: TextWidget(
+                    text:AppLocalizations.of(context)!.pay_with,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                    fontFamily: 'Inter',
+                    letterSpacing: -0.2,
+                    fontColor: Colors.black),
               ),
               Row(
                 children: [
@@ -181,15 +188,18 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 ],
               ),
           if (_selectedPayment == "Card") ...[
-    Column(
+              Column(
                 children: [
-                  TextWidget(
-                      text: "Card Type:",
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                      fontFamily: 'Inter',
-                      letterSpacing: -0.2,
-                      fontColor: Colors.black),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                    child: TextWidget(
+                        text: "Card Type:",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        fontFamily: 'Inter',
+                        letterSpacing: -0.2,
+                        fontColor: Colors.black),
+                  ),
                 ],
               ),
             Row(
@@ -248,7 +258,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     Image.asset(
                       'assets/images/cartPattern.png',
                       fit: BoxFit.cover,
-                      width: MediaQuery.of(context).size.width,
+                      width: MediaQuery.of(context).size.width ,
                       height: MediaQuery.of(context).size.height * 0.25,
                     ),
                     Padding(
@@ -359,7 +369,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 bottomNavigationBarController.changeWidget(
                                   widget: CardScreen(),
                                 );
-                                bottomNavigationBarController.changeIndex(index: -1);
+                                bottomNavigationBarController.changeIndex(index: -3);
                               } else if (_selectedPayment == "Cash"){
                                 bottomNavigationBarController.changeWidget(
                                   widget: OrderDoneCheckout(),

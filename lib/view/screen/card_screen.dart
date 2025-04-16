@@ -1,3 +1,4 @@
+import 'package:capstone/view/screen/checkout_screen.dart';
 import 'package:capstone/view/screen/map_screen.dart';
 import 'package:capstone/view/screen/order_checkout_screen.dart';
 import 'package:capstone/view/widget/input_widget.dart';
@@ -32,6 +33,16 @@ class _CardScreen extends State<CardScreen> {
     Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+
+        leading: IconButton(onPressed: () {
+          bottomNavigationBarController.changeWidget(
+            widget: CheckoutScreen(),
+          );
+          bottomNavigationBarController.changeIndex(index: -1);
+        }, icon: Icon(Icons.arrow_back)),
+        backgroundColor: Colors.white,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 22, right: 22, bottom: 50),

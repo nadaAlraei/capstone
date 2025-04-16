@@ -1,4 +1,5 @@
 import 'package:capstone/controller/change_lang_controller.dart';
+import 'package:capstone/view/screen/home_screen.dart';
 import 'package:capstone/view/screen/login_screen.dart';
 import 'package:capstone/view/screen/profile2_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,24 +35,30 @@ class _Profile1Screen extends State<Profile1Screen> {
     }
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: TextWidget(
+          text: AppLocalizations.of(context)!.profile,
+          fontWeight: FontWeight.w600,
+          fontSize: 20,
+          fontFamily: 'Inter',
+          letterSpacing: -0.2,
+          fontColor: Colors.black,
+        ),
+        leading: IconButton(onPressed: () {
+          bottomNavigationBarController.changeWidget(
+            widget: HomeScreen(),
+          );
+          bottomNavigationBarController.changeIndex(index: 0);
+        }, icon: Icon(Icons.arrow_back)),
+        backgroundColor: Colors.white,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 22, right: 22, bottom: 35),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * (26 / 932),
-                child: TextWidget(
-                  text: AppLocalizations.of(context)!.profile,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  fontFamily: 'Inter',
-                  letterSpacing: -0.2,
-                  fontColor: Colors.black,
-                ),
-              ),
+
 
               Container(
                 width: MediaQuery.of(context).size.width * (400 / 430),
@@ -105,7 +112,7 @@ class _Profile1Screen extends State<Profile1Screen> {
                         bottomNavigationBarController.changeWidget(
                           widget: Profile2Screen(),
                         );
-                        bottomNavigationBarController.changeIndex(index: -1);
+                        bottomNavigationBarController.changeIndex(index: -5);
                       },
                     ),
                     ListTile(

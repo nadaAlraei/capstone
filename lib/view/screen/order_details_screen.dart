@@ -1,4 +1,5 @@
 import 'package:capstone/view/screen/chat_screen.dart';
+import 'package:capstone/view/screen/track_order_screen.dart';
 import 'package:capstone/view/widget/timeline_tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,9 +21,19 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
         Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.order_details),
+        leading: IconButton(onPressed: () {
+          bottomNavigationBarController.changeWidget(
+            widget: OrderTrackingScreen(),
+          );
+          bottomNavigationBarController.changeIndex(index: -2);
+        }, icon: Icon(Icons.arrow_back)),
+        backgroundColor: Colors.white,
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 22, right: 22, bottom: 50),
+          padding: EdgeInsets.only(left: 22, right: 22, bottom: 50,top : 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -204,7 +215,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                               widget: ChatScreen(),
                             );
                             bottomNavigationBarController.changeIndex(
-                              index: -1,
+                              index: -2,
                             );
                           },
                           icon: Image.asset('assets/images/Icon_Chat.png'),
