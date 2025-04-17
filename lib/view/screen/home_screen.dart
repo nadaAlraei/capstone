@@ -22,6 +22,7 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: theme.scaffoldBackgroundColor,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           toolbarHeight: 0,
           backgroundColor: theme.appBarTheme.backgroundColor,
           bottom: TabBar(

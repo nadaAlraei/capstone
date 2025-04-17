@@ -161,8 +161,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 },
                                 icon: Icon(
                                   loginController.obscureTextPassword
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
                                   color: theme.iconTheme.color,
                                 ),
                               ),

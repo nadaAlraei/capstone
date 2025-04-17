@@ -82,7 +82,7 @@ class _orderDoneCheckout extends State<OrderDoneCheckout> {
                     bottomNavigationBarController.changeWidget(
                       widget: OrderTrackingScreen(),
                     );
-                    bottomNavigationBarController.changeIndex(index: -1);
+                    bottomNavigationBarController.changeIndex(index: -2);
                   },
                   child: Container(
                     width: MediaQuery.of(context).size.width * (390 / 430),

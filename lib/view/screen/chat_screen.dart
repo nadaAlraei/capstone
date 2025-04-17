@@ -1,5 +1,12 @@
+import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
+import 'package:capstone/view/screen/home_screen.dart';
+import 'package:capstone/view/screen/order_checkout_screen.dart';
+import 'package:capstone/view/screen/order_details_screen.dart';
+import 'package:capstone/view/screen/track_order_screen.dart';
 import 'package:capstone/view/widget/chat_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -7,15 +14,22 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+
+
   @override
   Widget build(BuildContext context) {
+    BottomNavigationBarController bottomNavigationBarController =
+  Provider.of<BottomNavigationBarController>(context, listen: false);
     final theme = Theme.of(context);
     final isDarkMode = theme.brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chat'),
+        title: Text(AppLocalizations.of(context)!.chat),
         leading: IconButton(onPressed: () {
-          Navigator.pop(context);
+          bottomNavigationBarController.changeWidget(
+            widget: OrderTrackingScreen(),
+          );
+          bottomNavigationBarController.changeIndex(index: -2);
         }, icon: Icon(Icons.arrow_back)),
         backgroundColor: isDarkMode ? Colors.grey[900] : Colors.white,
       ),
