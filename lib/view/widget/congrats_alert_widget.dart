@@ -32,7 +32,7 @@ class CongratsAlertWidget extends StatelessWidget {
             )!.congrats,
             fontWeight:
             FontWeight.w700,
-            fontSize: 32,
+            fontSize: 29,
             fontFamily: 'Inter',
             letterSpacing: -0.02,
             fontColor:
@@ -47,7 +47,7 @@ class CongratsAlertWidget extends StatelessWidget {
             )!.password_reset_successfully,
             fontWeight:
             FontWeight.w400,
-            fontSize: 20,
+            fontSize: 18,
             fontFamily: 'Inter',
             letterSpacing: -0.02,
             fontColor:

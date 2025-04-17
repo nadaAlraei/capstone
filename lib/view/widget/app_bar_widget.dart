@@ -1,20 +1,27 @@
+import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
 import 'package:capstone/view/widget/bottom_notification_sheet_widget.dart';
-import 'package:capstone/view/widget/input_widget.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class AppBarWidget extends StatelessWidget {
   AppBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    BottomNavigationBarController bottomNavigationBarController =Provider.of<BottomNavigationBarController>(context,listen: false);
+if(bottomNavigationBarController.isVisible2 == false || bottomNavigationBarController.isVisible3 == false ){
+return SizedBox();
+}else{
+  return Container(
 
-      margin: EdgeInsets.only(left: 5, right: 5, top: 10),
-      child: ListTile(
-        // location icon
-        leading: Container(
+    margin: EdgeInsets.only(left: 5, right: 5, top: 10),
+    child: ListTile(
+      // location icon
+      leading: Visibility(
+        visible:(bottomNavigationBarController.isVisible && bottomNavigationBarController.isVisible4),
+        child: Container(
           width: MediaQuery.of(context).size.width * 0.09,
           height: MediaQuery.of(context).size.height * 0.045,
           decoration: BoxDecoration(
@@ -23,8 +30,11 @@ class AppBarWidget extends StatelessWidget {
           ),
           child: Image.asset('assets/images/ri_map-pin-5-line.png'),
         ),
-        // Current location text
-        title: Row(
+      ),
+      // Current location text
+      title: Visibility(
+        visible: (bottomNavigationBarController.isVisible && bottomNavigationBarController.isVisible4),
+        child: Row(
           children: [
             TextWidget(
               text: AppLocalizations.of(context)!.current_location,
@@ -41,8 +51,11 @@ class AppBarWidget extends StatelessWidget {
             ),
           ],
         ),
-        // location
-        subtitle: TextWidget(
+      ),
+      // location
+      subtitle: Visibility(
+        visible: (bottomNavigationBarController.isVisible && bottomNavigationBarController.isVisible4),
+        child: TextWidget(
           text: 'Jl. Soekarno Hatta 15A Malang',
           fontWeight: FontWeight.w600,
           fontSize: 14,
@@ -50,8 +63,11 @@ class AppBarWidget extends StatelessWidget {
           letterSpacing: 0.0,
           fontColor: Colors.black,
         ),
-        // notification
-        trailing: Container(
+      ),
+      // notification
+      trailing: Visibility(
+        visible: bottomNavigationBarController.isVisible4,
+        child: Container(
           width: MediaQuery.of(context).size.width * 0.09,
           height: MediaQuery.of(context).size.height * 0.045,
           decoration: BoxDecoration(
@@ -65,9 +81,13 @@ class AppBarWidget extends StatelessWidget {
                   return BottomNotificationSheetWidget();
                 });
 
-        }, icon: Icon(Icons.notifications_none, size: 18)),
+          }, icon: Icon(Icons.notifications_none, size: 18)),
         ),
       ),
-    );
+    ),
+  );
+}
+
+
   }
 }

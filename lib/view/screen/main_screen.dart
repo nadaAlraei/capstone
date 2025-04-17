@@ -16,11 +16,12 @@ class MainScreen extends StatelessWidget {
     return Consumer<BottomNavigationBarController>(
       builder: (context, bottomNavigationBarController, child) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           backgroundColor: Colors.white,
           appBar: AppBar(
             backgroundColor: Colors.white,
             titleSpacing: 0,
-            toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+            toolbarHeight: (bottomNavigationBarController.isVisible2  && bottomNavigationBarController.isVisible3 && bottomNavigationBarController.isVisible4)   ? MediaQuery.of(context).size.height * 0.1 : 0,
             title: AppBarWidget(),
           ),
 
@@ -188,7 +189,7 @@ class MainScreen extends StatelessWidget {
                         bottomNavigationBarController.changeWidget(
                           widget: Profile1Screen(),
                         );
-                        bottomNavigationBarController.changeIndex(index: 5);
+                        bottomNavigationBarController.changeIndex(index: -5);
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -196,7 +197,7 @@ class MainScreen extends StatelessWidget {
                           Icon(
                             Icons.person_outline_sharp,
                             color:
-                                bottomNavigationBarController.selectIndex == 5
+                                bottomNavigationBarController.selectIndex == -5
                                     ? Color.fromARGB(255, 37, 174, 75)
                                     : Color.fromARGB(255, 72, 76, 82),
                           ),
@@ -204,7 +205,7 @@ class MainScreen extends StatelessWidget {
                             AppLocalizations.of(context)!.profile,
                             style: TextStyle(
                               color:
-                                  bottomNavigationBarController.selectIndex == 5
+                                  bottomNavigationBarController.selectIndex == -5
                                       ? Color.fromARGB(255, 37, 174, 75)
                                       : Color.fromARGB(255, 72, 76, 82),
                             ),

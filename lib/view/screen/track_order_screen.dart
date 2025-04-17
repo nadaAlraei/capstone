@@ -1,3 +1,4 @@
+import 'package:capstone/view/screen/home_screen.dart';
 import 'package:capstone/view/screen/order_details_screen.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -100,7 +101,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                             bottomNavigationBarController.changeWidget(
                               widget: OrderDetailsScreen(),
                             );
-                            bottomNavigationBarController.changeIndex(index: -1);
+                            bottomNavigationBarController.changeIndex(index: -2);
                           },
                           child: Text(AppLocalizations.of(context)!.all_details, style: TextStyle(color: Colors.green)),
                         )
@@ -192,7 +193,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                             bottomNavigationBarController.changeWidget(
                               widget: ChatScreen(),
                             );
-                            bottomNavigationBarController.changeIndex(index: -1);
+                            bottomNavigationBarController.changeIndex(index: -2);
                           },
                           icon: Image.asset('assets/images/Icon_Chat.png'),
                         ),
@@ -228,25 +229,34 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
               );
             },
           ),
-          Positioned(
-            top: 60,
-            left: 20,
-            right: 20,
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
-              ),
-              child: TextField(
-                controller: _locationController,
-                decoration: InputDecoration(
-                  hintText: AppLocalizations.of(context)!.find_your_location,
-                  border: InputBorder.none,
-                  prefixIcon: Icon(Icons.search, color: Colors.grey),
+          Padding(
+            padding: const EdgeInsets.only(top: 23),
+            child: Row(
+              children: [IconButton(onPressed: (){
+                bottomNavigationBarController.changeWidget(
+                  widget: HomeScreen(),
+                );
+                bottomNavigationBarController.changeIndex(index: 0);
+              }, icon: Icon(Icons.arrow_back,size: 24,),),
+                Container(
+                  margin: EdgeInsets.only(left: 20,right: 20),
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  height: 42,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
+                  ),
+                  child: TextField(
+                    controller: _locationController,
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.find_your_location,
+                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.search, color: Color.fromARGB(255, 37, 174, 75)),
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ],
