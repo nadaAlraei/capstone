@@ -200,7 +200,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                   Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 80),
+                        padding: const EdgeInsets.only(left: 30,right: 30),
                         child: Container(
                           width: MediaQuery.of(context).size.width * (50 / 430),
                           height:
@@ -209,6 +209,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                             onPressed: () {},
                             icon: Image.asset(
                               'assets/images/Icon_Phone.png',
+                              width: 40,height: 40,
                             ),
                           ),
                         ),

@@ -37,7 +37,7 @@ class _FilterScreenState extends State<FilterScreen> {
         "category": AppLocalizations.of(context)!.fast_food,
       },
       {
-        // "name": AppLocalizations.of(context)!.chocolate_cake,
+        "name": AppLocalizations.of(context)!.chocolate_cake,
         "category": AppLocalizations.of(context)!.dessert,
       },
       {
@@ -297,29 +297,29 @@ class _FilterScreenState extends State<FilterScreen> {
             Wrap(
               spacing: 8,
               children:
-                  categories.map((category) {
-                    return ChoiceChip(
-                      backgroundColor: Color.fromARGB(255, 234, 250, 235),
-                      selectedColor: Color.fromARGB(255, 37, 174, 75),
-                      side: BorderSide(
-                        color: Color.fromARGB(255, 234, 250, 235),
-                      ),
-                      label: TextWidget(
-                        text: category,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12,
-                        fontFamily: 'Inter',
-                        letterSpacing: 0,
-                        textAlign: TextAlign.center,
-                      ),
-                      selected: _selectedCategory == category,
-                      onSelected: (selected) {
-                        setState(() {
-                          _selectedCategory = category;
-                        });
-                      },
-                    );
-                  }).toList(),
+              categories.map((category) {
+                return ChoiceChip(
+                  backgroundColor: Color.fromARGB(255, 234, 250, 235),
+                  selectedColor: Color.fromARGB(255, 37, 174, 75),
+                  side: BorderSide(
+                    color: Color.fromARGB(255, 234, 250, 235),
+                  ),
+                  label: TextWidget(
+                    text: category,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                    fontFamily: 'Inter',
+                    letterSpacing: 0,
+                    textAlign: TextAlign.center,
+                  ),
+                  selected: _selectedCategory == category,
+                  onSelected: (selected) {
+                    setState(() {
+                      _selectedCategory = category;
+                    });
+                  },
+                );
+              }).toList(),
             ),
             SizedBox(height: 16),
 
@@ -377,67 +377,67 @@ class _FilterScreenState extends State<FilterScreen> {
             Wrap(
               spacing: 8,
               children:
-                  getFilteredDishes().map((dish) {
-                    return FilterChip(
-                      backgroundColor: Color.fromARGB(255, 234, 250, 235),
-                      selectedColor: Color.fromARGB(255, 37, 174, 75),
-                      side: BorderSide(
-                        color: Color.fromARGB(255, 234, 250, 235),
-                      ),
-                      label: Text(dish["name"]!),
-                      selected: _selectedDishes.contains(dish["name"]!),
-                      onSelected: (selected) {
-                        setState(() {
-                          if (selected) {
-                            _selectedDishes.add(dish["name"]!);
-                          } else {
-                            _selectedDishes.remove(dish["name"]!);
-                          }
-                        });
-                      },
-                    );
-                  }).toList(),
+              getFilteredDishes().map((dish) {
+                return FilterChip(
+                  backgroundColor: Color.fromARGB(255, 234, 250, 235),
+                  selectedColor: Color.fromARGB(255, 37, 174, 75),
+                  side: BorderSide(
+                    color: Color.fromARGB(255, 234, 250, 235),
+                  ),
+                  label: Text(dish["name"]!),
+                  selected: _selectedDishes.contains(dish["name"]!),
+                  onSelected: (selected) {
+                    setState(() {
+                      if (selected) {
+                        _selectedDishes.add(dish["name"]!);
+                      } else {
+                        _selectedDishes.remove(dish["name"]!);
+                      }
+                    });
+                  },
+                );
+              }).toList(),
             ),
 
             SizedBox(height: 24),
-            // TextButton(
-            //   onPressed: () {
-            //     Navigator.pop(context);
-            //
-            //   },
-            //   child: Container(
-            //     width:
-            //     MediaQuery.of(
-            //       context,
-            //     ).size.width *
-            //         0.9,
-            //     height: 50,
-            //     decoration: BoxDecoration(
-            //       color: Color.fromARGB(
-            //         255,
-            //         37,
-            //         174,
-            //         75,
-            //       ),
-            //       borderRadius: BorderRadius.circular(
-            //         20,
-            //       ),
-            //     ),
-            //     child: Center(
-            //       child: TextWidget(
-            //         text:
-            //         AppLocalizations.of(
-            //           context,
-            //         )!.apply_filters,
-            //         fontWeight: FontWeight.w500,
-            //         fontSize: 14,
-            //         fontFamily: 'Inter',
-            //         letterSpacing: -0.01,
-            //         fontColor: Colors.white,
-            //       ),
-            //     ),
-            //   ),
-            // ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+
+              },
+              child: Container(
+                width:
+                MediaQuery.of(
+                  context,
+                ).size.width *
+                    0.9,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(
+                    255,
+                    37,
+                    174,
+                    75,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    20,
+                  ),
+                ),
+                child: Center(
+                  child: TextWidget(
+                    text:
+                    AppLocalizations.of(
+                      context,
+                    )!.apply_filters,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    fontFamily: 'Inter',
+                    letterSpacing: -0.01,
+                    fontColor: Colors.white,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

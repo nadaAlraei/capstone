@@ -197,7 +197,7 @@ crossAxisAlignment: CrossAxisAlignment.start,
                       );
                       bottomNavigationBarController.changeIndex(index: -1);
                     },
-                    child: Text("Set Location", style: TextStyle(color: Colors.white)),
+                    child: Text(AppLocalizations.of(context)!.set_location, style: TextStyle(color: Colors.white)),
                   ),
                 ),
               ],

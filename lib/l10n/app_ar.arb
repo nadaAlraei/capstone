@@ -168,5 +168,7 @@
   "chocolate_cake" : "كعكة الشوكولاتة",
   "apply_filters" : "تطبيق التصنيفات",
   "chat" : "الدردشة",
-  "write_your_message" : "اكتب رسالتك"
+  "write_your_message" : "اكتب رسالتك",
+  "card_type" : "نوع البطاقة",
+  "set_location" : "تعيين الموقع"
 }
