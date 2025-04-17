@@ -1,4 +1,5 @@
 import 'package:capstone/view/screen/chat_screen.dart';
+import 'package:capstone/view/screen/track_order_screen.dart';
 import 'package:capstone/view/widget/timeline_tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,16 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
     Provider.of<BottomNavigationBarController>(context, listen: false);
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.order_details),
+        leading: IconButton(onPressed: () {
+          bottomNavigationBarController.changeWidget(
+            widget: OrderTrackingScreen(),
+          );
+          bottomNavigationBarController.changeIndex(index: -2);
+        }, icon: Icon(Icons.arrow_back)),
+        backgroundColor: isDarkMode ? Colors.grey[900] : Colors.white,
+      ),
       backgroundColor: isDarkMode ? Colors.grey[900] : Colors.white,
       body: SingleChildScrollView(
         child: Padding(
@@ -30,14 +41,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextWidget(
-                text: AppLocalizations.of(context)!.order_details,
-                fontWeight: FontWeight.w600,
-                fontSize: 20,
-                fontFamily: 'Inter',
-                letterSpacing: -0.2,
-                fontColor: isDarkMode ? Colors.white : Colors.black,
-              ),
+
               SizedBox(height: 12),
               Row(
                 children: [
@@ -218,7 +222,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                               widget: ChatScreen(),
                             );
                             bottomNavigationBarController.changeIndex(
-                              index: -1,
+                              index: -2,
                             );
                           },
                           icon: Image.asset(
