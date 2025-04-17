@@ -1,6 +1,9 @@
+import 'package:capstone/controller/bottom_navigation_bar_controller.dart';
+import 'package:capstone/view/screen/home_screen.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
@@ -402,7 +405,14 @@ class _FilterScreenState extends State<FilterScreen> {
             SizedBox(height: 24),
             TextButton(
               onPressed: () {
-                Navigator.pop(context);
+                Provider.of<BottomNavigationBarController>(
+                  context,
+                  listen: false,
+                ).changeWidget(widget: HomeScreen());
+                Provider.of<BottomNavigationBarController>(
+                  context,
+                  listen: false,
+                ).changeIndex(index: 0);
 
               },
               child: Container(
