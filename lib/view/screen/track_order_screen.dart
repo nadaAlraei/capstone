@@ -4,7 +4,6 @@ import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-
 import '../../controller/bottom_navigation_bar_controller.dart';
 import 'chat_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -64,11 +63,20 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
+    final sheetColor = isDarkMode ? Colors.grey[900] : Colors.white;
+    final textColor = isDarkMode ? Colors.white : Colors.black;
+    final secondaryTextColor = isDarkMode ? Colors.grey[400] : Colors.grey;
+    final searchBoxColor = isDarkMode ? Colors.grey[800] : Colors.white;
+
     BottomNavigationBarController bottomNavigationBarController =
     Provider.of<BottomNavigationBarController>(context, listen: false);
+
     return Scaffold(
       body: Stack(
         children: [
+          // Google Map - remains unchanged as requested
           GoogleMap(
             onMapCreated: (controller) => mapController = controller,
             initialCameraPosition: CameraPosition(
@@ -78,6 +86,8 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
             markers: _markers,
             polylines: _polylines,
           ),
+
+          // Bottom sheet with dark mode support
           DraggableScrollableSheet(
             initialChildSize: 0.3,
             minChildSize: 0.3,
@@ -85,8 +95,14 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
             builder: (context, scrollController) {
               return Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: sheetColor,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: isDarkMode ? Colors.black54 : Colors.black12,
+                      blurRadius: 10,
+                    )
+                  ],
                 ),
                 padding: EdgeInsets.all(16),
                 child: ListView(
@@ -94,7 +110,14 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                   children: [
                     Row(
                       children: [
-                        Text(AppLocalizations.of(context)!.on_the_way, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                        TextWidget(
+                          text: AppLocalizations.of(context)!.on_the_way,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          fontColor: textColor, 
+                          fontFamily: 'Inter',
+                          letterSpacing: -0.2,
+                        ),
                         Spacer(),
                         TextButton(
                           onPressed: () {
@@ -103,7 +126,10 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                             );
                             bottomNavigationBarController.changeIndex(index: -2);
                           },
-                          child: Text(AppLocalizations.of(context)!.all_details, style: TextStyle(color: Colors.green)),
+                          child: Text(
+                            AppLocalizations.of(context)!.all_details,
+                            style: TextStyle(color: Colors.green),
+                          ),
                         )
                       ],
                     ),
@@ -138,7 +164,11 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                       ],
                     ),
                     SizedBox(height: 10),
-                    LinearProgressIndicator(value: 0.59, backgroundColor: Colors.grey.shade300, color: Colors.green),
+                    LinearProgressIndicator(
+                      value: 0.59,
+                      backgroundColor: isDarkMode ? Colors.grey[700] : Colors.grey.shade300,
+                      color: Colors.green,
+                    ),
                     SizedBox(height: 30),
                     Row(
                       children: [
@@ -154,9 +184,9 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                               text: AppLocalizations.of(context)!.your_delivery_hero,
                               fontWeight: FontWeight.w500,
                               fontSize: 12,
-                              fontFamily: 'Intern',
+                              fontFamily: 'Inter',
                               letterSpacing: -0.2,
-                              fontColor: Colors.grey,
+                              fontColor: secondaryTextColor,
                             ),
                             Row(
                               children: [
@@ -164,20 +194,24 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                                   text: "Aleksandr V.",
                                   fontWeight: FontWeight.w400,
                                   fontSize: 15,
-                                  fontFamily: 'Intern',
+                                  fontFamily: 'Inter',
                                   letterSpacing: -0.2,
-                                  fontColor: Colors.black,
+                                  fontColor: textColor,
                                 ),
                                 SizedBox(width: 5),
-                                Image.asset('assets/images/star.png', height: 14),
+                                Image.asset(
+                                  'assets/images/star.png',
+                                  height: 14,
+                                  color: isDarkMode ? Colors.white : null,
+                                ),
                                 SizedBox(width: 3),
                                 TextWidget(
                                   text: '4.9',
                                   fontWeight: FontWeight.w400,
                                   fontSize: 13,
-                                  fontFamily: "Intern",
+                                  fontFamily: "Inter",
                                   letterSpacing: -0.2,
-                                  fontColor: Colors.grey,
+                                  fontColor: secondaryTextColor,
                                 ),
                               ],
                             ),
@@ -186,7 +220,9 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                         Spacer(),
                         IconButton(
                           onPressed: () {},
-                          icon: Image.asset('assets/images/Icon_Phone.png'),
+                          icon: Image.asset(
+                            'assets/images/Icon_Phone.png',
+                          ),
                         ),
                         IconButton(
                           onPressed: () {
@@ -195,7 +231,9 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                             );
                             bottomNavigationBarController.changeIndex(index: -2);
                           },
-                          icon: Image.asset('assets/images/Icon_Chat.png'),
+                          icon: Image.asset(
+                            'assets/images/Icon_Chat.png',
+                          ),
                         ),
                       ],
                     ),
@@ -206,11 +244,14 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                       fontSize: 12,
                       fontFamily: "Inter",
                       letterSpacing: -0.1,
-                      fontColor: Colors.grey,
+                      fontColor: secondaryTextColor,
                     ),
                     Row(
                       children: [
-                        Image.asset('assets/images/ri_map-pin-5-line.png'),
+                        Image.asset(
+                          'assets/images/ri_map-pin-5-line.png',
+                          color: isDarkMode ? Colors.white : null,
+                        ),
                         SizedBox(width: 5),
                         Expanded(
                           child: TextWidget(
@@ -219,7 +260,7 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
                             fontSize: 12,
                             fontFamily: "Inter",
                             letterSpacing: -0.1,
-                            fontColor: Colors.black,
+                            fontColor: textColor,
                           ),
                         ),
                       ],
@@ -229,30 +270,50 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
               );
             },
           ),
+
+          // Search bar at top with dark mode support
           Padding(
             padding: const EdgeInsets.only(top: 23),
             child: Row(
-              children: [IconButton(onPressed: (){
-                bottomNavigationBarController.changeWidget(
-                  widget: HomeScreen(),
-                );
-                bottomNavigationBarController.changeIndex(index: 0);
-              }, icon: Icon(Icons.arrow_back,size: 24,),),
+              children: [
+                IconButton(
+                  onPressed: () {
+                    bottomNavigationBarController.changeWidget(
+                      widget: HomeScreen(),
+                    );
+                    bottomNavigationBarController.changeIndex(index: 0);
+                  },
+                  icon: Icon(
+                    Icons.arrow_back,
+                    size: 24,
+                    color: isDarkMode ? Colors.white : Colors.black,
+                  ),
+                ),
                 Container(
-                  margin: EdgeInsets.only(left: 20,right: 20),
+                  margin: EdgeInsets.only(left: 20, right: 20),
                   width: MediaQuery.of(context).size.width * 0.7,
                   height: 42,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: searchBoxColor,
                     borderRadius: BorderRadius.circular(30),
-                    boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
+                    boxShadow: [
+                      BoxShadow(
+                        color: isDarkMode ? Colors.black54 : Colors.black26,
+                        blurRadius: 10,
+                      )
+                    ],
                   ),
                   child: TextField(
                     controller: _locationController,
+                    style: TextStyle(color: textColor),
                     decoration: InputDecoration(
                       hintText: AppLocalizations.of(context)!.find_your_location,
+                      hintStyle: TextStyle(color: secondaryTextColor),
                       border: InputBorder.none,
-                      prefixIcon: Icon(Icons.search, color: Color.fromARGB(255, 37, 174, 75)),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Color.fromARGB(255, 37, 174, 75),
+                      ),
                     ),
                   ),
                 ),
@@ -264,4 +325,3 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
     );
   }
 }
-

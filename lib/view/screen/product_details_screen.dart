@@ -16,13 +16,24 @@ class ProductDetailsScreen extends StatefulWidget {
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   TextEditingController search = TextEditingController();
   double _currentSliderPrimaryValue = 0.2;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
+    final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
+    final backgroundColor = isDarkMode ? Colors.grey[900] : Colors.white;
+    final textColor = isDarkMode ? Colors.white : Colors.black;
+    final secondaryTextColor = isDarkMode ? Colors.grey[400] : Color.fromARGB(255, 134, 136, 137);
+    final cardColor = isDarkMode ? Colors.grey[800] : Colors.white;
 
-      appBar:  AppBar(
-        backgroundColor: Colors.white,
+    return Scaffold(
+      backgroundColor: backgroundColor,
+      appBar: AppBar(
+        backgroundColor: backgroundColor,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: isDarkMode ? Colors.white : Colors.black,
+        ),
         title: SearchBoxWidget(),
       ),
       body: SingleChildScrollView(
@@ -32,32 +43,75 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset('assets/images/productDetailsImage.png'),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: cardColor,
+                ),
+                child: Image.asset(
+                  'assets/images/productDetailsImage.png',
+                ),
+              ),
               SizedBox(height: 20),
-              TextWidget(text: AppLocalizations.of(context)!.product_name, fontWeight: FontWeight.w600, fontSize: 20, fontFamily: 'Inter', letterSpacing: 0,),
+              TextWidget(
+                text: AppLocalizations.of(context)!.product_name,
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+                fontFamily: 'Inter',
+                letterSpacing: 0,
+                fontColor: textColor,
+              ),
               SizedBox(height: 10),
               Row(
                 children: [
-                  Icon(Icons.star,color: Color.fromARGB(255,255, 193, 7),size: 14,),
-                  Icon(Icons.star,color: Color.fromARGB(255,255, 193, 7),size: 14,),
-                  Icon(Icons.star,color: Color.fromARGB(255,255, 193, 7),size: 14,),
-                  Icon(Icons.star,color: Color.fromARGB(255,255, 193, 7),size: 14,),
-                  Icon(Icons.star_half,color: Color.fromARGB(255,255, 193, 7),size: 14,),
+                  Icon(Icons.star, color: Color.fromARGB(255, 255, 193, 7), size: 14),
+                  Icon(Icons.star, color: Color.fromARGB(255, 255, 193, 7), size: 14),
+                  Icon(Icons.star, color: Color.fromARGB(255, 255, 193, 7), size: 14),
+                  Icon(Icons.star, color: Color.fromARGB(255, 255, 193, 7), size: 14),
+                  Icon(Icons.star_half, color: Color.fromARGB(255, 255, 193, 7), size: 14),
                   SizedBox(width: 5),
-                  TextWidget(text: '4.5 (89 reviews)', fontWeight: FontWeight.w400, fontSize: 12, fontFamily: 'Inter', letterSpacing: 0,fontColor: Color.fromARGB(255,134, 136, 137),),
-        
+                  TextWidget(
+                    text: '4.5 (89 reviews)',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12,
+                    fontFamily: 'Inter',
+                    letterSpacing: 0,
+                    fontColor: secondaryTextColor,
+                  ),
                 ],
               ),
+              SizedBox(height: 5),
               Row(
                 children: [
-                  TextWidget(text: '&7.99', fontWeight: FontWeight.w500, fontSize: 20, fontFamily: 'Inter', letterSpacing: 0,fontColor: Color.fromARGB(255,0, 153, 68),),
+                  TextWidget(
+                    text: '&7.99',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20,
+                    fontFamily: 'Inter',
+                    letterSpacing: 0,
+                    fontColor: Color.fromARGB(255, 0, 153, 68),
+                  ),
                   SizedBox(width: 5),
-                  TextWidget(text: '&9.5', fontWeight: FontWeight.w500, fontSize: 16, fontFamily: 'Inter', letterSpacing: 0,fontColor: Color.fromARGB(255,134, 136, 137),textDecoration: TextDecoration.lineThrough,),
-        
+                  TextWidget(
+                    text: '&9.5',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    fontFamily: 'Inter',
+                    letterSpacing: 0,
+                    fontColor: secondaryTextColor,
+                    textDecoration: TextDecoration.lineThrough,
+                  ),
                 ],
               ),
               SizedBox(height: 10),
-              TextWidget(text: AppLocalizations.of(context)!.product_des, fontWeight: FontWeight.w400, fontSize: 12, fontFamily: 'Inter', letterSpacing: 0,fontColor: Color.fromARGB(255,134, 136, 137),),
+              TextWidget(
+                text: AppLocalizations.of(context)!.product_des,
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                fontFamily: 'Inter',
+                letterSpacing: 0,
+                fontColor: secondaryTextColor,
+              ),
               SizedBox(height: 20),
               // Slider & quantity
               Row(
@@ -69,45 +123,75 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        TextWidget(text: AppLocalizations.of(context)!.spicy, fontWeight: FontWeight.w500, fontSize: 12, fontFamily: 'Inter', letterSpacing: 0,fontColor: Color.fromARGB(255,134, 136, 137),),
+                        TextWidget(
+                          text: AppLocalizations.of(context)!.spicy,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                          fontFamily: 'Inter',
+                          letterSpacing: 0,
+                          fontColor: secondaryTextColor,
+                        ),
                         SizedBox(height: 10),
-                        Slider(
-                          value: _currentSliderPrimaryValue,
-                          activeColor: Color.fromARGB(255,239, 42, 57),
-                          onChanged: (double value) {
-                            setState(() {
-                              _currentSliderPrimaryValue = value;
-                            });
-        
-                          },
-                        padding: EdgeInsets.zero,
+                        SliderTheme(
+                          data: SliderTheme.of(context).copyWith(
+                            activeTrackColor: Color.fromARGB(255, 239, 42, 57),
+                            inactiveTrackColor: isDarkMode ? Colors.grey[600] : Colors.grey[300],
+                            thumbColor: Color.fromARGB(255, 239, 42, 57),
+                          ),
+                          child: Slider(
+                            value: _currentSliderPrimaryValue,
+                            onChanged: (double value) {
+                              setState(() {
+                                _currentSliderPrimaryValue = value;
+                              });
+                            },
+                          ),
                         ),
                         SizedBox(height: 5),
                         Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextWidget(text: AppLocalizations.of(context)!.mild, fontWeight: FontWeight.w600, fontSize: 12, fontFamily: 'Poppins-Regular', letterSpacing: 0,fontColor: Color.fromARGB(255, 37, 174, 75),),
-        
-                            TextWidget(text: AppLocalizations.of(context)!.hot, fontWeight: FontWeight.w600, fontSize: 12, fontFamily: 'Poppins-Regular', letterSpacing: 0,fontColor: Color.fromARGB(255,239, 42, 57),),
-        
+                            TextWidget(
+                              text: AppLocalizations.of(context)!.mild,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                              fontFamily: 'Poppins-Regular',
+                              letterSpacing: 0,
+                              fontColor: Color.fromARGB(255, 37, 174, 75),
+                            ),
+                            TextWidget(
+                              text: AppLocalizations.of(context)!.hot,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                              fontFamily: 'Poppins-Regular',
+                              letterSpacing: 0,
+                              fontColor: Color.fromARGB(255, 239, 42, 57),
+                            ),
                           ],
                         ),
                       ],
                     ),
                   ),
                   SizedBox(width: MediaQuery.of(context).size.width * 0.25),
-              // Quantity
-              SizedBox(
-
-                      width: MediaQuery.of(context).size.width * 0.22,
-                      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextWidget(text: AppLocalizations.of(context)!.quantity, fontWeight: FontWeight.w500, fontSize: 12, fontFamily: 'Inter', letterSpacing: 0,fontColor: Color.fromARGB(255,134, 136, 137),),
-                          SizedBox(height: 10),
-                         CounterWidget(),
-                        ],
-                      )),
+                  // Quantity
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.22,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextWidget(
+                          text: AppLocalizations.of(context)!.quantity,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                          fontFamily: 'Inter',
+                          letterSpacing: 0,
+                          fontColor: secondaryTextColor,
+                        ),
+                        SizedBox(height: 10),
+                        CounterWidget(),
+                      ],
+                    ),
+                  ),
                 ],
               ),
               SizedBox(height: 18),
@@ -117,11 +201,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   color: Color.fromARGB(255, 37, 174, 75),
                   borderRadius: BorderRadius.circular(10),
                 ),
-        
                 width: MediaQuery.of(context).size.width,
                 child: TextButton(
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   child: Text(
                     AppLocalizations.of(context)!.add_to_cart,
                     style: TextStyle(color: Colors.white),
