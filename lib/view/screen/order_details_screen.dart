@@ -16,10 +16,14 @@ class OrderDetailsScreen extends StatefulWidget {
 class _OrderDetailsScreen extends State<OrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
+
     BottomNavigationBarController bottomNavigationBarController =
-        Provider.of<BottomNavigationBarController>(context, listen: false);
+    Provider.of<BottomNavigationBarController>(context, listen: false);
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDarkMode ? Colors.grey[900] : Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 22, right: 22, bottom: 50),
@@ -32,7 +36,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                 fontSize: 20,
                 fontFamily: 'Inter',
                 letterSpacing: -0.2,
-                fontColor: Colors.black,
+                fontColor: isDarkMode ? Colors.white : Colors.black,
               ),
               SizedBox(height: 12),
               Row(
@@ -52,6 +56,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                         fontSize: 16,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
+                        fontColor: isDarkMode ? Colors.white : Colors.black,
                       ),
                       TextWidget(
                         text: "#6579-6432",
@@ -59,7 +64,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                         fontSize: 10,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.grey,
+                        fontColor: isDarkMode ? Colors.grey[400] : Colors.grey,
                       ),
                       TextWidget(
                         text: "25 ${AppLocalizations.of(context)!.m}",
@@ -67,6 +72,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
+                        fontColor: isDarkMode ? Colors.white : Colors.black,
                       ),
                     ],
                   ),
@@ -80,6 +86,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                 icon: Icons.check,
                 text: "  ${AppLocalizations.of(context)!.order_received}",
                 isCompleted: true,
+                isDarkMode: isDarkMode,
               ),
 
               TimelineTileWidget(
@@ -88,6 +95,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                 icon: Icons.store,
                 text: "  ${AppLocalizations.of(context)!.cooking_your_order}",
                 isCompleted: true,
+                isDarkMode: isDarkMode,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * (335 / 430),
@@ -98,6 +106,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                   icon: Icons.person,
                   text: "  ${AppLocalizations.of(context)!.picking_up_order}",
                   isCompleted: true,
+                  isDarkMode: isDarkMode,
                 ),
               ),
               SizedBox(
@@ -109,6 +118,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                   icon: Icons.home,
                   text: "  ${AppLocalizations.of(context)!.cooking_your_order}",
                   isCompleted: false,
+                  isDarkMode: isDarkMode,
                 ),
               ),
 
@@ -128,12 +138,12 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                         height: MediaQuery.of(context).size.height * (28 / 932),
                         child: TextWidget(
                           text:
-                              AppLocalizations.of(context)!.your_delivery_hero,
+                          AppLocalizations.of(context)!.your_delivery_hero,
                           fontWeight: FontWeight.w500,
                           fontSize: 12,
                           fontFamily: 'Intern',
                           letterSpacing: -0.2,
-                          fontColor: Colors.grey,
+                          fontColor: isDarkMode ? Colors.grey[400] : Colors.grey,
                         ),
                       ),
                       Row(
@@ -141,39 +151,41 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                           SizedBox(width: 15),
                           SizedBox(
                             width:
-                                MediaQuery.of(context).size.width * (88 / 430),
+                            MediaQuery.of(context).size.width * (88 / 430),
                             height:
-                                MediaQuery.of(context).size.height * (20 / 932),
+                            MediaQuery.of(context).size.height * (20 / 932),
                             child: TextWidget(
                               text: "Aleksandr V.",
                               fontWeight: FontWeight.w400,
                               fontSize: 15,
                               fontFamily: 'Intern',
                               letterSpacing: -0.2,
-                              fontColor: Colors.black,
+                              fontColor: isDarkMode ? Colors.white : Colors.black,
                             ),
                           ),
                           SizedBox(
                             width:
-                                MediaQuery.of(context).size.width * (12 / 430),
+                            MediaQuery.of(context).size.width * (12 / 430),
                             height:
-                                MediaQuery.of(context).size.height *
+                            MediaQuery.of(context).size.height *
                                 (11.4 / 932),
-                            child: Image.asset('assets/images/star.png'),
+                            child: Image.asset(
+                              'assets/images/star.png',
+                            ),
                           ),
                           SizedBox(width: 5),
                           SizedBox(
                             width:
-                                MediaQuery.of(context).size.width * (20 / 430),
+                            MediaQuery.of(context).size.width * (20 / 430),
                             height:
-                                MediaQuery.of(context).size.height * (16 / 932),
+                            MediaQuery.of(context).size.height * (16 / 932),
                             child: TextWidget(
                               text: '4.9',
                               fontWeight: FontWeight.w400,
                               fontSize: 13,
                               fontFamily: "Intern",
                               letterSpacing: -0.2,
-                              fontColor: Colors.grey,
+                              fontColor: isDarkMode ? Colors.grey[400] : Colors.grey,
                             ),
                           ),
                         ],
@@ -188,10 +200,12 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                         child: Container(
                           width: MediaQuery.of(context).size.width * (50 / 430),
                           height:
-                              MediaQuery.of(context).size.height * (60 / 932),
+                          MediaQuery.of(context).size.height * (60 / 932),
                           child: IconButton(
                             onPressed: () {},
-                            icon: Image.asset('assets/images/Icon_Phone.png'),
+                            icon: Image.asset(
+                              'assets/images/Icon_Phone.png',
+                            ),
                           ),
                         ),
                       ),
@@ -207,7 +221,9 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                               index: -1,
                             );
                           },
-                          icon: Image.asset('assets/images/Icon_Chat.png'),
+                          icon: Image.asset(
+                            'assets/images/Icon_Chat.png',
+                          ),
                         ),
                       ),
                     ],
@@ -224,13 +240,15 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                   fontSize: 12,
                   fontFamily: "Inter",
                   letterSpacing: -0.1,
-                  fontColor: Colors.grey,
+                  fontColor: isDarkMode ? Colors.grey[400] : Colors.grey,
                 ),
               ),
 
               Row(
                 children: [
-                  Image.asset('assets/images/ri_map-pin-5-line.png'),
+                  Image.asset(
+                    'assets/images/ri_map-pin-5-line.png',
+                  ),
                   SizedBox(width: 5),
                   TextWidget(
                     text: "123 Al-Madina Street, Abdali, Amman, Jordan",
@@ -238,7 +256,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                     fontSize: 12,
                     fontFamily: "Inter",
                     letterSpacing: -0.1,
-                    fontColor: Colors.black,
+                    fontColor: isDarkMode ? Colors.white : Colors.black,
                   ),
                 ],
               ),
@@ -250,7 +268,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                   height: MediaQuery.of(context).size.height * (48 / 932),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: isDarkMode ? Colors.green[800] : Colors.green,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: GestureDetector(

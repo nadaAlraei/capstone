@@ -52,9 +52,23 @@ class _MyAppState extends State<MyApp> {
             locale: changeLangController.locale,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            theme: ThemeData.light().copyWith(
+              primaryColor: Colors.green,
+              colorScheme: ColorScheme.light(
+                primary: Colors.green,
+                secondary: Colors.greenAccent,
+              ),
+              scaffoldBackgroundColor: Colors.white,
             ),
+            darkTheme: ThemeData.dark().copyWith(
+              primaryColor: Colors.green[800],
+              colorScheme: ColorScheme.dark(
+                primary: Colors.green[800]!,
+                secondary: Colors.greenAccent[700]!,
+              ),
+              scaffoldBackgroundColor: Colors.grey[900],
+            ),
+            themeMode: ThemeMode.system,
             debugShowCheckedModeBanner: false,
             home: SplashScreen(),
           );

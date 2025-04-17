@@ -1,9 +1,7 @@
 import 'package:capstone/controller/change_lang_controller.dart';
 import 'package:capstone/view/screen/login_screen.dart';
 import 'package:capstone/view/screen/profile2_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../../controller/bottom_navigation_bar_controller.dart';
 import '../widget/text_widget.dart';
@@ -13,27 +11,35 @@ class Profile1Screen extends StatefulWidget {
   const Profile1Screen({super.key});
 
   @override
-  State<Profile1Screen> createState() => _Profile1Screen();
+  State<Profile1Screen> createState() => _Profile1ScreenState();
 }
 
-class _Profile1Screen extends State<Profile1Screen> {
+class _Profile1ScreenState extends State<Profile1Screen> {
   bool pushNotifications = true;
   bool promotionalNotifications = false;
 
   @override
   Widget build(BuildContext context) {
-    BottomNavigationBarController bottomNavigationBarController =
-        Provider.of<BottomNavigationBarController>(context, listen: false);
+    final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
+    BottomNavigationBarController bottomNavigationBarController = Provider.of<BottomNavigationBarController>(context, listen: false);
+    final langController = Provider.of<ChangeLangController>(context, listen: false);
     ChangeLangController changeLangController =
-        Provider.of<ChangeLangController>(context, listen: false);
+    Provider.of<ChangeLangController>(context, listen: false);
     String lang = 'عربية';
     if(changeLangController.locale ==Locale('en')){
       lang ='عربية';
     }else{
       lang ='English';
     }
+    final textColor = isDarkMode ? Colors.white : Colors.black;
+    final cardColor = isDarkMode ? Colors.grey[850] : theme.cardColor; // For better control over dark mode
+    final inactiveThumbColor = isDarkMode ? Colors.grey[800] : Colors.white;
+    final inactiveTrackColor = isDarkMode ? Colors.grey[700] : Colors.grey[300];
+    final iconColor = isDarkMode ? Colors.white : Colors.black;
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 22, right: 22, bottom: 35),
@@ -41,7 +47,7 @@ class _Profile1Screen extends State<Profile1Screen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width * (380 / 430),
                 height: MediaQuery.of(context).size.height * (26 / 932),
                 child: TextWidget(
                   text: AppLocalizations.of(context)!.profile,
@@ -49,7 +55,7 @@ class _Profile1Screen extends State<Profile1Screen> {
                   fontSize: 20,
                   fontFamily: 'Inter',
                   letterSpacing: -0.2,
-                  fontColor: Colors.black,
+                  fontColor: textColor,
                 ),
               ),
 
@@ -71,7 +77,7 @@ class _Profile1Screen extends State<Profile1Screen> {
                     fontSize: 16,
                     fontFamily: 'Inter',
                     letterSpacing: -0.2,
-                    fontColor: Colors.black,
+                    fontColor: textColor,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -87,92 +93,79 @@ class _Profile1Screen extends State<Profile1Screen> {
                     fontSize: 14,
                     fontFamily: 'Inter',
                     letterSpacing: -0.2,
-                    fontColor: Colors.black,
+                    fontColor: textColor,
                     textAlign: TextAlign.center,
                   ),
                 ),
               ),
 
+              const SizedBox(height: 10),
               Card(
-                margin: EdgeInsets.symmetric(horizontal: 16),
-                color: Colors.white,
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                color: cardColor,
                 child: Column(
                   children: [
                     ListTile(
-                      leading: Icon(Icons.person),
-                      title: Text(AppLocalizations.of(context)!.person_info),
+                      leading: Icon(Icons.person, color: iconColor),
+                      title: Text(AppLocalizations.of(context)!.person_info, style: TextStyle(color: textColor)),
                       onTap: () {
-                        bottomNavigationBarController.changeWidget(
-                          widget: Profile2Screen(),
-                        );
+                        bottomNavigationBarController.changeWidget(widget: const Profile2Screen());
                         bottomNavigationBarController.changeIndex(index: -1);
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.language),
-                      title: Text(AppLocalizations.of(context)!.language),
-                      trailing: Text(
-                        lang,
-                        style: TextStyle(color: Colors.grey),
-                      ),
+                      leading: Icon(Icons.language, color: iconColor),
+                      title: Text(AppLocalizations.of(context)!.language, style: TextStyle(color: textColor)),
+                      trailing: Text(lang, style: TextStyle(color: Colors.grey)),
                       onTap: () {
-                        if (changeLangController.locale == Locale('en')) {
-                          changeLangController.setLocale('ar');
-                        } else {
-                          changeLangController.setLocale('en');
-                        }
+                        final newLocale = langController.locale == const Locale('en') ? 'ar' : 'en';
+                        langController.setLocale(newLocale);
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.privacy_tip),
-                      title: Text(AppLocalizations.of(context)!.privacy_policy),
+                      leading: Icon(Icons.privacy_tip, color: iconColor),
+                      title: Text(AppLocalizations.of(context)!.privacy_policy, style: TextStyle(color: textColor)),
                       onTap: () {},
                     ),
                     ListTile(
-                      leading: Icon(Icons.settings),
-                      title: Text(AppLocalizations.of(context)!.setting),
+                      leading: Icon(Icons.settings, color: iconColor),
+                      title: Text(AppLocalizations.of(context)!.setting, style: TextStyle(color: textColor)),
                       onTap: () {},
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 6),
+
+              const SizedBox(height: 6),
               Card(
-                color: Colors.white,
-                margin: EdgeInsets.symmetric(horizontal: 16),
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                color: cardColor,
                 child: Column(
                   children: [
                     SwitchListTile(
-                      title: Text(AppLocalizations.of(context)!.push_notifications),
+                      title: Text(AppLocalizations.of(context)!.push_notifications, style: TextStyle(color: textColor)),
                       value: pushNotifications,
                       activeColor: Colors.green,
-                      inactiveThumbColor: Colors.white,
-                      inactiveTrackColor: Colors.grey,
-                      onChanged: (value) {
-                        setState(() {
-                          pushNotifications = value;
-                        });
-                      },
+                      inactiveThumbColor: inactiveThumbColor,
+                      inactiveTrackColor: inactiveTrackColor,
+                      onChanged: (val) => setState(() => pushNotifications = val),
                     ),
                     SwitchListTile(
-                      title: Text(AppLocalizations.of(context)!.promotional_notifications),
+                      title: Text(AppLocalizations.of(context)!.promotional_notifications, style: TextStyle(color: textColor)),
                       value: promotionalNotifications,
                       activeColor: Colors.green,
-                      inactiveThumbColor: Colors.white,
-                      inactiveTrackColor: Colors.grey,
-                      onChanged: (value) {
-                        setState(() {
-                          promotionalNotifications = value;
-                        });
-                      },
+                      inactiveThumbColor: inactiveThumbColor,
+                      inactiveTrackColor: inactiveTrackColor,
+                      onChanged: (val) => setState(() => promotionalNotifications = val),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 6),
+
+              const SizedBox(height: 6),
               Card(
-                color: Colors.white,
-                margin: EdgeInsets.symmetric(horizontal: 16),
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                color: cardColor,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -183,25 +176,29 @@ class _Profile1Screen extends State<Profile1Screen> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
+                          color: textColor,
                         ),
                       ),
                     ),
                     ListTile(
-                      leading: Icon(Icons.info_outline),
-                      title: Text(AppLocalizations.of(context)!.help_center),
+                      leading: Icon(Icons.info_outline, color: iconColor),
+                      title: Text(AppLocalizations.of(context)!.help_center, style: TextStyle(color: textColor)),
                       onTap: () {},
                     ),
                     ListTile(
-                      leading: Icon(Icons.logout, color: Colors.red),
+                      leading: const Icon(Icons.logout, color: Colors.red),
                       title: Text(
                         AppLocalizations.of(context)!.logout,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       onTap: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (_) => const LoginScreen()),
+                        );
                       },
                     ),
                   ],

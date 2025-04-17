@@ -7,6 +7,7 @@ class TimelineTileWidget extends StatelessWidget {
   final IconData icon;
   final String text;
   final bool isCompleted;
+  final bool isDarkMode;
 
   const TimelineTileWidget({
     super.key,
@@ -15,32 +16,45 @@ class TimelineTileWidget extends StatelessWidget {
     required this.icon,
     required this.text,
     required this.isCompleted,
+    this.isDarkMode = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final completedColor = Colors.green;
+    final incompleteColor = isDarkMode ? Colors.grey[600]! : Colors.grey;
+    final textColor = isDarkMode ? Colors.white : Colors.black;
+    final iconColor = isCompleted ? Colors.white : (isDarkMode ? Colors.grey[400]! : Colors.grey);
+
     return TimelineTile(
       isFirst: isFirst,
       isLast: isLast,
       beforeLineStyle: LineStyle(
-        color: isCompleted ? Colors.green : Colors.grey,
+        color: isCompleted ? completedColor : incompleteColor,
+        thickness: 2,
+      ),
+      afterLineStyle: LineStyle(
+        color: isCompleted ? completedColor : incompleteColor,
+        thickness: 2,
       ),
       indicatorStyle: IndicatorStyle(
-        width: 40,
-        color: isCompleted ? Colors.green : Colors.grey.shade300,
+        width: 30,
+        height: 30,
+        color: isCompleted ? completedColor : (isDarkMode ? Colors.grey[800]! : Colors.grey.shade300),
         iconStyle: IconStyle(
           iconData: icon,
-          color: isCompleted ? Colors.white : Colors.grey,
+          color: iconColor,
+          fontSize: 16,
         ),
       ),
       endChild: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
         child: Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+            fontWeight: FontWeight.w600,
+            color: textColor,
           ),
         ),
       ),

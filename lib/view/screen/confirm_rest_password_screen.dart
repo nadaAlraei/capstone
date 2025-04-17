@@ -9,18 +9,29 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class ConfirmRestPasswordScreen extends StatelessWidget {
-   ConfirmRestPasswordScreen({super.key});
+  ConfirmRestPasswordScreen({super.key});
+
   TextEditingController newPassword = TextEditingController();
   TextEditingController confirmNewPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
+
+    final backgroundColor = isDarkMode ? Colors.grey[900] : const Color.fromARGB(255, 37, 174, 75);
+    final cardColor = isDarkMode ? Colors.grey[800]! : Colors.white;
+    final textColor = isDarkMode ? Colors.white : Colors.black;
+    final secondaryTextColor = isDarkMode ? Colors.grey[400] : const Color.fromARGB(255, 108, 114, 120);
+    final accentColor = const Color.fromARGB(255, 37, 174, 75); // Green accent color
+    final patternColor = isDarkMode ? Colors.grey[800] : Colors.white;
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 37, 174, 75),
+      backgroundColor: backgroundColor,
       body: Stack(
         children: [
           // background pattern
-          Image.asset("assets/images/Pattern.png", color: Colors.white),
+          Image.asset("assets/images/Pattern.png", color: patternColor),
           SingleChildScrollView(
             child: Column(
               children: [
@@ -29,7 +40,6 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                   margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.09,
                   ),
-
                   child: Image.asset(
                     "assets/images/logo.png",
                     width: MediaQuery.of(context).size.width * 0.7,
@@ -47,7 +57,7 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                     right: MediaQuery.of(context).size.width * 0.07,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: cardColor,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
@@ -63,7 +73,7 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                             ),
                           );
                         },
-                        icon: Icon(Icons.arrow_back),
+                        icon: Icon(Icons.arrow_back, color: textColor),
                       ),
                       // Rest Password title & form
                       Padding(
@@ -78,22 +88,19 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                               fontSize: 32,
                               fontFamily: 'Inter',
                               letterSpacing: -0.02,
-                              fontColor: Colors.black,
+                              fontColor: textColor,
                             ),
 
                             // Back to Rest Password link
                             Row(
                               children: [
                                 TextWidget(
-                                  text:
-                                      AppLocalizations.of(
-                                        context,
-                                      )!.want_current_password,
+                                  text: AppLocalizations.of(context)!.want_current_password,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 12,
                                   fontFamily: 'Inter',
                                   letterSpacing: -0.01,
-                                  fontColor: Color.fromARGB(255, 108, 114, 120),
+                                  fontColor: secondaryTextColor,
                                 ),
                                 TextButton(
                                   onPressed: () {
@@ -110,42 +117,29 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                                     fontSize: 12,
                                     fontFamily: 'Inter',
                                     letterSpacing: -0.01,
-                                    fontColor: Color.fromARGB(255, 37, 174, 75),
+                                    fontColor: accentColor,
                                   ),
                                 ),
                               ],
                             ),
 
                             Consumer<ResetPasswordController>(
-                              builder: (
-                                context,
-                                resetPasswordController,
-                                child,
-                              ) {
+                              builder: (context, resetPasswordController, child) {
                                 return Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     // New Password
-
-                                    // Filed title
+                                    // Field title
                                     Row(
                                       children: [
                                         SizedBox(width: 10),
                                         TextWidget(
-                                          text:
-                                              AppLocalizations.of(
-                                                context,
-                                              )!.new_password,
+                                          text: AppLocalizations.of(context)!.new_password,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
-                                          fontFamily: '',
+                                          fontFamily: 'Inter',
                                           letterSpacing: -0.02,
-                                          fontColor: Color.fromARGB(
-                                            255,
-                                            108,
-                                            114,
-                                            120,
-                                          ),
+                                          fontColor: secondaryTextColor,
                                         ),
                                       ],
                                     ),
@@ -154,36 +148,23 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                                     InputWidget(
                                       textEditingController: newPassword,
                                       obscureText: true,
-                                      errorText:
-                                          resetPasswordController
-                                                  .passwordCorrect
-                                              ? null
-                                              : AppLocalizations.of(
-                                                context,
-                                              )!.enter_password,
+                                      errorText: resetPasswordController.passwordCorrect
+                                          ? null
+                                          : AppLocalizations.of(context)!.enter_password,
                                     ),
 
                                     // Confirm New Password
-
-                                    // Filed title
+                                    // Field title
                                     Row(
                                       children: [
                                         SizedBox(width: 10),
                                         TextWidget(
-                                          text:
-                                              AppLocalizations.of(
-                                                context,
-                                              )!.confirm_new_password,
+                                          text: AppLocalizations.of(context)!.confirm_new_password,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
-                                          fontFamily: '',
+                                          fontFamily: 'Inter',
                                           letterSpacing: -0.02,
-                                          fontColor: Color.fromARGB(
-                                            255,
-                                            108,
-                                            114,
-                                            120,
-                                          ),
+                                          fontColor: secondaryTextColor,
                                         ),
                                       ],
                                     ),
@@ -191,12 +172,9 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                                     InputWidget(
                                       textEditingController: confirmNewPassword,
                                       obscureText: true,
-                                      errorText:
-                                          resetPasswordController.passwordMatch
-                                              ? null
-                                              : AppLocalizations.of(
-                                                context,
-                                              )!.passwords_does_not_match,
+                                      errorText: resetPasswordController.passwordMatch
+                                          ? null
+                                          : AppLocalizations.of(context)!.passwords_does_not_match,
                                     ),
 
                                     SizedBox(height: 25),
@@ -211,43 +189,25 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                                           password1: newPassword.text,
                                           password2: confirmNewPassword.text,
                                         );
-                                        if (resetPasswordController
-                                                .passwordCorrect ==
-                                            true) {
-                                          if (resetPasswordController
-                                                  .passwordMatch ==
-                                              true) {
+                                        if (resetPasswordController.passwordCorrect == true) {
+                                          if (resetPasswordController.passwordMatch == true) {
                                             showDialog(
                                               context: context,
-                                              builder:
-                                                  (context) =>
-                                                      CongratsAlertWidget(),
+                                              builder: (context) => CongratsAlertWidget(),
                                             );
                                           }
                                         }
                                       },
                                       child: Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                            0.9,
+                                        width: MediaQuery.of(context).size.width * 0.9,
                                         height: 50,
                                         decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                            255,
-                                            37,
-                                            174,
-                                            75,
-                                          ),
-                                          borderRadius: BorderRadius.circular(
-                                            20,
-                                          ),
+                                          color: accentColor,
+                                          borderRadius: BorderRadius.circular(20),
                                         ),
                                         child: Center(
                                           child: TextWidget(
-                                            text:
-                                                AppLocalizations.of(
-                                                  context,
-                                                )!.update_password,
+                                            text: AppLocalizations.of(context)!.update_password,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
                                             fontFamily: 'Inter',
@@ -261,8 +221,6 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                                 );
                               },
                             ),
-
-                            // Form
                           ],
                         ),
                       ),

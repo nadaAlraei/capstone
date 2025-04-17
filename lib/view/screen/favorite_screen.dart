@@ -9,47 +9,37 @@ import 'package:provider/provider.dart';
 
 class FavoriteScreen extends StatelessWidget {
   FavoriteScreen({super.key});
-
   TextEditingController search = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
+
+    final backgroundColor = theme.scaffoldBackgroundColor;
+    final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+    final textColor = isDarkMode ? Colors.white : Colors.black;
+    final secondaryTextColor = isDarkMode ? Colors.grey[400]! : const Color.fromARGB(255, 150, 154, 176);
+    final borderColor = isDarkMode ? Colors.grey[700]! : const Color.fromARGB(255, 219, 244, 209);
+    final favoriteBgColor = isDarkMode ? Colors.grey[800]! : const Color.fromARGB(255, 219, 244, 209);
+
     List<ProductItemModel> favoriteList = [
-      ProductItemModel(
-        price: 20.00,
-        imageUrl: 'assets/images/pizza1.png',
-        description: AppLocalizations.of(context)!.product_ing,
-        name: AppLocalizations.of(context)!.pepperoni_pizza,
-      ),
-      ProductItemModel(
-        price: 20.00,
-        imageUrl: 'assets/images/pizza2.png',
-        description: AppLocalizations.of(context)!.product_ing,
-        name: AppLocalizations.of(context)!.pepperoni_pizza,
-      ),
-      ProductItemModel(
-        price: 20.00,
-        imageUrl: 'assets/images/pizza3.png',
-        description: AppLocalizations.of(context)!.product_ing,
-        name: AppLocalizations.of(context)!.pepperoni_pizza,
-      ),
-      ProductItemModel(
-        price: 20.00,
-        imageUrl: 'assets/images/pizza4.png',
-        description: AppLocalizations.of(context)!.product_ing,
-        name: AppLocalizations.of(context)!.pepperoni_pizza,
-      ),
+      ProductItemModel(price: 20.00, imageUrl: 'assets/images/pizza1.png', description: AppLocalizations.of(context)!.product_ing, name: AppLocalizations.of(context)!.pepperoni_pizza),
+      ProductItemModel(price: 20.00, imageUrl: 'assets/images/pizza2.png', description: AppLocalizations.of(context)!.product_ing, name: AppLocalizations.of(context)!.pepperoni_pizza),
+      ProductItemModel(price: 20.00, imageUrl: 'assets/images/pizza3.png', description: AppLocalizations.of(context)!.product_ing, name: AppLocalizations.of(context)!.pepperoni_pizza),
+      ProductItemModel(price: 20.00, imageUrl: 'assets/images/pizza4.png', description: AppLocalizations.of(context)!.product_ing, name: AppLocalizations.of(context)!.pepperoni_pizza),
     ];
+
     return Scaffold(
-      backgroundColor: Colors.white,
-      // Search box
+      backgroundColor: backgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: backgroundColor,
         title: SearchBoxWidget(),
+        iconTheme: IconThemeData(color: textColor),
       ),
       body: GridView.count(
-        crossAxisCount: 2, // Number of columns
-        childAspectRatio: 0.7, // Adjusts the height
+        crossAxisCount: 2,
+        childAspectRatio: 0.7,
         children: List.generate(favoriteList.length, (index) {
           return TextButton(
             onPressed: () {
@@ -64,63 +54,59 @@ class FavoriteScreen extends StatelessWidget {
             },
             child: Stack(
               children: [
-                // name & description & price
+                // Product card
                 Container(
                   width: MediaQuery.of(context).size.width * 0.4,
                   height: MediaQuery.of(context).size.height * 0.23,
-                  margin: EdgeInsets.only(top: 30, bottom: 10),
+                  margin: const EdgeInsets.only(top: 30, bottom: 10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: cardColor,
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Color.fromARGB(255, 219, 244, 209),
-                    ),
+                    border: Border.all(color: borderColor),
                   ),
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(height: 60),
-                      // product name
+                      const SizedBox(height: 60),
                       TextWidget(
                         text: favoriteList[index].name,
                         fontWeight: FontWeight.w600,
                         fontSize: 14,
                         fontFamily: 'Inter',
                         letterSpacing: -0.03,
-                        fontColor: Colors.black,
+                        fontColor: textColor,
                       ),
-                      SizedBox(height: 5),
-                      // ingredients
+                      const SizedBox(height: 5),
                       TextWidget(
                         text: favoriteList[index].description,
                         fontWeight: FontWeight.w300,
                         fontSize: 10,
                         fontFamily: 'Inter',
                         letterSpacing: 0,
-                        fontColor: Color.fromARGB(255, 150, 154, 176),
+                        fontColor: secondaryTextColor,
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       TextWidget(
                         text: '& ${favoriteList[index].price.toString()}',
                         fontWeight: FontWeight.w600,
                         fontSize: 14,
                         fontFamily: 'Inter',
                         letterSpacing: -0.03,
-                        fontColor: Colors.black,
+                        fontColor: textColor,
                       ),
                     ],
                   ),
                 ),
 
-                // image
+                // Image
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(60),
                     border: Border.all(color: Colors.grey, width: 10),
                   ),
-                  margin: EdgeInsets.only(left: 32, right: 32),
+                  margin: const EdgeInsets.only(left: 32, right: 32),
                   child: Image.asset(
                     favoriteList[index].imageUrl,
                     width: 70,
@@ -128,51 +114,79 @@ class FavoriteScreen extends StatelessWidget {
                   ),
                 ),
 
-                // add to favorite
+                // Favorite button
                 Container(
                   width: 35,
                   height: 35,
-                  margin: EdgeInsets.only(left: 130, top: 10),
+                  margin: const EdgeInsets.only(left: 130, top: 10),
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 219, 244, 209),
+                    color: favoriteBgColor,
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: IconButton(onPressed: (){
-                    showDialog(context: context, builder: (context)=>AlertDialog(
-
-                      content: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.12 ,
-child: Column(
-  children: [
-    TextWidget(text: AppLocalizations.of(context)!.remove_from_favorite, fontWeight: FontWeight.w500, fontSize: 12, fontFamily: 'Inter', letterSpacing: 0,fontColor: Color.fromARGB(255,108, 114, 120),textAlign: TextAlign.center,),
-    SizedBox(height: 20),
-    Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.05 ,
-      decoration: BoxDecoration(
-        color: Colors.green,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: TextButton(onPressed: (){
-        Navigator.pop(context);
-      }, child: TextWidget(text: AppLocalizations.of(context)!.yes, fontWeight: FontWeight.w500, fontSize: 14, fontFamily: 'Inter', letterSpacing: 0,fontColor: Colors.white,),),
-    ),
-  ],
-),
-                      ),
-                    ));
-                  }, icon: Icon(Icons.favorite, size: 13,color: Color.fromARGB(255,255, 0, 0),),),
+                  child: IconButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          backgroundColor: cardColor,
+                          content: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height * 0.12,
+                            child: Column(
+                              children: [
+                                TextWidget(
+                                  text: AppLocalizations.of(context)!.remove_from_favorite,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12,
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0,
+                                  fontColor: secondaryTextColor,
+                                  textAlign: TextAlign.center,
+                                ),
+                                const SizedBox(height: 20),
+                                Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height * 0.05,
+                                  decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: TextWidget(
+                                      text: AppLocalizations.of(context)!.yes,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0,
+                                      fontColor: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    icon: const Icon(
+                      Icons.favorite,
+                      size: 13,
+                      color: Color.fromARGB(255, 255, 0, 0),
+                    ),
+                  ),
                 ),
 
-                // order Now
+                // Order Now button
                 Container(
                   width: 95,
                   height: 27,
-
-                  margin: EdgeInsets.only(left: 30, right: 30, top:MediaQuery.of(context).size.height * 0.25),
+                  margin: EdgeInsets.only(
+                      left: 30, right: 30, top: MediaQuery.of(context).size.height * 0.25),
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 37, 174, 75),
+                    color: const Color.fromARGB(255, 37, 174, 75),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Center(

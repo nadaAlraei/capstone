@@ -17,8 +17,18 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
+
+    final backgroundColor = theme.scaffoldBackgroundColor;
+    final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+    final textColor = isDarkMode ? Colors.white : Colors.black;
+    final secondaryTextColor = isDarkMode ? Colors.grey[400]! : const Color.fromARGB(155, 59, 59, 59);
+    final borderColor = isDarkMode ? Colors.grey[700]! : const Color.fromARGB(255, 219, 244, 209);
+    final deleteBgColor = isDarkMode ? Colors.grey[800]! : const Color.fromARGB(255, 253, 172, 29);
+
     BottomNavigationBarController bottomNavigationBarController =
-        Provider.of<BottomNavigationBarController>(context, listen: false);
+    Provider.of<BottomNavigationBarController>(context, listen: false);
     Widget pageContent = Text('');
     List<ProductItemModel> productList = [
       ProductItemModel(
@@ -67,7 +77,7 @@ class _CartScreenState extends State<CartScreen> {
                     // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${AppLocalizations.of(context)!.remove} ${productList[index].name}')));
                   },
                   background: Container(
-                    color: Color.fromARGB(255, 253, 172, 29),
+                    color: deleteBgColor,
                     alignment: Alignment.centerRight,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 20,right: 20),
@@ -77,13 +87,13 @@ class _CartScreenState extends State<CartScreen> {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.14,
-
                     padding: EdgeInsets.all(10),
                     margin: EdgeInsets.only(top: 10, left: 20, right: 20),
                     decoration: BoxDecoration(
+                      color: cardColor,
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                        color: Color.fromARGB(255, 219, 244, 209),
+                        color: borderColor,
                       ),
                     ),
                     child: Row(
@@ -107,6 +117,7 @@ class _CartScreenState extends State<CartScreen> {
                               fontSize: 15,
                               fontFamily: 'Inter',
                               letterSpacing: 0,
+                              fontColor: textColor,
                             ),
                             // product sub title
                             TextWidget(
@@ -115,7 +126,7 @@ class _CartScreenState extends State<CartScreen> {
                               fontSize: 12,
                               fontFamily: 'Inter',
                               letterSpacing: 0,
-                              fontColor: Color.fromARGB(155, 59, 59, 59),
+                              fontColor: secondaryTextColor,
                             ),
                             // product price
                             TextWidget(
@@ -189,9 +200,9 @@ class _CartScreenState extends State<CartScreen> {
                               // delivery charge
                               TextWidget(
                                 text:
-                                    AppLocalizations.of(
-                                      context,
-                                    )!.delivery_charge,
+                                AppLocalizations.of(
+                                  context,
+                                )!.delivery_charge,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,
                                 fontFamily: 'Inter',
@@ -273,7 +284,6 @@ class _CartScreenState extends State<CartScreen> {
                             widget: CheckoutScreen(),
                           );
                           bottomNavigationBarController.changeIndex(index: -1);
-
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width,
@@ -285,7 +295,7 @@ class _CartScreenState extends State<CartScreen> {
                           child: Center(
                             child: TextWidget(
                               text:
-                                  AppLocalizations.of(context)!.place_my_order,
+                              AppLocalizations.of(context)!.place_my_order,
                               fontWeight: FontWeight.w700,
                               fontSize: 14,
                               fontFamily: 'Inter',
@@ -315,6 +325,7 @@ class _CartScreenState extends State<CartScreen> {
               fontSize: 32,
               fontFamily: 'Inter',
               letterSpacing: -0.02,
+              fontColor: textColor,
             ),
             SizedBox(height: 10),
             TextWidget(
@@ -323,7 +334,7 @@ class _CartScreenState extends State<CartScreen> {
               fontSize: 16,
               fontFamily: 'Inter',
               letterSpacing: -0.02,
-              fontColor: Color.fromARGB(255, 108, 114, 120),
+              fontColor: secondaryTextColor,
               textAlign: TextAlign.center,
             ),
           ],
@@ -331,6 +342,6 @@ class _CartScreenState extends State<CartScreen> {
       );
     }
 
-    return Scaffold(backgroundColor: Colors.white, body: pageContent);
+    return Scaffold(backgroundColor: backgroundColor, body: pageContent);
   }
 }

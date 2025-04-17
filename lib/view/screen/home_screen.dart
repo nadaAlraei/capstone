@@ -11,36 +11,40 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
+    final primaryColor = theme.primaryColor;
+    final tabBorderColor = isDarkMode ? Colors.grey[700]! : const Color.fromARGB(255, 219, 244, 209);
+    final unselectedLabelColor = isDarkMode ? Colors.grey[400]! : Colors.black;
+
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: theme.scaffoldBackgroundColor,
         appBar: AppBar(
           toolbarHeight: 0,
-          backgroundColor: Colors.white,
-
+          backgroundColor: theme.appBarTheme.backgroundColor,
           bottom: TabBar(
-            labelPadding: EdgeInsets.symmetric(horizontal: 5),
+            labelPadding: const EdgeInsets.symmetric(horizontal: 5),
             isScrollable: true,
             tabAlignment: TabAlignment.start,
-            unselectedLabelColor: Colors.black,
-            labelColor: Colors.white,
-            padding: EdgeInsets.only(left: 10,right: 10),
+            unselectedLabelColor: unselectedLabelColor,
+            labelColor: isDarkMode ? Colors.white : Colors.white,
+            padding: const EdgeInsets.only(left: 10, right: 10),
             indicatorSize: TabBarIndicatorSize.label,
             indicator: BoxDecoration(
-              color: Color.fromARGB(255, 37, 174, 75),
+              color: primaryColor,
               borderRadius: BorderRadius.circular(10),
             ),
             indicatorWeight: 0,
-            dividerColor: Colors.white,
+            dividerColor: Colors.transparent,
             tabs: [
               // All
               Tab(
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.13,
-
                   decoration: BoxDecoration(
-                    border: Border.all(color: Color.fromARGB(255,219, 244, 209)),
+                    border: Border.all(color: tabBorderColor),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(
@@ -50,6 +54,7 @@ class HomeScreen extends StatelessWidget {
                       fontSize: 18,
                       fontFamily: 'Poppins-Regular',
                       letterSpacing: -0.03,
+                      fontColor: isDarkMode ? Colors.white : Colors.black,
                     ),
                   ),
                 ),
@@ -59,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.3,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Color.fromARGB(255,219, 244, 209)),
+                    border: Border.all(color: tabBorderColor),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
@@ -67,14 +72,18 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('assets/images/burgerIcon.png'),
-                        SizedBox(width: 10),
+                        Image.asset(
+                          'assets/images/burgerIcon.png',
+                          color: isDarkMode ? Colors.white : null,
+                        ),
+                        const SizedBox(width: 10),
                         TextWidget(
                           text: AppLocalizations.of(context)!.burger,
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
                           fontFamily: 'Poppins-Regular',
                           letterSpacing: -0.03,
+                          fontColor: isDarkMode ? Colors.white : Colors.black,
                         ),
                       ],
                     ),
@@ -85,21 +94,25 @@ class HomeScreen extends StatelessWidget {
               Tab(
                 child: Container(
                   decoration: BoxDecoration(
-                    border: Border.all(color: Color.fromARGB(255,219, 244, 209)),
+                    border: Border.all(color: tabBorderColor),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   width: MediaQuery.of(context).size.width * 0.3,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/images/pizzaIcon.png'),
-
+                      Image.asset(
+                        'assets/images/pizzaIcon.png',
+                        color: isDarkMode ? Colors.white : null,
+                      ),
+                      const SizedBox(width: 10),
                       TextWidget(
                         text: AppLocalizations.of(context)!.pizza,
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
                         fontFamily: 'Poppins-Regular',
                         letterSpacing: -0.03,
+                        fontColor: isDarkMode ? Colors.white : Colors.black,
                       ),
                     ],
                   ),
@@ -110,7 +123,7 @@ class HomeScreen extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.4,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Color.fromARGB(255,219, 244, 209)),
+                    border: Border.all(color: tabBorderColor),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
@@ -118,14 +131,18 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('assets/images/sandwishIcon.png'),
-                        SizedBox(width:10),
+                        Image.asset(
+                          'assets/images/sandwishIcon.png',
+                          color: isDarkMode ? Colors.white : null,
+                        ),
+                        const SizedBox(width: 10),
                         TextWidget(
                           text: AppLocalizations.of(context)!.sandwich,
                           fontWeight: FontWeight.w500,
                           fontSize: 18,
                           fontFamily: 'Poppins-Regular',
                           letterSpacing: -0.03,
+                          fontColor: isDarkMode ? Colors.white : Colors.black,
                         ),
                       ],
                     ),

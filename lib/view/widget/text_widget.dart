@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class TextWidget extends StatelessWidget {
-  String text;
-  double fontSize;
-  FontWeight fontWeight;
-  String fontFamily;
-  double letterSpacing;
-  Color? fontColor;
-  TextAlign? textAlign;
+  final String text;
+  final double fontSize;
+  final FontWeight fontWeight;
+  final String fontFamily;
+  final double letterSpacing;
+  final Color? fontColor;
+  final TextAlign? textAlign;
+  final TextDecoration? textDecoration;
 
-  TextDecoration? textDecoration;
-  TextWidget({
+  const TextWidget({
     super.key,
     required this.text,
     required this.fontWeight,
@@ -19,11 +19,14 @@ class TextWidget extends StatelessWidget {
     required this.letterSpacing,
     this.fontColor,
     this.textAlign,
-    this.textDecoration
+    this.textDecoration,
   });
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final defaultColor = theme.textTheme.bodyLarge?.color ?? Colors.black;
+
     return Text(
       text,
       textAlign: textAlign,
@@ -32,9 +35,8 @@ class TextWidget extends StatelessWidget {
         fontFamily: fontFamily,
         fontWeight: fontWeight,
         letterSpacing: letterSpacing,
-        color:fontColor,
+        color: fontColor ?? defaultColor,
         decoration: textDecoration,
-
       ),
     );
   }

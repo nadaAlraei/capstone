@@ -24,8 +24,13 @@ class _Profile2Screen extends State<Profile2Screen> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
+    final textColor = isDarkMode ? Colors.white : Colors.black;
+    final cardColor = isDarkMode ? Colors.grey[850] : Colors.white;
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 22, right: 22, bottom: 40),
@@ -41,10 +46,11 @@ class _Profile2Screen extends State<Profile2Screen> {
                   fontSize: 20,
                   fontFamily: 'Inter',
                   letterSpacing: -0.2,
-                  fontColor: Colors.black,
+                  fontColor: textColor,
                 ),
               ),
 
+              // Avatar Image
               Container(
                 width: MediaQuery.of(context).size.width * (400 / 430),
                 height: MediaQuery.of(context).size.height * (120 / 932),
@@ -52,6 +58,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                 child: Image.asset('assets/images/avatar.png'),
               ),
 
+              // Username and Email
               SizedBox(
                 width: MediaQuery.of(context).size.width * (380 / 430),
                 height: MediaQuery.of(context).size.height * (30 / 932),
@@ -63,7 +70,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                     fontSize: 16,
                     fontFamily: 'Inter',
                     letterSpacing: -0.2,
-                    fontColor: Colors.black,
+                    fontColor: textColor,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -79,14 +86,15 @@ class _Profile2Screen extends State<Profile2Screen> {
                     fontSize: 14,
                     fontFamily: 'Inter',
                     letterSpacing: -0.2,
-                    fontColor: Colors.black,
+                    fontColor: textColor,
                     textAlign: TextAlign.center,
                   ),
                 ),
               ),
 
+              // User Profile Form Fields
               Card(
-                color: Colors.white,
+                color: cardColor,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -98,15 +106,12 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                        fontColor: textColor,
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * (365 / 430),
-                        height: MediaQuery.of(context).size.height * (60 / 932),
-                        child: InputWidget(
-                          textEditingController: usernameController,
-                          obscureText: false,
-                        ),
+                      InputWidget(
+                        textEditingController: usernameController,
+                        obscureText: false,
+                        errorText: null, // Handle error text if needed
                       ),
                       TextWidget(
                         text: AppLocalizations.of(context)!.email,
@@ -114,15 +119,12 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                        fontColor: textColor,
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * (365 / 430),
-                        height: MediaQuery.of(context).size.height * (60 / 932),
-                        child: InputWidget(
-                          textEditingController: emailController,
-                          obscureText: false,
-                        ),
+                      InputWidget(
+                        textEditingController: emailController,
+                        obscureText: false,
+                        errorText: null, // Handle error text if needed
                       ),
                       TextWidget(
                         text: AppLocalizations.of(context)!.phone_number,
@@ -130,15 +132,12 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                        fontColor: textColor,
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * (365 / 430),
-                        height: MediaQuery.of(context).size.height * (60 / 932),
-                        child: InputWidget(
-                          textEditingController: phoneController,
-                          obscureText: false,
-                        ),
+                      InputWidget(
+                        textEditingController: phoneController,
+                        obscureText: false,
+                        errorText: null, // Handle error text if needed
                       ),
                       TextWidget(
                         text: AppLocalizations.of(context)!.password,
@@ -146,15 +145,12 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                        fontColor: textColor,
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * (365 / 430),
-                        height: MediaQuery.of(context).size.height * (60 / 932),
-                        child: InputWidget(
-                          textEditingController: passwordController,
-                          obscureText: true,
-                        ),
+                      InputWidget(
+                        textEditingController: passwordController,
+                        obscureText: true,
+                        errorText: null, // Handle error text if needed
                       ),
                       TextWidget(
                         text: AppLocalizations.of(context)!.address,
@@ -162,15 +158,12 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                        fontColor: textColor,
                       ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * (365 / 430),
-                        height: MediaQuery.of(context).size.height * (60 / 932),
-                        child: InputWidget(
-                          textEditingController: addressController,
-                          obscureText: true,
-                        ),
+                      InputWidget(
+                        textEditingController: addressController,
+                        obscureText: false,
+                        errorText: null, // Handle error text if needed
                       ),
                       SizedBox(height: 14),
                     ],
@@ -178,6 +171,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                 ),
               ),
 
+              // Update Button
               SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(left: 50, right: 50),
