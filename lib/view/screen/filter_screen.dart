@@ -400,7 +400,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   },
                 );
               }).toList(),
-            ),
+             ),
 
             SizedBox(height: 24),
             TextButton(
