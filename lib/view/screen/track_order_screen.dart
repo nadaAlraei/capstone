@@ -86,8 +86,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
             markers: _markers,
             polylines: _polylines,
           ),
-
-          // Bottom sheet with dark mode support
           DraggableScrollableSheet(
             initialChildSize: 0.3,
             minChildSize: 0.3,
@@ -271,7 +269,6 @@ class _OrderTrackingScreenState extends State<OrderTrackingScreen> {
             },
           ),
 
-          // Search bar at top with dark mode support
           Padding(
             padding: const EdgeInsets.only(top: 23),
             child: Row(

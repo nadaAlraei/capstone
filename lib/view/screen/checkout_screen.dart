@@ -29,8 +29,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final backgroundColor = theme.scaffoldBackgroundColor;
     final textColor = isDarkMode ? Colors.white : Colors.black;
     final secondaryTextColor = isDarkMode ? Colors.grey[400] : Colors.grey[600];
-    final inputFieldColor = isDarkMode ? Colors.grey[850] : Colors.grey[100];
-    final accentColor = const Color.fromARGB(255, 37, 174, 75); // Green accent color
+    final accentColor = const Color.fromARGB(255, 37, 174, 75);
 
     BottomNavigationBarController bottomNavigationBarController =
     Provider.of<BottomNavigationBarController>(context, listen: false);

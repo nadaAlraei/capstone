@@ -369,7 +369,6 @@ class AllScreen extends StatelessWidget {
                 ),
 
                 SizedBox(height: 15),
-                // Recommended title
                 Row(
                   children: [
                     SizedBox(width: 25),
@@ -383,8 +382,6 @@ class AllScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-
-                // Recommended item
                 Container(
                   height: MediaQuery.of(context).size.height * 0.15,
                   margin: EdgeInsets.only(top: 20, bottom: 40),

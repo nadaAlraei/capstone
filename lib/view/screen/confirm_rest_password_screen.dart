@@ -23,7 +23,7 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
     final cardColor = isDarkMode ? Colors.grey[800]! : Colors.white;
     final textColor = isDarkMode ? Colors.white : Colors.black;
     final secondaryTextColor = isDarkMode ? Colors.grey[400] : const Color.fromARGB(255, 108, 114, 120);
-    final accentColor = const Color.fromARGB(255, 37, 174, 75); // Green accent color
+    final accentColor = const Color.fromARGB(255, 37, 174, 75);
     final patternColor = isDarkMode ? Colors.grey[800] : Colors.white;
 
     return Scaffold(

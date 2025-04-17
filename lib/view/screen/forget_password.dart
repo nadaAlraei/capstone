@@ -27,7 +27,7 @@ class _forgetPasswordState extends State<ForgetPassword> {
     final cardColor = isDarkMode ? Colors.grey[800]! : Colors.white;
     final textColor = isDarkMode ? Colors.white : Colors.black;
     final secondaryTextColor = isDarkMode ? Colors.grey[400] : Colors.grey;
-    final accentColor = Colors.green; // Keeping the green accent color
+    final accentColor = Colors.green;
     final patternColor = isDarkMode ? Colors.grey[800] : Colors.white;
 
     loginController = Provider.of<LoginController>(context, listen: false);

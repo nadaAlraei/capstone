@@ -33,7 +33,7 @@ class _Profile1ScreenState extends State<Profile1Screen> {
       lang ='English';
     }
     final textColor = isDarkMode ? Colors.white : Colors.black;
-    final cardColor = isDarkMode ? Colors.grey[850] : theme.cardColor; // For better control over dark mode
+    final cardColor = isDarkMode ? Colors.grey[850] : theme.cardColor;
     final inactiveThumbColor = isDarkMode ? Colors.grey[800] : Colors.white;
     final inactiveTrackColor = isDarkMode ? Colors.grey[700] : Colors.grey[300];
     final iconColor = isDarkMode ? Colors.white : Colors.black;
