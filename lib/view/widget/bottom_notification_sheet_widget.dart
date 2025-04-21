@@ -12,13 +12,14 @@ class BottomNotificationSheetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      child: Scaffold(backgroundColor: Color.fromARGB(150,219, 244, 209),
+      child: Scaffold(
+        backgroundColor: Color.fromARGB(150,219, 244, 209),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(
             MediaQuery.of(context).size.height * 0.1,
           ),
           child: AppBar(
-            backgroundColor: Colors.white,
+            ///backgroundColor: Colors.white,
             centerTitle: true,
             title: TextWidget(
               text: AppLocalizations.of(context)!.notification,
@@ -31,7 +32,7 @@ class BottomNotificationSheetWidget extends StatelessWidget {
               indicatorSize: TabBarIndicatorSize.label,
               indicatorColor: Color.fromARGB(255, 37, 174, 75),
               indicatorWeight: 2,
-              dividerColor: Colors.white,
+              //dividerColor: Colors.white,
               labelColor: Color.fromARGB(255, 37, 174, 75),
 
               tabs: [

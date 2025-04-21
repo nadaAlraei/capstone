@@ -20,7 +20,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
     BottomNavigationBarController bottomNavigationBarController =
         Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.order_details),
         leading: IconButton(onPressed: () {
@@ -29,7 +29,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
           );
           bottomNavigationBarController.changeIndex(index: -2);
         }, icon: Icon(Icons.arrow_back)),
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -43,7 +43,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                 fontSize: 20,
                 fontFamily: 'Inter',
                 letterSpacing: -0.2,
-                fontColor: Colors.black,
+           //     fontColor: Colors.black,
               ),
               SizedBox(height: 12),
               Row(
@@ -148,7 +148,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                             fontSize: 15,
                             fontFamily: 'Intern',
                             letterSpacing: -0.2,
-                            fontColor: Colors.black,
+                         //   fontColor: Colors.black,
                           ),
                           Image.asset('assets/images/star.png'),
                           SizedBox(width: 5),
@@ -218,7 +218,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                     fontSize: 12,
                     fontFamily: "Inter",
                     letterSpacing: -0.1,
-                    fontColor: Colors.black,
+                  //  fontColor: Colors.black,
                   ),
                 ],
               ),
@@ -239,7 +239,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                       textAlign: TextAlign.center,
                       AppLocalizations.of(context)!.live_track,
                       style: TextStyle(
-                        color: Colors.white,
+                     //   color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),

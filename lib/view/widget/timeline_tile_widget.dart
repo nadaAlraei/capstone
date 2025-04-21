@@ -30,7 +30,9 @@ class TimelineTileWidget extends StatelessWidget {
         color: isCompleted ? Colors.green : Colors.grey.shade300,
         iconStyle: IconStyle(
           iconData: icon,
-          color: isCompleted ? Colors.white : Colors.grey,
+          color: isCompleted ?
+          Colors.white
+              : Colors.grey,
         ),
       ),
       endChild: Padding(

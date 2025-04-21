@@ -22,9 +22,9 @@ class PizzaScreen extends StatelessWidget {
       ProductItemModel(price: 20.00, imageUrl: 'assets/images/pizza4.png', description: AppLocalizations.of(context)!.product_ing, name: AppLocalizations.of(context)!.pepperoni_pizza),
     ];
     return Scaffold(
-      backgroundColor: Colors.white,
+     // backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
         title: SearchBoxWidget(),
       ),
       body: GridView.count(
@@ -50,7 +50,7 @@ class PizzaScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.23,
                   margin: EdgeInsets.only(top: 30, bottom: 10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                   // color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                       color: Color.fromARGB(255, 219, 244, 209),
@@ -68,7 +68,7 @@ class PizzaScreen extends StatelessWidget {
                         fontSize: 14,
                         fontFamily: 'Inter',
                         letterSpacing: -0.03,
-                        fontColor: Colors.black,
+                      //  fontColor: Colors.black,
                       ),
                       SizedBox(height: 5),
                       // ingredients
@@ -88,7 +88,7 @@ class PizzaScreen extends StatelessWidget {
                         fontSize: 14,
                         fontFamily: 'Inter',
                         letterSpacing: -0.03,
-                        fontColor: Colors.black,
+                       // fontColor: Colors.black,
                       ),
                     ],
                   ),
@@ -137,7 +137,7 @@ class PizzaScreen extends StatelessWidget {
                       fontSize: 10,
                       fontFamily: 'Inter',
                       letterSpacing: 0,
-                      fontColor: Colors.white,
+                    //  fontColor: Colors.white,
                     ),
                   ),
                 ),

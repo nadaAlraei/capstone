@@ -17,9 +17,9 @@ class MainScreen extends StatelessWidget {
       builder: (context, bottomNavigationBarController, child) {
         return Scaffold(
           resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.white,
+          //backgroundColor: Colors.white,
           appBar: AppBar(
-            backgroundColor: Colors.white,
+           // backgroundColor: Colors.white,
             titleSpacing: 0,
             toolbarHeight: (bottomNavigationBarController.isVisible2  && bottomNavigationBarController.isVisible3 && bottomNavigationBarController.isVisible4)   ? MediaQuery.of(context).size.height * 0.1 : 0,
             title: AppBarWidget(),

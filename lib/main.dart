@@ -7,6 +7,7 @@ import 'package:capstone/controller/onboarding_controller.dart';
 import 'package:capstone/controller/remove_item_controller.dart';
 import 'package:capstone/controller/reset_password_controller.dart';
 import 'package:capstone/controller/signup_controller.dart';
+import 'package:capstone/theme_controller.dart';
 import 'package:capstone/view/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -19,14 +20,9 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -45,21 +41,24 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (context) => OfferSliderController()),
         ChangeNotifierProvider(create: (context) => RemoveItemController()),
         ChangeNotifierProvider(create: (context) => CounterController()),
+        ChangeNotifierProvider(create: (context) => ThemeController()),
       ],
       child: Consumer<ChangeLangController>(
         builder: (context, changeLangController, child) {
           Intl.defaultLocale = changeLangController.locale.toString();
-          return MaterialApp(
-            title: '',
-            locale: changeLangController.locale,
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            ),
-            debugShowCheckedModeBanner: false,
-            home: SplashScreen(),
-          );
+         return Consumer<ThemeController>(
+           builder: (context,themeController,child){
+             return MaterialApp(
+             title: '',
+             locale: changeLangController.locale,
+         localizationsDelegates: AppLocalizations.localizationsDelegates,
+         supportedLocales: AppLocalizations.supportedLocales,
+         theme: themeController.themeData,
+         debugShowCheckedModeBanner: false,
+         home: SplashScreen(),
+         );
+         },
+         );
         },
       ),
     );

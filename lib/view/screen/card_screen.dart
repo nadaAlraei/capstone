@@ -32,7 +32,7 @@ class _CardScreen extends State<CardScreen> {
     BottomNavigationBarController bottomNavigationBarController =
     Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
-      backgroundColor: Colors.white,
+     // backgroundColor: Colors.white,
       appBar: AppBar(
 
         leading: IconButton(onPressed: () {
@@ -41,7 +41,7 @@ class _CardScreen extends State<CardScreen> {
           );
           bottomNavigationBarController.changeIndex(index: -1);
         }, icon: Icon(Icons.arrow_back)),
-        backgroundColor: Colors.white,
+       // backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -55,7 +55,8 @@ class _CardScreen extends State<CardScreen> {
                   fontSize: 20,
                   fontFamily: 'Inter',
                   letterSpacing: -0.2,
-                  fontColor: Colors.black),
+            //      fontColor: Colors.black
+          ),
               Container(
                 width: MediaQuery.of(context).size.width* (390/ 430),
                 height: MediaQuery.of(context).size.height* (222/ 932),
@@ -72,7 +73,7 @@ class _CardScreen extends State<CardScreen> {
                     fontSize: 12,
                     fontFamily: 'Inter',
                     letterSpacing: -0.2,
-                    fontColor: Colors.black,
+               //     fontColor: Colors.black,
                   ),
                 ),
               ),
@@ -89,7 +90,7 @@ class _CardScreen extends State<CardScreen> {
                     fontSize: 12,
                     fontFamily: 'Inter',
                     letterSpacing: -0.2,
-                    fontColor: Colors.black,
+                  //  fontColor: Colors.black,
                   ),
                 ),
               ),
@@ -116,7 +117,7 @@ class _CardScreen extends State<CardScreen> {
                         fontSize: 12,
                         fontFamily: 'Inter',
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                   //     fontColor: Colors.black,
                       ),
                     ),
                   ),
@@ -130,7 +131,7 @@ class _CardScreen extends State<CardScreen> {
                         fontSize: 12,
                         fontFamily: 'Inter',
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                  //      fontColor: Colors.black,
                       ),
                     ),
                   ),
@@ -220,7 +221,7 @@ class _CardScreen extends State<CardScreen> {
                           Text(
                             AppLocalizations.of(context)!.pay_for_the_order,
                             style: TextStyle(
-                              color: Colors.white,
+                           //   color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),

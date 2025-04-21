@@ -22,7 +22,7 @@ class _orderDoneCheckout extends State<OrderDoneCheckout> {
     BottomNavigationBarController bottomNavigationBarController =
         Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
-      backgroundColor: Colors.white,
+     // backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 22, right: 22, bottom: 50),
@@ -35,7 +35,7 @@ class _orderDoneCheckout extends State<OrderDoneCheckout> {
                 fontSize: 20,
                 fontFamily: 'Inter',
                 letterSpacing: -0.2,
-                fontColor: Colors.black,
+             //   fontColor: Colors.black,
               ),
 
               Container(
@@ -54,7 +54,7 @@ class _orderDoneCheckout extends State<OrderDoneCheckout> {
                   fontSize: 24,
                   fontFamily: 'Inter',
                   letterSpacing: -0.2,
-                  fontColor: Colors.black,
+                  //fontColor: Colors.black,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -103,7 +103,7 @@ class _orderDoneCheckout extends State<OrderDoneCheckout> {
                       textAlign: TextAlign.center,
                       AppLocalizations.of(context)!.track_your_order,
                       style: TextStyle(
-                        color: Colors.white,
+                     //   color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),

@@ -93,9 +93,9 @@ class AllScreen extends StatelessWidget {
     return Consumer<OfferSliderController>(
       builder: (context, offerSliderController, child) {
         return Scaffold(
-          backgroundColor: Colors.white,
+         // backgroundColor: Colors.white,
           appBar: AppBar(
-            backgroundColor: Colors.white,
+           // backgroundColor: Colors.white,
             title: SearchBoxWidget(),
             automaticallyImplyLeading: false,
           ),
@@ -162,7 +162,7 @@ class AllScreen extends StatelessWidget {
                                                 fontFamily: 'Inter',
                                                 letterSpacing: 0,
                                                 textAlign: TextAlign.center,
-                                                fontColor: Colors.white,
+                                              //  fontColor: Colors.white,
                                               ),
                                               SizedBox(height: 5),
                                               // Offer value
@@ -178,7 +178,7 @@ class AllScreen extends StatelessWidget {
                                                 fontFamily: 'Inter',
                                                 letterSpacing: 0,
                                                 textAlign: TextAlign.center,
-                                                fontColor: Colors.white,
+                                                //fontColor: Colors.white,
                                               ),
                                             ],
                                           ),
@@ -256,7 +256,7 @@ class AllScreen extends StatelessWidget {
                       dotWidth: 10,
                       dotHeight: 10,
                       spacing: 16,
-                      dotColor: Colors.black12,
+                      //dotColor: Colors.black12,
                       activeDotColor: Color.fromARGB(255, 37, 174, 75),
                     ),
                     onDotClicked: (index) {
@@ -314,7 +314,7 @@ class AllScreen extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.38,
                               height: MediaQuery.of(context).size.height * 0.26,
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                //color: Colors.white,
                                 borderRadius: BorderRadius.circular(10),
                                 border: Border.all(
                                   color: Color.fromARGB(255, 219, 244, 209),
@@ -360,7 +360,7 @@ class AllScreen extends StatelessWidget {
                                         0.04,
                                     fontFamily: 'Inter',
                                     letterSpacing: -0.03,
-                                    fontColor: Colors.black,
+                                    //fontColor: Colors.black,
                                   ),
                                   SizedBox(height: 5),
                                   // ingredients
@@ -372,7 +372,7 @@ class AllScreen extends StatelessWidget {
                                         0.025,
                                     fontFamily: 'Inter',
                                     letterSpacing: 0,
-                                    fontColor: Color.fromARGB(155, 59, 59, 59),
+                                    //fontColor: Color.fromARGB(155, 59, 59, 59),
                                   ),
                                   SizedBox(height: 6),
                                   // price and ass button
@@ -418,7 +418,7 @@ class AllScreen extends StatelessWidget {
                                           icon: Icon(
                                             Icons.add,
                                             size: 12,
-                                            color: Colors.white,
+                                           // color: Colors.white,
                                           ),
                                         ),
                                       ),
@@ -505,7 +505,7 @@ class AllScreen extends StatelessWidget {
                                     fontSize: 12,
                                     fontFamily: 'Inter',
                                     letterSpacing: 0,
-                                    fontColor: Colors.white,
+                                    //fontColor: Colors.white,
                                   ),
                                 ),
                               ),

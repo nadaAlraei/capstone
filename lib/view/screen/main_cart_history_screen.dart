@@ -16,7 +16,7 @@ class MainCartHistoryScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 0,
-          backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
 
           bottom: TabBar(
 
@@ -26,7 +26,8 @@ class MainCartHistoryScreen extends StatelessWidget {
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorColor:  Color.fromARGB(255, 37, 174, 75),
 
-            dividerColor: Colors.white,
+          //  dividerColor: Colors.white,
+            dividerHeight: 0,
             tabs: [
               TextWidget(
                 text: AppLocalizations.of(context)!.cart,

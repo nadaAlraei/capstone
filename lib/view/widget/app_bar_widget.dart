@@ -25,7 +25,7 @@ return SizedBox();
           width: MediaQuery.of(context).size.width * 0.09,
           height: MediaQuery.of(context).size.height * 0.045,
           decoration: BoxDecoration(
-            color: Color.fromARGB(30, 79, 175, 90),
+        //    color: Color.fromARGB(30, 79, 175, 90),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Image.asset('assets/images/ri_map-pin-5-line.png'),
@@ -42,11 +42,11 @@ return SizedBox();
               fontSize: 12,
               fontFamily: 'Inter',
               letterSpacing: 0.16,
-              fontColor: Color.fromARGB(255, 96, 96, 96),
+             // fontColor: Color.fromARGB(255, 96, 96, 96),
             ),
             Icon(
               Icons.arrow_drop_down,
-              color: Color.fromARGB(255, 96, 96, 96),
+             // color: Color.fromARGB(255, 96, 96, 96),
               size: 20,
             ),
           ],
@@ -61,7 +61,7 @@ return SizedBox();
           fontSize: 14,
           fontFamily: 'Inter',
           letterSpacing: 0.0,
-          fontColor: Colors.black,
+          //fontColor: Colors.black,
         ),
       ),
       // notification
@@ -71,7 +71,7 @@ return SizedBox();
           width: MediaQuery.of(context).size.width * 0.09,
           height: MediaQuery.of(context).size.height * 0.045,
           decoration: BoxDecoration(
-            color: Color.fromARGB(150, 245, 245, 245),
+          //  color: Color.fromARGB(150, 245, 245, 245),
             borderRadius: BorderRadius.circular(10),
           ),
           child: IconButton(onPressed: () {

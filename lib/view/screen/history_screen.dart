@@ -58,7 +58,7 @@ class HistoryScreen extends StatelessWidget {
                           fontSize: 12,
                           fontFamily: 'Inter',
                           letterSpacing: 0,
-                          fontColor: Color.fromARGB(155, 59, 59, 59),
+                       //   fontColor: Color.fromARGB(155, 59, 59, 59),
                         ),
                         // product price
                         TextWidget(
@@ -90,7 +90,7 @@ class HistoryScreen extends StatelessWidget {
                               fontSize: 12,
                               fontFamily: 'Poppins-Regular',
                               letterSpacing: 0,
-                              fontColor: Color.fromARGB(155, 59, 59, 59),
+                        //      fontColor: Color.fromARGB(155, 59, 59, 59),
                             ),
                           ],
                         ),
@@ -167,6 +167,8 @@ class HistoryScreen extends StatelessWidget {
         ),
       );
     }
-    return Scaffold(backgroundColor: Colors.white, body: pageContent);
+    return Scaffold(
+        //backgroundColor: Colors.white,
+        body: pageContent);
   }
 }

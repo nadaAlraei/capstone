@@ -11,7 +11,7 @@ class ChatScreen extends StatelessWidget {
     BottomNavigationBarController bottomNavigationBarController =
   Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.chat),
         leading: IconButton(onPressed: () {
@@ -20,7 +20,7 @@ class ChatScreen extends StatelessWidget {
           );
           bottomNavigationBarController.changeIndex(index: -2);
         }, icon: Icon(Icons.arrow_back)),
-        backgroundColor: Colors.white,
+       // backgroundColor: Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.only(bottom:  8.0),

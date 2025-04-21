@@ -1,3 +1,4 @@
+import 'package:capstone/theme_controller.dart';
 import 'package:capstone/view/screen/all_screen.dart';
 import 'package:capstone/view/screen/burger_screen.dart';
 import 'package:capstone/view/screen/pizza_screen.dart';
@@ -5,6 +6,7 @@ import 'package:capstone/view/screen/sandwich_screen.dart';
 import 'package:capstone/view/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,17 +16,17 @@ class HomeScreen extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: Colors.white,
+       // backgroundColor: Colors.white,
         appBar: AppBar(
           toolbarHeight: 0,
-          backgroundColor: Colors.white,
+         // backgroundColor: Colors.white,
 
           bottom: TabBar(
             labelPadding: EdgeInsets.symmetric(horizontal: 5),
             isScrollable: true,
             tabAlignment: TabAlignment.start,
-            unselectedLabelColor: Colors.black,
-            labelColor: Colors.white,
+            //unselectedLabelColor: Colors.black,
+            //labelColor: Colors.white,
             padding: EdgeInsets.only(left: 10,right: 10),
             indicatorSize: TabBarIndicatorSize.label,
             indicator: BoxDecoration(
@@ -32,7 +34,8 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             indicatorWeight: 0,
-            dividerColor: Colors.white,
+         //   dividerColor: Colors.white,
+            dividerHeight: 0,
             tabs: [
               // All
               Tab(
