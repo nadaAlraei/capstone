@@ -42,9 +42,11 @@ class BurgerScreen extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      // backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       // Search box
-      appBar: AppBar( title: SearchBoxWidget()),
+      appBar: AppBar(
+         // backgroundColor: Colors.white,
+          title: SearchBoxWidget()),
       body: GridView.count(
         crossAxisCount: 2, // Number of columns
         childAspectRatio: 0.7, // Adjusts the height
@@ -68,7 +70,7 @@ class BurgerScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.23,
                   margin: EdgeInsets.only(top: 30, bottom: 10),
                   decoration: BoxDecoration(
-                   // color: Colors.white,
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                       color: Color.fromARGB(255, 219, 244, 209),
@@ -86,7 +88,7 @@ class BurgerScreen extends StatelessWidget {
                         fontSize: 14,
                         fontFamily: 'Inter',
                         letterSpacing: -0.03,
-                      //  fontColor: Colors.black,
+                        fontColor: Colors.black,
                       ),
                       SizedBox(height: 5),
                       // ingredients
@@ -106,7 +108,7 @@ class BurgerScreen extends StatelessWidget {
                         fontSize: 14,
                         fontFamily: 'Inter',
                         letterSpacing: -0.03,
-                     //   fontColor: Colors.black,
+                        fontColor: Colors.black,
                       ),
                     ],
                   ),
@@ -143,11 +145,7 @@ class BurgerScreen extends StatelessWidget {
                   width: 95,
                   height: 27,
 
-                  margin: EdgeInsets.only(
-                    left: 30,
-                    right: 30,
-                    top: MediaQuery.of(context).size.height * 0.25,
-                  ),
+                  margin: EdgeInsets.only(left: 30, right: 30, top: MediaQuery.of(context).size.height * 0.25),
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 37, 174, 75),
                     borderRadius: BorderRadius.circular(50),
@@ -159,7 +157,7 @@ class BurgerScreen extends StatelessWidget {
                       fontSize: 10,
                       fontFamily: 'Inter',
                       letterSpacing: 0,
-                      //fontColor: Colors.white,
+                      fontColor: Colors.white,
                     ),
                   ),
                 ),

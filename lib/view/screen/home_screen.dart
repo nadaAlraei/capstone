@@ -1,4 +1,3 @@
-import 'package:capstone/theme_controller.dart';
 import 'package:capstone/view/screen/all_screen.dart';
 import 'package:capstone/view/screen/burger_screen.dart';
 import 'package:capstone/view/screen/pizza_screen.dart';

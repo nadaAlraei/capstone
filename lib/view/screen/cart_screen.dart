@@ -72,7 +72,7 @@ class _CartScreenState extends State<CartScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 20,right: 20),
                       child: Icon(Icons.delete_outline,
-                      //  color: Colors.white,
+                       //color: Colors.white,
                       ),
                     ),
                   ),
@@ -117,7 +117,7 @@ class _CartScreenState extends State<CartScreen> {
                               fontSize: 12,
                               fontFamily: 'Inter',
                               letterSpacing: 0,
-                           //   fontColor: Color.fromARGB(155, 59, 59, 59),
+                              fontColor: Color.fromARGB(155, 59, 59, 59),
                             ),
                             // product price
                             TextWidget(
@@ -185,7 +185,7 @@ class _CartScreenState extends State<CartScreen> {
                                 fontSize: 14,
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.5,
-                             //   fontColor: Colors.white,
+                              //  fontColor: Colors.white,
                               ),
                               SizedBox(height: 5),
                               // delivery charge
@@ -198,7 +198,7 @@ class _CartScreenState extends State<CartScreen> {
                                 fontSize: 14,
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.5,
-                              //  fontColor: Colors.white,
+                           //     fontColor: Colors.white,
                               ),
                               SizedBox(height: 5),
                               // discount
@@ -218,7 +218,7 @@ class _CartScreenState extends State<CartScreen> {
                                 fontSize: 18,
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.5,
-                             //   fontColor: Colors.white,
+                           //     fontColor: Colors.white,
                               ),
                             ],
                           ),
@@ -235,7 +235,7 @@ class _CartScreenState extends State<CartScreen> {
                                 fontSize: 14,
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.5,
-                            //    fontColor: Colors.white,
+                             //   fontColor: Colors.white,
                               ),
                               SizedBox(height: 5),
                               TextWidget(
@@ -244,7 +244,7 @@ class _CartScreenState extends State<CartScreen> {
                                 fontSize: 14,
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.5,
-                          //      fontColor: Colors.white,
+                              //  fontColor: Colors.white,
                               ),
                               SizedBox(height: 5),
                               TextWidget(
@@ -253,7 +253,7 @@ class _CartScreenState extends State<CartScreen> {
                                 fontSize: 14,
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.5,
-                           //     fontColor: Colors.white,
+                              //  fontColor: Colors.white,
                               ),
                               SizedBox(height: 10),
                               TextWidget(
@@ -262,7 +262,7 @@ class _CartScreenState extends State<CartScreen> {
                                 fontSize: 18,
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.5,
-                              //  fontColor: Colors.white,
+                               // fontColor: Colors.white,
                               ),
                             ],
                           ),

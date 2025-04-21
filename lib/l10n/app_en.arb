@@ -167,5 +167,7 @@
   "chocolate_cake" : "Chocolate Cake",
   "apply_filters" : "Apply Filters",
   "chat" : "Chat",
-  "write_your_message" : "Write Your Message"
+  "write_your_message" : "Write Your Message",
+  "card_type" : "Card Type",
+  "set_location" : "Set Location"
 }

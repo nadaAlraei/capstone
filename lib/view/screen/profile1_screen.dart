@@ -1,5 +1,5 @@
 import 'package:capstone/controller/change_lang_controller.dart';
-import 'package:capstone/theme_controller.dart';
+import 'package:capstone/controller/theme_controller.dart';
 import 'package:capstone/view/screen/home_screen.dart';
 import 'package:capstone/view/screen/login_screen.dart';
 import 'package:capstone/view/screen/profile2_screen.dart';

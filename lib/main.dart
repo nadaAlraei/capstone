@@ -7,13 +7,13 @@ import 'package:capstone/controller/onboarding_controller.dart';
 import 'package:capstone/controller/remove_item_controller.dart';
 import 'package:capstone/controller/reset_password_controller.dart';
 import 'package:capstone/controller/signup_controller.dart';
-import 'package:capstone/theme_controller.dart';
 import 'package:capstone/view/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'controller/login_controller.dart';
+import 'controller/theme_controller.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

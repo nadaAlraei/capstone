@@ -11,7 +11,7 @@ class ChatScreen extends StatelessWidget {
     BottomNavigationBarController bottomNavigationBarController =
   Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
-      //backgroundColor: Colors.white,
+     // backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.chat),
         leading: IconButton(onPressed: () {
