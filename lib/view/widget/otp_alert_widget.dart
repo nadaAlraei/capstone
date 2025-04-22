@@ -33,7 +33,7 @@ class _OTPAlertWidgetState extends State<OTPAlertWidget> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -49,7 +49,7 @@ class _OTPAlertWidgetState extends State<OTPAlertWidget> {
               fontSize: 12,
               fontFamily: 'Inter',
               letterSpacing: -0.02,
-              fontColor: Colors.grey,
+              // fontColor: Colors.grey,
             ),
             SizedBox(height: 20),
         
@@ -69,10 +69,10 @@ class _OTPAlertWidgetState extends State<OTPAlertWidget> {
                   borderRadius: BorderRadius.circular(8),
                   fieldHeight: 50,
                   fieldWidth: 53,
-                  activeFillColor: Colors.white,
-                  inactiveFillColor: Colors.white,
-                  selectedFillColor: Colors.white,
-                  activeColor: Colors.white,
+                  // activeFillColor: Colors.white,
+                  // inactiveFillColor: Colors.white,
+                  // selectedFillColor: Colors.white,
+                  // activeColor: Colors.white,
                 ),
                 enableActiveFill: true,
                 onChanged: (value) {

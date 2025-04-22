@@ -24,7 +24,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Color.fromARGB(255, 37, 174, 75),
+      backgroundColor: Color.fromARGB(255, 37, 174, 75),
       body: Stack(
         children: [
           // background pattern
@@ -48,7 +48,7 @@ class SignupScreen extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.99,
                     margin: EdgeInsets.only(bottom: 10),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Column(
@@ -79,7 +79,7 @@ class SignupScreen extends StatelessWidget {
                                 fontSize: 32,
                                 fontFamily: 'Inter',
                                 letterSpacing: -0.02,
-                                fontColor: Colors.black,
+                                // fontColor: Colors.black,
                               ),
 
                               // Back to login link

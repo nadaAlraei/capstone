@@ -21,7 +21,7 @@ class _forgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     loginController = Provider.of<LoginController>(context, listen: false);
     return Scaffold(
-      // backgroundColor: Colors.green,
+      backgroundColor: Colors.green,
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -49,7 +49,7 @@ class _forgetPasswordState extends State<ForgetPassword> {
               child: Container(
                 padding: const EdgeInsets.only(top: 20,bottom: 20),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(
@@ -72,7 +72,8 @@ class _forgetPasswordState extends State<ForgetPassword> {
                                     fontSize: MediaQuery.of(context).size.width * (12 / 430),
                                     fontFamily: 'Inter',
                                     letterSpacing: -0.2,
-                                    fontColor: Colors.grey    ),
+                                    // fontColor: Colors.grey
+                                ),
                                 SizedBox(width: 5,),
 
 
@@ -86,7 +87,8 @@ class _forgetPasswordState extends State<ForgetPassword> {
                                       fontSize: MediaQuery.of(context).size.width * (12 / 430),
                                       fontFamily: 'Inter',
                                       letterSpacing: -0.2,
-                                      fontColor: Colors.green    ),
+                                      fontColor: Colors.green
+                                  ),
                                 ),
                                 SizedBox(width: 5,),
                                 TextWidget(
@@ -95,7 +97,8 @@ class _forgetPasswordState extends State<ForgetPassword> {
                                     fontSize: MediaQuery.of(context).size.width * (12 / 430),
                                     fontFamily: 'Inter',
                                     letterSpacing: -0.2,
-                                    fontColor: Colors.grey    ),
+                                    // fontColor: Colors.grey
+                                ),
 
                               ],
                             )
@@ -109,7 +112,8 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         fontSize: MediaQuery.of(context).size.width * (32 / 430),
                         fontFamily: 'Inter',
                         letterSpacing: -0.2,
-                        fontColor: Colors.black    ),
+                        // fontColor: Colors.black
+                    ),
                     SizedBox(height: 10,),
                     TextWidget(
                         text: AppLocalizations.of(context)!.enter_your_email,
@@ -117,7 +121,8 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         fontSize: MediaQuery.of(context).size.width * (12 / 430),
                         fontFamily: 'Inter',
                         letterSpacing: -0.1,
-                        fontColor: Colors.grey    ),
+                        fontColor: Colors.grey
+                    ),
                     TextWidget(
                         text: AppLocalizations.of(context)!.send_you_link,
                         fontWeight:  FontWeight.w500,
@@ -131,7 +136,8 @@ class _forgetPasswordState extends State<ForgetPassword> {
                         fontSize: MediaQuery.of(context).size.width * (12 / 430),
                         fontFamily: 'Inter',
                         letterSpacing: -0.1,
-                        fontColor: Colors.grey    ),
+                        fontColor: Colors.grey
+                    ),
 
                     Consumer<LoginController>(builder: (context, loginController, child) {
                       return Column(
@@ -145,7 +151,8 @@ class _forgetPasswordState extends State<ForgetPassword> {
                                   fontSize: MediaQuery.of(context).size.width * (12 / 430),
                                   fontFamily: 'Inter',
                                   letterSpacing: -0.1,
-                                  fontColor: Colors.grey    ),
+                                  fontColor: Colors.grey
+                              ),
                             ],
                           ),
                       InputWidget(

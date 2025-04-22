@@ -53,8 +53,9 @@ class MyApp extends StatelessWidget {
              locale: changeLangController.locale,
          localizationsDelegates: AppLocalizations.localizationsDelegates,
          supportedLocales: AppLocalizations.supportedLocales,
-         theme: themeController.themeData,
-         debugShowCheckedModeBanner: false,
+               theme: themeController.themeData,
+               darkTheme: themeController.dark,
+               themeMode: themeController.isDark ? ThemeMode.dark : ThemeMode.light,         debugShowCheckedModeBanner: false,
          home: SplashScreen(),
          );
          },

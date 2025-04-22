@@ -16,7 +16,7 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      // backgroundColor: Color.fromARGB(255, 37, 174, 75),
+      backgroundColor: Color.fromARGB(255, 37, 174, 75),
       body: Stack(
         children: [
           // background pattern
@@ -47,7 +47,7 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                     right: MediaQuery.of(context).size.width * 0.07,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.surface,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
@@ -78,7 +78,7 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                               fontSize: 32,
                               fontFamily: 'Inter',
                               letterSpacing: -0.02,
-                              fontColor: Colors.black,
+                              // fontColor: Colors.black,
                             ),
 
                             // Back to Rest Password link
@@ -93,7 +93,7 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
                                   fontSize: 12,
                                   fontFamily: 'Inter',
                                   letterSpacing: -0.01,
-                                  fontColor: Color.fromARGB(255, 108, 114, 120),
+                                  // fontColor: Color.fromARGB(255, 108, 114, 120),
                                 ),
                                 TextButton(
                                   onPressed: () {

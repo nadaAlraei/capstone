@@ -154,7 +154,6 @@ class _Profile1Screen extends State<Profile1Screen> {
                   ),
                   SizedBox(height: 6),
                   Card(
-                    //color: Colors.white,
                     margin: EdgeInsets.symmetric(horizontal: 16),
                     child: Column(
                       children: [
@@ -164,8 +163,6 @@ class _Profile1Screen extends State<Profile1Screen> {
                           ),
                           value: pushNotifications,
                           activeColor: Colors.green,
-                          //inactiveThumbColor: Colors.white,
-                          //inactiveTrackColor: Colors.grey,
                           onChanged: (value) {
                             setState(() {
                               pushNotifications = value;
@@ -174,35 +171,29 @@ class _Profile1Screen extends State<Profile1Screen> {
                         ),
                         SwitchListTile(
                           title: Text(
-                            AppLocalizations.of(
-                              context,
-                            )!.promotional_notifications,
+                            AppLocalizations.of(context)!.promotional_notifications,
                           ),
                           value: promotionalNotifications,
                           activeColor: Colors.green,
-                          //inactiveThumbColor: Colors.white,
-                          //inactiveTrackColor: Colors.grey,
                           onChanged: (value) {
                             setState(() {
                               promotionalNotifications = value;
                             });
                           },
                         ),
+                        SwitchListTile(
+                          title: Text("is Dark"),
+                          value: themeController.isDark,
+                          activeColor: Colors.green,
+                          onChanged: (value) {
+                            themeController.changeTheme();
+                          },
+                        ),
                       ],
                     ),
                   ),
                   SizedBox(height: 6),
-                  Row(
-                    children: [
-                      Switch(
-                        value: themeController.isDark,
-                        onChanged: (value) {
-                          themeController.changeTheme();
-                        },
-                      ),
-                      Text('Is Dark'),
-                    ],
-                  ),
+
                   Card(
                    // color: Colors.white,
                     margin: EdgeInsets.symmetric(horizontal: 16),

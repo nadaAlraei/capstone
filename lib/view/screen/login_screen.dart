@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     loginController = Provider.of<LoginController>(context, listen: false);
     return Scaffold(
-      // backgroundColor: Colors.green,
+      backgroundColor: Colors.green,
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: MediaQuery.of(context).size.height * 0.85,
                 padding: const EdgeInsets.only(bottom: 10),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(
@@ -72,7 +72,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: MediaQuery.of(context).size.width * (32 / 430),
                           fontFamily: 'Inter',
                           letterSpacing: -0.2,
-                          fontColor: Colors.black    ),
+                          // fontColor: Colors.
+                ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -131,6 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               loginController.showErrorEmail
                                   ? AppLocalizations.of(context)!.enter_email
                                   : null,
+
                             ),
 
                           Row(
