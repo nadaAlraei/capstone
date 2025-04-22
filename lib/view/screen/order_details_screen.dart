@@ -70,7 +70,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                         fontSize: 10,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.grey,
+                        // fontColor: Colors.grey,
                       ),
                       TextWidget(
                         text: "25 ${AppLocalizations.of(context)!.m}",
@@ -137,7 +137,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                         fontSize: 12,
                         fontFamily: 'Intern',
                         letterSpacing: -0.2,
-                        fontColor: Colors.grey,
+                        // fontColor: Colors.grey,
                       ),
                       Row(
                         children: [
@@ -158,7 +158,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                             fontSize: 12,
                             fontFamily: "Intern",
                             letterSpacing: -0.2,
-                            fontColor: Colors.grey,
+                            // fontColor: Colors.grey,
                           ),
                         ],
                       ),
@@ -205,7 +205,7 @@ class _OrderDetailsScreen extends State<OrderDetailsScreen> {
                 fontSize: 12,
                 fontFamily: "Inter",
                 letterSpacing: -0.1,
-                fontColor: Colors.grey,
+                // fontColor: Colors.grey,
               ),
 
               Row(

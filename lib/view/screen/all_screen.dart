@@ -372,7 +372,7 @@ class AllScreen extends StatelessWidget {
                                         0.025,
                                     fontFamily: 'Inter',
                                     letterSpacing: 0,
-                                    fontColor: Color.fromARGB(155, 59, 59, 59),
+                                    // fontColor: Color.fromARGB(155, 59, 59, 59),
                                   ),
                                   SizedBox(height: 6),
                                   // price and ass button

@@ -30,7 +30,7 @@ class _Profile2Screen extends State<Profile2Screen> {
     BottomNavigationBarController bottomNavigationBarController =
     Provider.of<BottomNavigationBarController>(context, listen: false);
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar:   AppBar(
           title: TextWidget(
             text: AppLocalizations.of(context)!.profile,
@@ -38,7 +38,7 @@ class _Profile2Screen extends State<Profile2Screen> {
             fontSize: 20,
             fontFamily: 'Inter',
             letterSpacing: -0.2,
-            fontColor: Colors.black,
+            // fontColor: Colors.black,
           ),
           leading: IconButton(onPressed: () {
             bottomNavigationBarController.changeWidget(
@@ -46,7 +46,7 @@ class _Profile2Screen extends State<Profile2Screen> {
             );
             bottomNavigationBarController.changeIndex(index: -5);
           }, icon: Icon(Icons.arrow_back)),
-          backgroundColor: Colors.white,
+          // backgroundColor: Colors.white,
         ),
 
       body: SingleChildScrollView(
@@ -75,7 +75,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                     fontSize: 16,
                     fontFamily: 'Inter',
                     letterSpacing: -0.2,
-                    fontColor: Colors.black,
+                    // fontColor: Colors.black,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -91,14 +91,14 @@ class _Profile2Screen extends State<Profile2Screen> {
                     fontSize: 14,
                     fontFamily: 'Inter',
                     letterSpacing: -0.2,
-                    fontColor: Colors.black,
+                    // fontColor: Colors.black,
                     textAlign: TextAlign.center,
                   ),
                 ),
               ),
 
               Card(
-                color: Colors.white,
+                // color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -110,7 +110,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                        // fontColor: Colors.black,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * (365 / 430),
@@ -126,7 +126,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                        // fontColor: Colors.black,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * (365 / 430),
@@ -142,7 +142,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                        // fontColor: Colors.black,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * (365 / 430),
@@ -158,7 +158,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                        // fontColor: Colors.black,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * (365 / 430),
@@ -174,7 +174,7 @@ class _Profile2Screen extends State<Profile2Screen> {
                         fontSize: 12,
                         fontFamily: "Inter",
                         letterSpacing: -0.2,
-                        fontColor: Colors.black,
+                        // fontColor: Colors.black,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * (365 / 430),

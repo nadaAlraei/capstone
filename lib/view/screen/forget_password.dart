@@ -21,7 +21,7 @@ class _forgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     loginController = Provider.of<LoginController>(context, listen: false);
     return Scaffold(
-      backgroundColor: Colors.green,
+      // backgroundColor: Colors.green,
       body: Stack(
         fit: StackFit.expand,
         children: [

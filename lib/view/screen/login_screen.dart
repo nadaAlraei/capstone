@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     loginController = Provider.of<LoginController>(context, listen: false);
     return Scaffold(
-      backgroundColor: Colors.green,
+      // backgroundColor: Colors.green,
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -83,7 +83,8 @@ class _LoginScreenState extends State<LoginScreen> {
                              fontSize: MediaQuery.of(context).size.width * (12 / 430),
                              fontFamily: 'Inter',
                              letterSpacing: -0.2,
-                             fontColor: Colors.grey    ),
+                             fontColor: Colors.grey
+                         ),
                         SizedBox(width: 5,),
                         GestureDetector(
                           onTap: () {
@@ -119,7 +120,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontSize: MediaQuery.of(context).size.width * (12 / 430),
                                   fontFamily: 'Inter',
                                   letterSpacing: -0.2,
-                                  fontColor: Colors.grey    ),
+                                  fontColor: Colors.grey
+                              ),
                             ],
                           ),
                             InputWidget(

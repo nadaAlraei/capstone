@@ -16,7 +16,7 @@ class ConfirmRestPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 37, 174, 75),
+      // backgroundColor: Color.fromARGB(255, 37, 174, 75),
       body: Stack(
         children: [
           // background pattern
